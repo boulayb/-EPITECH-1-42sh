@@ -1,0 +1,124 @@
+/*
+** reddir_left.c for reddir_left in /home/danilo_d/semestre2/coodie
+**
+** Made by danilov dimitri
+** Login   <danilo_d@epitech.eu>
+**
+** Started on  Sun May 10 16:28:24 2015 danilov dimitri
+** Last update Sat May 16 16:27:12 2015 Dylan Coodien
+*/
+
+#define _GNU_SOURCE
+
+#include	<string.h>
+#include	<sys/types.h>
+#include	<sys/stat.h>
+#include	<fcntl.h>
+#include	<unistd.h>
+#include	"sh42.h"
+
+int		g_fd;
+
+t_list		*go_trough_left_reddir(t_list *tmp)
+{
+  while (tmp->back->act == LEFT || tmp->back->act == DLEFT)
+    tmp = tmp->next;
+  return (tmp);
+}
+
+t_list		*check_left_reddir(t_list *list, t_list *tmp2)
+{
+  t_list	*tmp;
+
+  tmp = tmp2;
+  while (tmp != list)
+    {
+      if (tmp->act == LEFT || tmp->act == DLEFT)
+	{
+	  tmp = tmp->next;
+	  if ((tmp = write_on_std_output(tmp)) == NULL)
+	    return (NULL);
+	  return (tmp);
+	}
+      tmp = tmp->next;
+    }
+  return (tmp);
+}
+
+t_list          *write_on_std_output(t_list *tmp)
+{
+  while (tmp->back->act == LEFT || tmp->back->act == DLEFT)
+    {
+      if (tmp->back->act == LEFT &&
+	  ((g_fd = open(tmp->av[0], O_RDWR,
+		      S_IRUSR | S_IWUSR | S_IRGRP
+		      | S_IWGRP | S_IROTH)) == -1))
+	return (NULL);
+      if (tmp->back->act == DLEFT && tmp->act != DLEFT && tmp->act != LEFT)
+	dleft_reddirection(tmp, 1);
+      else if (tmp->back->act == DLEFT)
+	dleft_reddirection(tmp, 0);
+      tmp = tmp->next;
+    }
+  return (tmp);
+}
+
+int		create_new_data(char *line, t_data *list)
+{
+  t_data	*elem;
+
+  if ((elem = xmalloc(sizeof(t_data))) == NULL)
+    return (-1);
+  elem->line = strdup(line);
+  elem->back = list->back;
+  elem->next = list;
+  list->back->next = elem;
+  list->back = elem;
+  return (0);
+}
+
+int		print_list(t_data *list)
+{
+  t_data	*tmp;
+  int		nw_fd[2];
+
+  pipe(nw_fd);
+  tmp = list->next;
+  while (tmp != list)
+    {
+      write(nw_fd[1], tmp->line, strlen(tmp->line));
+      write(nw_fd[1], "\n", 1);
+      tmp = tmp->next;
+    }
+  write(nw_fd[1], "\0", 1);
+  close(nw_fd[1]);
+  g_fd = nw_fd[0];
+  return (0);
+}
+
+int		dleft_reddirection(t_list *tmp, int flag)
+{
+  char		line[5000];
+  t_data	*data;
+  int		ret;
+
+  if ((data = xmalloc(sizeof(t_data))) == NULL)
+    return (-1);
+  data->next = data;
+  data->back = data;
+  write(1, "> ", 2);
+  while ((ret = read(0, line, 4098)) > 0)
+    {
+      line[ret - 1] = 0;
+      if (strcmp(tmp->av[0], line) == 0)
+	{
+	  if (flag == 1)
+	    print_list(data);
+	  return (0);
+	}
+      if (create_new_data(line, data) == -1)
+	return (-1);
+      write(1, "> ", 2);
+    }
+  return (0);
+}
