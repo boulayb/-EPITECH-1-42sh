@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Sun May 17 21:05:44 2015 Dylan Coodien
+** Last update Tue May 19 17:35:03 2015 Dylan Coodien
 */
 
 #include <stdio.h>
@@ -133,7 +133,6 @@ int			main(int ac, char **av, char **env)
 
   (void)ac;
   (void)av;
-  signal(SIGINT, sign);
   if ((ret = my_minishell(env)) == -1)
     return (-1);
   printf("exit\n");

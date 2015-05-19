@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Tue May 19 14:40:28 2015 Dylan Coodien
+## Last update Tue May 19 17:35:10 2015 Dylan Coodien
 ##
 
 NAME	= 42sh
@@ -13,7 +13,6 @@ NAME	= 42sh
 SRCSFO	= sources/
 
 SRCS	= $(SRCSFO)main.c \
-	  $(SRCSFO)catch_sign.c \
 	  $(SRCSFO)get_next_line.c \
 	  $(SRCSFO)xmalloc.c \
 	  $(SRCSFO)count_moves.c \
