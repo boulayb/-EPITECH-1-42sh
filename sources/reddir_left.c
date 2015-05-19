@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Sun May 10 16:28:24 2015 danilov dimitri
-** Last update Tue May 19 14:38:30 2015 Dylan Coodien
+** Last update Tue May 19 16:51:57 2015 Dylan Coodien
 */
 
 #define _GNU_SOURCE
@@ -15,9 +15,26 @@
 #include	<sys/stat.h>
 #include	<fcntl.h>
 #include	<unistd.h>
+#include	<stdlib.h>
 #include	"sh42.h"
 
 int		g_fd;
+
+void		free_list2(t_data *data)
+{
+  t_data	*tmp;
+
+  tmp = data->next;
+  while (tmp != data)
+    {
+      tmp = tmp->next;
+      if (tmp->back->line != NULL)
+	free(tmp->back->line);
+      free(tmp->back);
+    }
+  if (data != NULL)
+    free(data);
+}
 
 t_list		*go_trough_left_reddir(t_list *tmp)
 {
@@ -101,5 +118,6 @@ int		dleft_reddirection(t_list *tmp, int flag)
 	return (-1);
       write(1, "> ", 2);
     }
+  free_list2(data);
   return (0);
 }

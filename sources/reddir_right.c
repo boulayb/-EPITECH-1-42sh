@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 ** 
 ** Started on  Sun May 10 17:05:10 2015 Dylan Coodien
-** Last update Sun May 10 17:05:47 2015 Dylan Coodien
+** Last update Tue May 19 16:57:46 2015 Dylan Coodien
 */
 
 #include <sys/types.h>
@@ -19,6 +19,7 @@ t_list		*create_file(t_list *tmp, int fd_tmp)
 {
   int		fd;
   char		buf[5001];
+  int		n;
 
   fd = 1;
   while (tmp->back->act == RIGHT || tmp->back->act == DRIGHT)
@@ -35,7 +36,10 @@ t_list		*create_file(t_list *tmp, int fd_tmp)
 	return (NULL);
       tmp = tmp->next;
     }
-  while (read(fd_tmp, buf, 5000))
-    write(fd, buf, strlen(buf));
+  while ((n = read(fd_tmp, buf, 5000)) > 0)
+    {
+      buf[n] = 0;
+      write(fd, buf, strlen(buf));
+    }
   return (tmp);
 }
