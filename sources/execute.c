@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Sun May 17 20:57:45 2015 Dylan Coodien
+** Last update Tue May 19 14:37:49 2015 danilov dimitri
 */
 
 #include <sys/types.h>
@@ -70,7 +70,6 @@ int		start_cmd(t_list *list, char **env)
   int		status;
 
   g_fd = -1;
-  status = 0;
   fd_tmp = 1;
   tmp = list->next;
   tmp2 = list->next;
