@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Sun May 10 16:28:24 2015 danilov dimitri
-** Last update Sat May 16 16:27:12 2015 Dylan Coodien
+** Last update Tue May 19 14:38:30 2015 Dylan Coodien
 */
 
 #define _GNU_SOURCE
@@ -74,25 +74,6 @@ int		create_new_data(char *line, t_data *list)
   elem->next = list;
   list->back->next = elem;
   list->back = elem;
-  return (0);
-}
-
-int		print_list(t_data *list)
-{
-  t_data	*tmp;
-  int		nw_fd[2];
-
-  pipe(nw_fd);
-  tmp = list->next;
-  while (tmp != list)
-    {
-      write(nw_fd[1], tmp->line, strlen(tmp->line));
-      write(nw_fd[1], "\n", 1);
-      tmp = tmp->next;
-    }
-  write(nw_fd[1], "\0", 1);
-  close(nw_fd[1]);
-  g_fd = nw_fd[0];
   return (0);
 }
 

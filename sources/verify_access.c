@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Fri May 15 15:13:28 2015 danilov dimitri
+** Last update Tue May 19 14:36:32 2015 Dylan Coodien
 */
 
 #define _GNU_SOURCE
@@ -39,10 +39,13 @@ char		*concat_string(char *command, char *path)
   return (str);
 }
 
-void		declare_variable(int *ret, int *i)
+int		help(int *ret, int *i, t_list *tmp)
 {
   *ret = 1;
   *i = -1;
+  if (tmp->back->act == PIPE || tmp->back->act == ENDACT || tmp->back->act == -1)
+    return (0);
+  return (-1);
 }
 
 int		verify_access(t_list *comm, char **path)
@@ -55,8 +58,7 @@ int		verify_access(t_list *comm, char **path)
   tmp = comm->next;
   while (tmp != comm)
     {
-      declare_variable(&ret, &i);
-      if (tmp->back->act == PIPE || tmp->back->act == ENDACT || tmp->back->act == -1)
+      if (help(&ret, &i, tmp) == 0)
 	{
 	  while (ret != 0 && path[++i] != NULL)
 	    {
