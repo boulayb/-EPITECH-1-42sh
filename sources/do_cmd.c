@@ -1,11 +1,11 @@
 /*
 ** do_cmd.c for do_cmd in /home/dcoodien/rendu/SysUnix/B2/coodie/src
-1;2802;0c**
+**
 ** Made by Dylan Coodien
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Sun May 17 20:55:21 2015 Dylan Coodien
+** Last update Tue May 19 14:32:16 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -41,12 +41,11 @@ int		do_cmd(char **tab, char **path, char **env)
   list->act = -1;
   if ((i = count_moves(tab)) == -1)
     return (-1);
-  n = -1;
-  while (n < i)
+  n = -2;
+  while (++n < i)
     {
       if (my_put_in_list(list, tab, &nb, &av_nbr) != 0)
 	return (-1);
-      ++n;
     }
   if ((verify_access(list, path)) != 0)
     return (127);

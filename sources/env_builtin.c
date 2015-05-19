@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat Jan 31 18:25:00 2015 arnaud boulay
-** Last update Sun Feb 22 17:37:26 2015 Boulay Arnaud
+** Last update Tue May 19 14:27:43 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -18,10 +18,10 @@ char		**keep_program(char **tab, int options)
   int		i;
   int		j;
 
-  i = -1;
+  i = 0;
   j = -1;
-  while (tab[++i] != NULL)
-    ;
+  while (tab[i] != NULL)
+    i++;
   if ((new_tab = malloc(sizeof(char *) * (i - options + 1))) == NULL)
     return (NULL);
   i = options - 1;

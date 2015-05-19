@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri Jan 23 14:44:32 2015 arnaud boulay
-** Last update Fri May 15 03:38:10 2015 Arnaud Boulay
+** Last update Tue May 19 14:28:36 2015 danilov dimitri
 */
 
 #include <unistd.h>
@@ -73,9 +73,9 @@ int		my_setenv(char **tab, char **path, t_env *env_list)
   int		i;
 
   (void)path;
-  i = -1;
-  while (tab[++i] != NULL)
-    ;
+  i = 0;
+  while (tab[i] != NULL)
+    i++;
   if (i != 4)
     my_putstr("Error: setenv: Usage \"setenv 'name' 'value' 'overwrite'\".\n");
   else
