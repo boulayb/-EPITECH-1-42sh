@@ -1,0 +1,173 @@
+[34;1;4m
+	 *** Moulinette42SH (version 0.5) ***
+
+[0m		[34;1;4m Option : Default
+
+[0m[37;1m
+ast/
+[0m[32;1m				OK	 100.0% des tests
+
+[0m[37;1m
+eval_expr/
+[0mTest eval_expr/a1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/a2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/a3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/a4.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/a5.tst:	 ret= stdout= stderr=
+Test eval_expr/andor_0.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/b1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/b2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/b3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/c1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/c2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/c3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/c4.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/c5.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/d1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/d2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/d3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/d4.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/d5.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/d6.tst:	 ret= stdout= stderr=
+Test eval_expr/div_very_big.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/e1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/e2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/e3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/e4.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/less_0.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/less_1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_4.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_big1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_very_big.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/mix_very_big_2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/more_0.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/more_1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/more_2.tst:	 ret= stdout= stderr=
+Test eval_expr/more_3.tst:	 ret= stdout= stderr=
+Test eval_expr/more_4.tst:	 ret= stdout= stderr=
+Test eval_expr/power_1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/power_2.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/power_3.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/power_4.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/power_big.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/power_very_big.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/time_0.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/time_1.tst:	 ret=1 stdout= stderr=1
+Test eval_expr/time_very_big.tst:	 ret=1 stdout= stderr=1
+[31;1m				KO	 0.0% des tests
+
+[0m[37;1m
+exec/
+[0mTest exec/and_or_command_1.tst:	 ret= stdout= stderr=1
+Test exec/and_or_command_2.tst:	 ret=1 stdout= stderr=1
+Test exec/and_or_command_3.tst:	 ret=1 stdout= stderr=1
+Test exec/and_or_command_4.tst:	 ret=1 stdout= stderr=1
+Test exec/brack_comand_4.tst:	 ret=1 stdout= stderr=1
+Test exec/brack_comand_5.tst:	 ret=1 stdout= stderr=1
+Test exec/brack_command.tst:	 ret=1 stdout= stderr=1
+Test exec/brack_command_2.tst:	 ret=1 stdout= stderr=1
+Test exec/brack_command_3.tst:	 ret=1 stdout= stderr=1
+Test exec/brack_command_5.tst:	 ret=1 stdout= stderr=1
+Test exec/command_list_1.tst:	 ret=1 stdout= stderr=1
+Test exec/command_list_2.tst:	 ret=1 stdout= stderr=1
+Test exec/command_list_big.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_1.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_2.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_3.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_4.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_5.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_big_imbrication.tst:	 ret=1 stdout= stderr=1
+Test exec/for_command_big_list.tst:	 ret=1 stdout= stderr=1
+Test exec/if_command_1.tst:	 ret=1 stdout= stderr=1
+Test exec/if_command_10.tst:	 ret= stdout= stderr=1
+Test exec/if_command_2.tst:	 ret=1 stdout= stderr=1
+Test exec/if_command_3.tst:	 ret=1 stdout= stderr=1
+Test exec/if_command_4.tst:	 ret=1 stdout= stderr=1
+Test exec/if_command_5.tst:	 ret=1 stdout= stderr=1
+Test exec/if_command_6.tst:	 ret= stdout= stderr=1
+Test exec/if_command_7.tst:	 ret= stdout= stderr=1
+Test exec/if_command_8.tst:	 ret= stdout= stderr=1
+Test exec/if_command_9.tst:	 ret= stdout= stderr=1
+Test exec/if_command_imbrication_2.tst:	 ret=1 stdout= stderr=1
+Test exec/pipe_command_1.tst:	 ret=1 stdout= stderr=1
+Test exec/pipe_command_2.tst:	 ret=1 stdout= stderr=1
+Test exec/pipe_command_big.tst:	 ret=1 stdout= stderr=1
+Test exec/pipe_command_with_brack.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_1.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_10arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_1arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_2arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_3arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_4arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_5arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_6arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_7arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_8arg.tst:	 ret=1 stdout= stderr=1
+Test exec/simple_command_9arg.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_1.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_2.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_3.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_4.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_5.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_6.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_7.tst:	 ret=1 stdout= stderr=1
+Test exec/tilde_8.tst:	 ret=1 stdout= stderr=1
+[31;1m				KO	 0.0% des tests
+
+[0m[37;1m
+lexer/
+[0mTest lexer/test1.tst:	 ret= stdout= stderr=
+Test lexer/test2.tst:	 ret= stdout= stderr=
+Test lexer/test3.tst:	 ret= stdout= stderr=
+Test lexer/test4.tst:	 ret= stdout= stderr=
+Test lexer/test5.tst:	 ret= stdout= stderr=
+Test lexer/test6.tst:	 ret= stdout= stderr=
+Test lexer/test7.tst:	 ret= stdout= stderr=
+Test lexer/test8.tst:	 ret= stdout= stderr=
+[31;1m				KO	 0.0% des tests
+
+[0m[37;1m
+mmalloc/
+[0m[32;1m				OK	 100.0% des tests
+
+[0m[37;1m
+mstream/
+[0m[32;1m				OK	 100.0% des tests
+
+[0m[37;1m
+options_parser/
+[0m[32;1m				OK	 100.0% des tests
+
+[0m[37;1m
+parser/
+[0mTest parser/a1.tst:	 ret=1 stdout= stderr=1
+Test parser/a2.tst:	 ret=1 stdout= stderr=1
+Test parser/a3.tst:	 ret=1 stdout= stderr=1
+Test parser/a4.tst:	 ret=1 stdout= stderr=1
+Test parser/a6.tst:	 ret=1 stdout= stderr=1
+Test parser/b1.tst:	 ret=1 stdout= stderr=1
+Test parser/b2.tst:	 ret=1 stdout= stderr=1
+Test parser/b3.tst:	 ret=1 stdout= stderr=1
+Test parser/b4.tst:	 ret=1 stdout= stderr=1
+Test parser/b5.tst:	 ret=1 stdout= stderr=1
+Test parser/c1.tst:	 ret=1 stdout= stderr=1
+Test parser/c2.tst:	 ret=1 stdout= stderr=1
+Test parser/c3.tst:	 ret=1 stdout= stderr=1
+Test parser/t1.tst:	 ret=1 stdout= stderr=1
+Test parser/t2.tst:	 ret=1 stdout= stderr=1
+Test parser/t3.tst:	 ret=1 stdout= stderr=1
+Test parser/t4.tst:	 ret=1 stdout= stderr=1
+Test parser/t5.tst:	 ret=1 stdout= stderr=1
+Test parser/t6.tst:	 ret=1 stdout= stderr=1
+[31;1m				KO	 0.0% des tests
+
+[0m[37;1m
+readline/
+[0m[32;1m				OK	 100.0% des tests
+
+[0m	[31;1m		 Total : 55.6%
+
+[0m

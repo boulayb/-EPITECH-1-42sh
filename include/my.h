@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Fri May 15 04:26:53 2015 Arnaud Boulay
+** Last update Wed May 20 18:04:12 2015 danilov dimitri
 */
 
 #ifndef	MY_H_
@@ -37,10 +37,10 @@ typedef struct		s_status
 typedef struct		s_builtins
 {
   char			*str;
-  int			(*ptr)(char **tab, char **path, t_env *env_list);
+  int			(*ptr)(char **blabla, char **path, t_env *env_list);
 }			t_builtins;
 
-int			fcnt_ptr(char **tab, char **path, t_env *env_list);
+int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
 int			logic_sep_and(char *tabsep, char **path, t_env *env_list);
 int			check_status(t_env *env_list, int status);
 int			my_getnbr(char *str);
@@ -49,39 +49,39 @@ int			is_inside(char *str, char *str2);
 int			add_path(char *str, t_env *env_list);
 int			check_env(t_env *env_list);
 int			cd_to_oldpath(t_env *env_list);
-int			cd_null(char **tab, t_env *env_list);
-int			cd_to_home(char **tab, t_env *env_list);
-int			find_options(char **tab, t_env *tmp_env, int *exec,
+int			cd_null(char **, t_env *env_list);
+int			cd_to_home(char **, t_env *env_list);
+int			find_options(char **tab2, t_env *tmp_env, int *exec,
 				     int *options);
-int			exec_fake_env(char **tab, char **path, t_env *tmp_env,
+int			exec_fake_env(char **tab2, char **path, t_env *tmp_env,
 				      int options);
 int			remove_path(t_env *env_list);
 int			pwd_to_home(t_env *env_list);
 int			swap_pwd(t_env *env_list);
 int			add_chain(t_env *env_list, char *str);
-int			my_echo(char **tab, char **path, t_env *env_list);
-int			my_cd(char **tab, char **path, t_env *env_list);
-int			my_env(char **tab, char **path, t_env *env_list);
-int			my_setenv(char **tab, char **path, t_env *env_list);
-int			my_unsetenv(char **tab, char **path, t_env *env_list);
+int			my_echo(char **tab2, char **path, t_env *env_list);
+int			my_cd(char **tab2, char **path, t_env *env_list);
+int			my_env(char **tab2, char **path, t_env *env_list);
+int			my_setenv(char **tab2, char **path, t_env *env_list);
+int			my_unsetenv(char **tab2, char **path, t_env *env_list);
 int			my_strlen(char *str);
 int			remove_env(t_env *env_list, char *str);
-int			change_pwd(char **tab, char **path, t_env *env_list);
-int			change_oldpwd(char **tab, t_env *env_list);
+int			change_pwd(char **tab2, char **path, t_env *env_list);
+int			change_oldpwd(char **tab2, t_env *env_list);
 int			my_strcmp(char *str1, char *str2);
-int			exec_program(char **tab, char **path, t_env *env_list);
+int			exec_program(char **tab2, char **path, t_env *env_list);
 char			*change_for_home(char *str, t_env *env_list);
 char			*get_next_line(const int fd);
 char			*my_strdup(char *str);
 char			*my_strcatdup(char *dest, char *src, int l, char c);
 char			*my_strcpy(char *dest, char *src);
 char			*get_env(char *str, t_env *env_list);
-char			**my_strtowordtab(char **tab, char *str, char *sep);
+char			**my_strtowordtab(char **tab2, char *str, char *sep);
 char			**my_listtotab(char **env, t_env *env_list);
 void			my_putchar(char c);
 void			my_putstr(char *str);
 void			my_putnbr(int nb);
-void			free_tab(char **tab);
+void			free_tab(char **tab2);
 void			rm_chain(t_env *chain);
 void			rm_list(t_env *env_list);
 void			disp_env(t_env *env_list);
