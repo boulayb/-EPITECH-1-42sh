@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Wed May 20 18:14:11 2015 danilov dimitri
+## Last update Wed May 20 21:45:20 2015 danilov dimitri
 ##
 
 NAME	= 42sh
@@ -56,6 +56,7 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)count_moves.c \
 	  $(SRCSFO)manip_list.c \
 	  $(SRCSFO)verify_access.c \
+	  $(SRCSFO)magic_quotes.c \
 	  $(SRCSFO)execute.c \
 	  $(SRCSFO)reddir_left.c \
 	  $(SRCSFO)reddir_right.c \
@@ -70,6 +71,7 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)status.c \
 	  $(SRCSFO)signal.c \
 	  $(SRCSFO)strtowordtab.c \
+	  $(SRCSFO)my_str_to_wordtab.c \
 	  $(SRCSFO)listtotab.c \
 	  $(SRCSFO)string.c \
 	  $(SRCSFO)builtins.c \

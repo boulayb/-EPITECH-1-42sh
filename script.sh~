@@ -1,5 +1,0 @@
-#!/bin/bash
-
-echo "ls -l" | ./42sh
-echo "ls > toto" | ./42sh
-echo "cat Makfile" | ./42sh
