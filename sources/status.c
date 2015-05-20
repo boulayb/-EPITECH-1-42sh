@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 00:29:03 2015 Arnaud Boulay
-** Last update Fri May 15 01:29:48 2015 Arnaud Boulay
+** Last update Tue May 19 18:20:21 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -16,7 +16,7 @@ static t_status	gl_status[] =
     {
       {1, "Unknow Error.\n"},
       {126, "Cannot execute command.\n"},
-      {127, "Commant not found.\n"},
+      {127, "Command not found.\n"},
       {128, "Invalid argument.\n"},
       {136, "Floating point exception.\n"},
       {139, "Segmentation Fault.\n"},

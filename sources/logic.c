@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 04:24:39 2015 Arnaud Boulay
-** Last update Fri May 15 04:25:14 2015 Arnaud Boulay
+** Last update Tue May 19 18:35:16 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -66,7 +66,7 @@ int			logic_sep_and(char *tabsep, char **path, t_env *env_list)
 	if ((ret = logic_sep_or(and[i], i, path, env_list)) == -1)
 	  return (-1);
       }
-    else if (my_getnbr(get_env("?", env_list) + 2) == 0)
+    else if (my_getnbr(get_env("?", env_list) + 2) == 0 || i == 0)
       {
 	if ((tab = my_strtowordtab(tab, and[i], " ")) == NULL ||
 	    ((ret = fcnt_ptr(tab, path, env_list)) == -1))

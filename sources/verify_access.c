@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Tue May 19 16:49:41 2015 Dylan Coodien
+** Last update Tue May 19 18:21:52 2015 Arnaud Boulay
 */
 
 #define _GNU_SOURCE
@@ -20,7 +20,7 @@ int		error(char **argv, char **path, int ret, int i)
   if (ret == -1 && path[i] == NULL
       && access(argv[0], F_OK) == -1)
     {
-      printf("%s :   command not found\n", argv[0]);
+      printf("%s: ", argv[0]);
       return (127);
     }
   return (0);
