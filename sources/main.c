@@ -5,12 +5,13 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Tue May 19 19:00:57 2015 Arnaud Boulay
+** Last update Wed May 20 18:27:52 2015 danilov dimitri
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include <signal.h>
+#include "my_get_line.h"
 #include "my.h"
 #include "sh42.h"
 
@@ -113,8 +114,10 @@ int			my_minishell(char **env)
     return (-1);
   disp_prompt(env_list);
   my_signal();
-  while (ret == 0 && (str = get_next_line(0)) != NULL)
+  while (ret == 0 && (str = shell_get_line(env_list, &ret)) != NULL)
     {
+      if (ret == 1 && str[0] == 0)
+	return (0);
       if (check_env(env_list) == -1)
 	return (-1);
       if ((path = my_strtowordtab(path, get_env("PATH=", env_list) + 5, ":"))
