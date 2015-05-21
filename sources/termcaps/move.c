@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 15:01:51 2015 François CASSIN
-** Last update Mon May 18 16:23:53 2015 François CASSIN
+** Last update Thu May 21 14:34:18 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-void		go_left(int offset, char buff[], int nb_char)
+void	go_left(int offset, char buff[], int nb_char)
 {
   while (offset < nb_char)
     {
@@ -19,7 +19,7 @@ void		go_left(int offset, char buff[], int nb_char)
     }
 }
 
-void		go_right(int offset, char buff[], int nb_char, int len)
+void	go_right(int offset, char buff[], int nb_char, int len)
 {
   while (nb_char + len - 1 > offset)
     {

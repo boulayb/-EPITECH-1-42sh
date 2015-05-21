@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 01:35:40 2015 François CASSIN
-** Last update Mon May 18 01:54:49 2015 François CASSIN
+** Last update Thu May 21 14:24:49 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
@@ -35,7 +35,7 @@ void		get_coord(int *x, int *y, char *buff)
 	  buff[i] = 0;
 	  *x = my_getnbr(buff + save);
 	}
-      i = i + 1;
+      ++i;
     }
 }
 
