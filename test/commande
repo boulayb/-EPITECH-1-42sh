@@ -8,6 +8,9 @@ unsetenv toto
 unsetenv toto
 echo "Lets see Error"
 < < < < |
+< ls < cat lol << ls >> grep toto
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>> ls
+<><><><><><><><><>><>
 ls >> > toto
 ls | grep l | cat -e | cat -e | cat -e > toto
 cat < toto
@@ -36,3 +39,4 @@ cd .. && ls && cd PSU_2014_42sh && ls
 ls || pwd
 ls && pwd
 ls ; pwd || ls -l && grep l
+</etc/hosts od -c | grep xx | wc >> /tmp/z -l

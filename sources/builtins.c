@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri Jan 23 14:44:32 2015 arnaud boulay
-** Last update Thu May 21 12:45:57 2015 Arnaud Boulay
+** Last update Thu May 21 16:32:42 2015 danilov dimitri
 */
 
 #include <unistd.h>
@@ -58,7 +58,8 @@ int		my_env(char **tab, char **path, t_env *env_list)
     return (-1);
   if (exec == 1)
     {
-      if (exec_fake_env(tab, path, tmp_env, options) == -1)
+      if (check_syntax(&tab[1], tmp_env) == -1 ||
+	  exec_fake_env(tab, path, tmp_env, options) == -1)
 	return (-1);
     }
   else
