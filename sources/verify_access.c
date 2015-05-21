@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Thu May 21 12:07:14 2015 danilov dimitri
+** Last update Thu May 21 17:57:03 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -18,7 +18,7 @@
 int		error(char **argv, char **path, int ret, int i)
 {
   if (ret == -1 && path[i] == NULL
-      && access(argv[0], F_OK) == -1)
+      && access(argv[0], X_OK) == -1)
     {
       printf("%s: ", argv[0]);
       return (127);
@@ -64,7 +64,7 @@ int		verify_access(t_list *comm, char **path)
 	    {
 	      if ((command = concat_string(tmp->av[0], path[i])) == NULL)
 		return (-1);
-	      if ((ret = access(command, F_OK)) == 0)
+	      if ((ret = access(command, X_OK)) == 0)
 		if ((tmp->av[0] = strdup(command)) == NULL)
 		  return (-1);
 	      free(command);

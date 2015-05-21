@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Wed May 20 18:15:28 2015 Arnaud Boulay
+** Last update Thu May 21 19:45:22 2015 danilov dimitri
 */
 
 #include <sys/types.h>
@@ -13,13 +13,14 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <string.h>
+#include <signal.h>
 #include "sh42.h"
 
 extern int	g_fd;
 
 int		son(int *fd_in, int p[2], t_list *cmd, char **env)
 {
-  (void)env;
+  signal(SIGINT, SIG_DFL);
   if (g_fd != -1)
     {
       dup2(g_fd, 0);
@@ -29,7 +30,10 @@ int		son(int *fd_in, int p[2], t_list *cmd, char **env)
   if (cmd->act != ENDACT && cmd->act != LEFT && cmd->act != DLEFT)
     dup2(p[1], 1);
   close(p[0]);
-  execve(cmd->av[0], cmd->av, env);
+  if ((execve(cmd->av[0], cmd->av, env)) == -1)
+    {
+      kill(getpid(), SIGTERM);
+    }
   return (0);
 }
 
