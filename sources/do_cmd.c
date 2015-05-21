@@ -1,11 +1,11 @@
 /*
-1;2802;0c** do_cmd.c for do_cmd in /home/dcoodien/rendu/SysUnix/B2/coodie/src
+** do_cmd.c for do_cmd in /home/dcoodien/rendu/SysUnix/B2/coodie/src
 **
 ** Made by Dylan Coodien
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Tue May 19 18:28:32 2015 Arnaud Boulay
+** Last update Wed May 20 18:13:27 2015 Arnaud Boulay
 */
 
 #define _GNU_SOURCE

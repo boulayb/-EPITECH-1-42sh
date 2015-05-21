@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri Jan 23 14:44:32 2015 arnaud boulay
-** Last update Tue May 19 14:28:36 2015 danilov dimitri
+** Last update Thu May 21 12:45:57 2015 Arnaud Boulay
 */
 
 #include <unistd.h>
@@ -76,13 +76,11 @@ int		my_setenv(char **tab, char **path, t_env *env_list)
   i = 0;
   while (tab[i] != NULL)
     i++;
-  if (i != 4)
-    my_putstr("Error: setenv: Usage \"setenv 'name' 'value' 'overwrite'\".\n");
+  if (i != 3)
+    my_putstr("Error: setenv: Usage \"setenv 'name' 'value'\".\n");
   else
     {
-      if (my_strcmp(tab[3], "0") == 1 && get_env(tab[1], env_list) != NULL)
-	return (0);
-      else if (my_strcmp(tab[3], "0") == 0 && get_env(tab[1], env_list) != NULL)
+      if (get_env(tab[1], env_list) != NULL)
 	remove_env(env_list, tab[1]);
       if ((env = my_strcatdup(tab[1], tab[2], 2, '=')) == NULL)
 	return (-1);
