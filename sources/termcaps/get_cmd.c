@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 02:17:56 2015 François CASSIN
-** Last update Wed May 20 17:58:12 2015 danilov dimitri
+** Last update Thu May 21 14:59:06 2015 danilov dimitri
 */
 
 #include <unistd.h>
@@ -52,12 +52,18 @@ int		add_new_char(t_line *line, t_caps *cap)
   memcpy(line->buffer + line->cursor_offset, save, my_strlen(save));
   ++line->cursor_position;
   ++line->nb_char_pos;
+  if (line->buffer[my_strlen(line->buffer) - 1] == '\n')
+    {
+      line->buffer[my_strlen(line->buffer) - 1] = 0;
+      --line->cursor_position;
+    }
   refresh_screen(line, line->cursor_position, line->buffer, cap);
   return (0);
 }
 
 int		get_cmd(t_line *line, t_params *params)
 {
+  int		ret;
   int		key;
   static void	(*fkey[14])(t_params *params, t_line *line) =
     {del_char, beg_line, end_line, myclear_screen, del_line, exchange, del_all,
@@ -66,20 +72,25 @@ int		get_cmd(t_line *line, t_params *params)
   while (42)
     {
       memset(line->character, 0, BUFF);
-      if (read(0, line->character, BUFF) == -1)
+      if ((ret = read(0, line->character, BUFF)) == -1)
 	return (-1);
-     if (my_strcmp(line->character, "\n") ||
-	  check_ctrl(line->character) == CTRL_J)
+     if (my_strcmp(line->character, "\n") == 1 ||
+	 check_ctrl(line->character) == CTRL_J)
 	{
 	  my_fputchar(1, '\n');
 	  return (0);
 	}
-      if ((line->nb_char == 0) && (check_ctrl(line->character) == CTRL_D))
+     if (((line->nb_char == 0) && (check_ctrl(line->character) == CTRL_D)) || ret == 0)
 	return (1);
       else if ((key = get_key(line)) != -1)
 	fkey[key](params, line);
       else if (add_new_char(line, params->caps) == -1)
 	return (0);
+     if (line->character[my_strlen(line->character) - 1] == '\n')
+       {
+	 my_fputchar(1, '\n');
+	 return (0);
+       }
     }
   return (0);
 }

@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:25:02 2015 François CASSIN
-** Last update Wed May 20 11:32:19 2015 François CASSIN
+** Last update Thu May 21 14:20:13 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
@@ -46,7 +46,7 @@ void		del_char(t_params *params, t_line *line)
       if ((nb_bytes = analyze_char(line->buffer[line->cursor_offset])) == 0)
 	{
 	  go_left(line->cursor_offset, line->buffer, line->nb_char);
-	  line->nb_char = line->nb_char - 1;
+	  --line->nb_char;
 	}
       else
 	delete_spec_char(line, line->cursor_offset);

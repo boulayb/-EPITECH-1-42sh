@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 00:08:36 2015 François CASSIN
-** Last update Wed May 20 17:58:31 2015 danilov dimitri
+** Last update Thu May 21 14:00:38 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -34,13 +34,14 @@ void		add_elem_to_complet(t_complet *cmds, char *str)
 {
   t_complet	*new;
 
-  if ((new = malloc(sizeof(new))) == NULL)
-    exit(1);
-  new->name = str;
-  new->next = cmds;
-  new->prev = cmds->prev;
-  cmds->prev->next = new;
-  cmds->prev = new;
+  if ((new = malloc(sizeof(new))) != NULL)
+    {
+      new->name = str;
+      new->next = cmds;
+      new->prev = cmds->prev;
+      cmds->prev->next = new;
+      cmds->prev = new;
+    }
 }
 
 void		read_path(t_complet *path, DIR *dir, char *path_str)

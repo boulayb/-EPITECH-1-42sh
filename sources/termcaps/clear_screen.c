@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 18:25:35 2015 danilov dimitri
+** Last update Thu May 21 14:17:19 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-void		myclear_screen(t_params *params, t_line *line)
+void	myclear_screen(t_params *params, t_line *line)
 {
   xtputs(params->caps->clear_str, 1, my_putint);
   disp_prompt(params->env);

@@ -5,13 +5,14 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 04:24:39 2015 Arnaud Boulay
-** Last update Tue May 19 18:35:16 2015 Arnaud Boulay
+** Last update Thu May 21 12:59:50 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
 
-int			logic_sep_or_core(char **or, int pos, char **path, t_env *env_list)
+int			logic_sep_or_core(char **or, int pos, char **path,
+					  t_env *env_list)
 {
   int			i;
   int			ret;
@@ -33,7 +34,8 @@ int			logic_sep_or_core(char **or, int pos, char **path, t_env *env_list)
   return (ret);
 }
 
-int			logic_sep_or(char *and, int pos, char **path, t_env *env_list)
+int			logic_sep_or(char *and, int pos, char **path,
+				     t_env *env_list)
 {
   int			ret;
   char			**or;
@@ -48,7 +50,8 @@ int			logic_sep_or(char *and, int pos, char **path, t_env *env_list)
   return (ret);
 }
 
-int			logic_sep_and(char *tabsep, char **path, t_env *env_list)
+int			logic_sep_and(char *tabsep, char **path,
+				      t_env *env_list)
 {
   int			ret;
   int			i;

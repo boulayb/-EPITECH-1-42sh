@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Wed May 20 18:21:12 2015 danilov dimitri
+** Last update Thu May 21 12:44:30 2015 Sebastien BOULOC
 */
 
 #ifndef MY_GET_LINE_H_

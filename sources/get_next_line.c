@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Nov 19 15:55:19 2014 arnaud boulay
-** Last update Tue May 19 18:57:08 2015 Arnaud Boulay
+** Last update Thu May 21 12:57:37 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
@@ -20,7 +20,7 @@ int		my_strlen_gnl(char *str)
   if (str == NULL)
     return (-1);
   while (str[i] != '\0')
-    i = i + 1;
+    ++i;
   return (i);
 }
 
@@ -29,7 +29,7 @@ char		*init_buffer(char *buffer, int j, int len)
   while (j != (len + BUFFER_SIZE + 1))
     {
       buffer[j] = '\0';
-      j = j + 1;
+      ++j;
     }
   return (buffer);
 }
@@ -46,7 +46,7 @@ char		*remalloc_gnl(char *src)
   while (src[i] != '\0')
     {
       dest[i] = src[i];
-      i = i + 1;
+      ++i;
     }
   dest = init_buffer(dest, i, my_strlen_gnl(src));
   free(src);
@@ -56,12 +56,12 @@ char		*remalloc_gnl(char *src)
 char		*my_strcpy_gnl(char *dest, char *src, int *i, int *j)
 {
   while (src[*j] == '\n')
-    *j = *j + 1;
+    ++(*j);
   while (src[*j] != '\0' && src[*j] != '\n')
     {
       dest[*i] = src[*j];
-      *i = *i + 1;
-      *j = *j + 1;
+      ++(*i);
+      ++(*j);
     }
   dest = remalloc_gnl(dest);
   return (dest);
@@ -92,6 +92,6 @@ char		*get_next_line(const int fd)
     else if (ret > 0)
       if ((str = my_strcpy_gnl(str, buffer, &i, &j)) == NULL)
 	return (NULL);
-  j = j + 1;
+  ++j;
   return (str);
 }

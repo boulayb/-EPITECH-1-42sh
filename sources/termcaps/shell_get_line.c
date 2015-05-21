@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Thu May 21 12:47:21 2015 danilov dimitri
+** Last update Thu May 21 14:27:12 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -16,6 +16,10 @@
 #include <unistd.h>
 #include "my.h"
 #include "my_get_line.h"
+#include <errno.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 
 void			init_line(t_line *line, t_caps *cap)
 {
@@ -53,16 +57,20 @@ int			get_capacities(t_caps *cap)
 
 int			init_term_attr(struct termios *t_attr, t_caps *cap)
 {
-  if ((tcgetattr(0, t_attr)) < 0)
+  int			fd;
+
+  fd = open("/dev/tty", O_RDWR);
+  if ((tcgetattr(fd, t_attr)) < 0)
     {
       my_fputstr(2, "Can't get term attributes\n");
+      my_fputstr(2, strerror(errno));
       return (-1);
     }
   t_attr->c_lflag &= ~ICANON;
   t_attr->c_lflag &= ~ECHO;
   t_attr->c_cc[VMIN] = 1;
   t_attr->c_cc[VTIME] = 0;
-  if (tcsetattr(0, TCSANOW, t_attr) < 0)
+  if (tcsetattr(fd, TCSANOW, t_attr) < 0)
     {
       my_fputstr(2, "Can't set term attributes\n");
       return (-1);

@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Wed May 20 21:43:52 2015 danilov dimitri
+** Last update Thu May 21 14:24:59 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -41,7 +41,9 @@ typedef struct		s_builtins
 }			t_builtins;
 
 int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
-int			logic_sep_and(char *tabsep, char **path, t_env *env_list);
+int			check_syntax(char **line, t_env *env_list);
+int			logic_sep_and(char *tabsep, char **path,
+				      t_env *env_list);
 int			check_status(t_env *env_list, int status);
 int			my_getnbr(char *str);
 int			is_char_inside(char *str, char c);
@@ -69,7 +71,8 @@ int			remove_env(t_env *env_list, char *str);
 int			change_pwd(char **tab2, char **path, t_env *env_list);
 int			change_oldpwd(char **tab2, t_env *env_list);
 int			my_strcmp(char *str1, char *str2);
-int			exec_program(char **tab2, char **path, t_env *env_list);
+int			exec_program(char **tab2, char **path,
+				     t_env *env_list);
 char			*change_for_home(char *str, t_env *env_list);
 char			*get_next_line(const int fd);
 char			*my_strdup(char *str);
