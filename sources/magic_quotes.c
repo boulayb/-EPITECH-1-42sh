@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Wed May 20 18:32:28 2015 danilov dimitri
-** Last update Wed May 20 21:45:55 2015 danilov dimitri
+** Last update Thu May 21 12:07:59 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -30,7 +30,8 @@ char		*find_correct_access(char *str, char **path)
       if ((command = concat_string(str, path[i])) == NULL)
 	return (NULL);
       if ((ret = access(command, F_OK)) == 0)
-	str = strdup(command);
+	if ((str = strdup(command)) == NULL)
+	  return (NULL);
       i++;
     }
   return (command);
@@ -45,7 +46,8 @@ char		*read_buffer(int fd)
   while ((ret = read(fd, buffer, BUFFER_SIZE - 1)) > 0)
     {
       buffer[ret - 1] = 0;
-      str = strdup(buffer);
+      if ((str = strdup(buffer)) == NULL)
+	return (NULL);
     }
   return (str);
 }

@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Tue May 19 18:21:52 2015 Arnaud Boulay
+** Last update Thu May 21 12:07:14 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -65,7 +65,8 @@ int		verify_access(t_list *comm, char **path)
 	      if ((command = concat_string(tmp->av[0], path[i])) == NULL)
 		return (-1);
 	      if ((ret = access(command, F_OK)) == 0)
-		tmp->av[0] = strdup(command);
+		if ((tmp->av[0] = strdup(command)) == NULL)
+		  return (-1);
 	      free(command);
 	    }
 	  if (error(tmp->av, path, ret, i) != 0)
