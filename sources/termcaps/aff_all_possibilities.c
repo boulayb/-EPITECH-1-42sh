@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 22:51:43 2015 François CASSIN
-** Last update Thu May 21 14:16:04 2015 Sebastien BOULOC
+** Last update Wed May 20 18:08:37 2015 danilov dimitri
 */
 
 #include <unistd.h>
@@ -21,7 +21,7 @@ static int	count_elem(t_complet *list)
   tmp = list->next;
   while (tmp != list)
     {
-      ++count;
+      count = count + 1;
       tmp = tmp->next;
     }
   return (count);

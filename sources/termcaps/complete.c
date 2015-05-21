@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Thu May 21 14:18:17 2015 Sebastien BOULOC
+** Last update Wed May 20 15:34:01 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -20,8 +20,8 @@ int		get_word_begin(int offset_cur, char buff[])
   buff[i] = 0;
   while ((i >= 0) && (buff[i] != ' ') && (buff[i] != ';') &&
 	 (buff[i] != '&') && (buff[i] != '|') && (buff[i] != '/'))
-    --i;
-  ++i;
+    i--;
+  i++;
   return (i);
 }
 

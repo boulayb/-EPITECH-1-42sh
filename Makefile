@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Thu May 21 13:02:31 2015 Arnaud Boulay
+## Last update Thu May 21 15:21:31 2015 danilov dimitri
 ##
 
 NAME	= 42sh
@@ -15,6 +15,7 @@ SRCSFO	= sources/
 SRCSTO =  sources/termcaps/
 
 SRCS	= $(SRCSFO)main.c \
+	  $(SRCSTO)signal.c \
 	  $(SRCSTO)my_fput.c \
 	  $(SRCSTO)shell_get_line.c \
 	  $(SRCSTO)xtputs.c \
@@ -76,8 +77,7 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)string.c \
 	  $(SRCSFO)builtins.c \
 	  $(SRCSFO)tools.c \
-	  $(SRCSFO)print_list.c \
-	  $(SRCSFO)syntax.c
+	  $(SRCSFO)print_list.c
 
 OBJS	= $(SRCS:.c=.o)
 

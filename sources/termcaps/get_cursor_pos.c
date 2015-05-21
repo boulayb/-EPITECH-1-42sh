@@ -1,11 +1,11 @@
 /*
 ** get_cursor_pos.c for shell_get_line in /home/cassin_f/B2/B2-Systeme_Unix/42sh_cassin
-** 
+**
 ** Made by François CASSIN
 ** Login   <cassin_f@epitech.net>
-** 
+**
 ** Started on  Mon May 18 01:35:40 2015 François CASSIN
-** Last update Thu May 21 14:24:49 2015 Sebastien BOULOC
+** Last update Thu May 21 14:00:13 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -35,7 +35,7 @@ void		get_coord(int *x, int *y, char *buff)
 	  buff[i] = 0;
 	  *x = my_getnbr(buff + save);
 	}
-      ++i;
+      i = i + 1;
     }
 }
 
@@ -50,9 +50,15 @@ void		get_cursor_pos(int *x, int *y)
   cmd[2] = '6';
   cmd[3] = 'n';
   if ((fd = open("/dev/tty", O_RDWR)) < 0)
-    exit(1);
-  memset(buff, 0, 400);
-  write(fd, cmd, 4);
-  read(fd, buff, 400);
-  get_coord(x, y, buff);
+    {
+      *x = 0;
+      *y = 0;
+    }
+  else
+    {
+      memset(buff, 0, 400);
+      write(fd, cmd, 4);
+      read(fd, buff, 400);
+      get_coord(x, y, buff);
+    }
 }

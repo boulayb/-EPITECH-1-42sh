@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:45:30 2015 François CASSIN
-** Last update Thu May 21 14:35:02 2015 Sebastien BOULOC
+** Last update Wed May 20 18:12:58 2015 danilov dimitri
 */
 
 #include <unistd.h>
@@ -21,7 +21,7 @@ void	my_fputstr(int fd, char *str)
 
   i = 0;
   while (str[i])
-    ++i;
+    i = i + 1;
   write(fd, str, i);
 }
 

@@ -1,0 +1,33 @@
+/*
+** signal.c for signal in /home/danilo_d/semestre2/42sh_jeudi/sources/termcaps
+**
+** Made by danilov dimitri
+** Login   <danilo_d@epitech.eu>
+**
+** Started on  Thu May 21 15:11:56 2015 danilov dimitri
+** Last update Thu May 21 15:30:54 2015 danilov dimitri
+*/
+
+#include <signal.h>
+#include <stdlib.h>
+#include <string.h>
+#include "my_get_line.h"
+#include "my.h"
+
+void		catch_signal(int signal)
+{
+  if (signal == SIGINT || signal == SIGSTOP)
+    {
+      my_putchar('\n');
+      if (g_line != NULL)
+	{
+	  g_line->cursor_position = 0;
+	  g_line->cursor_offset = 0;
+	  g_line->nb_char = 0;
+	  g_line->nb_char_pos = 0;
+	  memset(g_line->buffer, 0, BUFF);
+	  memset(g_line->character, 0, BUFF);
+	}
+      disp_prompt(g_env);
+    }
+}

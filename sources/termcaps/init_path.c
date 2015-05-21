@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Thu May 21 14:33:54 2015 Sebastien BOULOC
+** Last update Wed May 20 17:56:25 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -26,11 +26,11 @@ static int      how_much_words(char *str)
     {
       if (str[i] != ':')
 	{
-	  ++count;
+	  count = count + 1;
 	  while (str[i] != ':' && str[i])
-	    ++i;
+	    i = i + 1;
 	}
-      ++i;
+      i = i + 1;
     }
   return (count);
 }
@@ -49,18 +49,18 @@ static char     **malloc_str_to_tab(char *str)
     {
       if ((tab[i] = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
 	return (NULL);
-      ++i;
+      i = i + 1;
     }
   tab[i] = NULL;
   return (tab);
 }
 
-char		**copy_path_to_wordtab(char *str)
+char    **copy_path_to_wordtab(char *str)
 {
-  int		i;
-  char		**tab;
-  int		n;
-  int		j;
+  int   i;
+  char  **tab;
+  int   n;
+  int   j;
 
   i = 0;
   n = 0;
@@ -69,16 +69,16 @@ char		**copy_path_to_wordtab(char *str)
   while (str[i])
     {
       while (str[i] == ':' && str[i])
-	++i;
+	i = i + 1;
       j = 0;
       while (str[i] != ':' && str[i])
 	{
 	  tab[n][j] = str[i];
-	  ++i;
-	  ++j;
+	  i = i + 1;
+	  j = j + 1;
 	}
       tab[n][j] = 0;
-      ++n;
+      n = n + 1;
     }
   tab[n] = NULL;
   return (tab);

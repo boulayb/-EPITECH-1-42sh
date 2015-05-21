@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Thu May 21 14:24:44 2015 Arnaud Boulay
+** Last update Thu May 21 15:28:33 2015 danilov dimitri
 */
 
 #include <stdio.h>
@@ -14,6 +14,8 @@
 #include "my_get_line.h"
 #include "my.h"
 #include "sh42.h"
+
+extern t_env *g_env;
 
 static t_builtins	gl_builtins[] =
   {
@@ -79,7 +81,6 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
 
 int			my_prompt(char *str, char **path, t_env *env_list)
 {
-  char			**syntax;
   char			**tabsep;
   int			ret;
   int			i;
@@ -87,16 +88,13 @@ int			my_prompt(char *str, char **path, t_env *env_list)
   tabsep = NULL;
   i = -1;
   ret = 0;
-  if ((syntax = my_str_to_cmdtab(str)) == NULL)
-    return (-1);
-  if (check_syntax(syntax, env_list) == -1)
-    return (0);
-  free_tab(syntax);
   if ((tabsep = my_strtowordtab(tabsep, str, ";")) == NULL)
     return (-1);
   while (ret == 0 && tabsep[++i] != NULL)
-    if ((ret = logic_sep_and(tabsep[i], path, env_list)) == -1)
-      return (-1);
+    {
+      if ((ret = logic_sep_and(tabsep[i], path, env_list)) == -1)
+	return (-1);
+    }
   if (ret == 0)
     disp_prompt(env_list);
   free(str);
@@ -107,30 +105,29 @@ int			my_prompt(char *str, char **path, t_env *env_list)
 
 int			my_minishell(char **env)
 {
-  t_env			*env_list;
   int			ret;
   char			**path;
   char			*str;
 
   path = NULL;
   ret = 0;
-  if ((env_list = create_list(env)) == NULL)
+  if ((g_env = create_list(env)) == NULL)
     return (-1);
-  disp_prompt(env_list);
+  disp_prompt(g_env);
   my_signal();
-  while (ret == 0 && (str = shell_get_line(env_list, &ret)) != NULL)
+  while (ret == 0 && (str = shell_get_line(g_env, &ret)) != NULL)
     {
       if (ret == 1 && str[0] == 0)
 	return (0);
-      if (check_env(env_list) == -1)
+      if (check_env(g_env) == -1)
 	return (-1);
-      if ((path = my_strtowordtab(path, get_env("PATH=", env_list) + 5, ":"))
+      if ((path = my_strtowordtab(path, get_env("PATH=", g_env) + 5, ":"))
 	  == NULL)
 	return (-1);
-      if ((ret = my_prompt(str, path, env_list)) == -1)
+      if ((ret = my_prompt(str, path, g_env)) == -1)
 	return (-1);
     }
-  rm_list(env_list);
+  rm_list(g_env);
   return (ret);
 }
 

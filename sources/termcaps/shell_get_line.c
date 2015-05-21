@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Thu May 21 14:27:12 2015 danilov dimitri
+** Last update Thu May 21 15:25:46 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -117,6 +117,7 @@ char			*shell_get_line(t_env *env, int *stop)
   params.completion = &complet;
   params.caps = &cap;
   params.env = env;
+  g_line = &line;
   refresh_screen(&line, line.cursor_position, line.buffer, &cap);
   if ((ret = get_cmd(&line, &params)) == 1)
     *stop = 1;

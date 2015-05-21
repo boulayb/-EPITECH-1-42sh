@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Thu May 21 14:24:59 2015 Arnaud Boulay
+** Last update Thu May 21 15:24:14 2015 danilov dimitri
 */
 
 #ifndef	MY_H_
@@ -28,6 +28,8 @@ typedef struct		s_env
   struct s_env		*back;
 }			t_env;
 
+t_env		*g_env;
+
 typedef struct		s_status
 {
   int			nb;
@@ -41,9 +43,7 @@ typedef struct		s_builtins
 }			t_builtins;
 
 int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
-int			check_syntax(char **line, t_env *env_list);
-int			logic_sep_and(char *tabsep, char **path,
-				      t_env *env_list);
+int			logic_sep_and(char *tabsep, char **path, t_env *env_list);
 int			check_status(t_env *env_list, int status);
 int			my_getnbr(char *str);
 int			is_char_inside(char *str, char c);
@@ -71,8 +71,7 @@ int			remove_env(t_env *env_list, char *str);
 int			change_pwd(char **tab2, char **path, t_env *env_list);
 int			change_oldpwd(char **tab2, t_env *env_list);
 int			my_strcmp(char *str1, char *str2);
-int			exec_program(char **tab2, char **path,
-				     t_env *env_list);
+int			exec_program(char **tab2, char **path, t_env *env_list);
 char			*change_for_home(char *str, t_env *env_list);
 char			*get_next_line(const int fd);
 char			*my_strdup(char *str);
@@ -94,5 +93,6 @@ void			empty_list(t_env *env_list);
 t_env			*create_env(t_env *env_list);
 t_env			*create_list(char **env);
 char			**my_str_to_wordtab(char *str);
+void			catch_signal(int signal);
 
 #endif /* !MY_H_ */

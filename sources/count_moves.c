@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 ** 
 ** Started on  Mon May  4 12:14:05 2015 Dylan Coodien
-** Last update Thu May 21 12:49:58 2015 Sebastien BOULOC
+** Last update Tue May 19 14:28:15 2015 Dylan Coodien
 */
 
 #include <string.h>
@@ -26,8 +26,8 @@ int		count_av(char **av, int *i)
 
 int		count_moves(char **av)
 {
-  int		i;
-  int		n;
+  int	i;
+  int	n;
 
   i = 0;
   n = 0;

@@ -1,0 +1,14 @@
+/*
+** signal.c for signal in /home/danilo_d/semestre2/42sh_jeudi/sources/termcaps
+**
+** Made by danilov dimitri
+** Login   <danilo_d@epitech.eu>
+**
+** Started on  Thu May 21 15:11:56 2015 danilov dimitri
+** Last update Thu May 21 15:12:15 2015 danilov dimitri
+*/
+
+void		catch_signal(int signal)
+{
+
+}

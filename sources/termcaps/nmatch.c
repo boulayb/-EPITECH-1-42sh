@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 19:36:41 2015 François CASSIN
-** Last update Thu May 21 14:35:32 2015 Sebastien BOULOC
+** Last update Mon May 18 20:39:05 2015 François CASSIN
 */
 
 #include "my_get_line.h"
 
-int	nmatch(char *s1, char *s2)
+int		nmatch(char *s1, char *s2)
 {
   if (*s1 == *s2 && *s1 != 0 && *s2 != 0 && *s1 != '*')
     return (nmatch(s1 + 1, s2 + 1));

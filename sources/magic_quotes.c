@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Wed May 20 18:32:28 2015 danilov dimitri
-** Last update Thu May 21 13:00:17 2015 Sebastien BOULOC
+** Last update Thu May 21 12:07:59 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -32,7 +32,7 @@ char		*find_correct_access(char *str, char **path)
       if ((ret = access(command, F_OK)) == 0)
 	if ((str = strdup(command)) == NULL)
 	  return (NULL);
-      ++i;
+      i++;
     }
   return (command);
 }
