@@ -5,11 +5,12 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed May 20 16:04:45 2015 Arnaud Boulay
-** Last update Thu May 21 13:09:42 2015 Arnaud Boulay
+** Last update Thu May 21 13:32:51 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
 #include <string.h>
+#include "my.h"
 
 int		is_operator(char *str)
 {
@@ -24,27 +25,19 @@ int		is_operator(char *str)
     return (0);
 }
 
-int		check_syntax(char **line)
+int		check_syntax(char **line, t_env *env_list)
 {
   int		i;
 
   i = -1;
   while (line[++i] != NULL)
     {
-      if (i == 0 && is_operator(line[i]) == 1)
+      if ((i == 0 && is_operator(line[i]) == 1) ||
+	  (i != 0 && is_operator(line[i - 1]) == 1 && is_operator(line[i]) == 1) ||
+	  (is_operator(line[i]) == 1 && is_operator(line[i + 1]) == 1))
 	{
 	  printf("Invalid null command.\n");
-	  return (-1);
-	}
-      else if (i != 0 && is_operator(line[i - 1]) == 1 &&
-	       is_operator(line[i]) == 1)
-	{
-	  printf("Invalid null command.\n");
-	  return (-1);
-	}
-      else if (is_operator(line[i]) == 1 && is_operator(line[i + 1]) == 1)
-	{
-	  printf("Invalid null command.\n");
+	  disp_prompt(env_list);
 	  return (-1);
 	}
     }

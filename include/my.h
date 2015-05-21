@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Thu May 21 12:40:50 2015 Sebastien BOULOC
+** Last update Thu May 21 14:24:59 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -41,6 +41,7 @@ typedef struct		s_builtins
 }			t_builtins;
 
 int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
+int			check_syntax(char **line, t_env *env_list);
 int			logic_sep_and(char *tabsep, char **path,
 				      t_env *env_list);
 int			check_status(t_env *env_list, int status);
