@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Thu May 21 16:50:27 2015 danilov dimitri
+** Last update Thu May 21 18:35:24 2015 Dylan Coodien
 */
 
 #include <stdio.h>
@@ -121,6 +121,7 @@ int			my_minishell(char **env)
   my_signal();
   while (ret == 0 && (str = shell_get_line(g_env, &ret)) != NULL)
     {
+      epur_str(str);
       if (ret == 1 && str[0] == 0)
 	return (0);
       if (check_env(g_env) == -1)

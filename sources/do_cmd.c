@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Wed May 20 18:13:27 2015 Arnaud Boulay
+** Last update Thu May 21 18:24:07 2015 Dylan Coodien
 */
 
 #define _GNU_SOURCE

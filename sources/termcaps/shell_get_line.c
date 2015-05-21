@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Thu May 21 15:25:46 2015 danilov dimitri
+** Last update Thu May 21 18:45:32 2015 Dylan Coodien
 */
 
 #include <stdlib.h>
@@ -121,6 +121,7 @@ char			*shell_get_line(t_env *env, int *stop)
   refresh_screen(&line, line.cursor_position, line.buffer, &cap);
   if ((ret = get_cmd(&line, &params)) == 1)
     *stop = 1;
+  rewrite_history(&line, params.history, params.env);
   free_params(&params);
   if (put_term_back(&t_attr) == -1)
     return (NULL);

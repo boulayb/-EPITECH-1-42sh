@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Thu May 21 15:48:12 2015 danilov dimitri
+## Last update Thu May 21 18:40:12 2015 Dylan Coodien
 ##
 
 NAME	= 42sh
@@ -15,6 +15,8 @@ SRCSFO	= sources/
 SRCSTO =  sources/termcaps/
 
 SRCS	= $(SRCSFO)main.c \
+	  $(SRCSTO)new_history_file.c \
+	  $(SRCSFO)epur_str.c \
 	  $(SRCSTO)signal.c \
 	  $(SRCSTO)my_fput.c \
 	  $(SRCSTO)shell_get_line.c \

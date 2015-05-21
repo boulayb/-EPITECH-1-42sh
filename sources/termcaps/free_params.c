@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Wed May 20 14:58:39 2015 François CASSIN
-** Last update Wed May 20 15:21:07 2015 François CASSIN
+** Last update Thu May 21 17:15:56 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -15,9 +15,10 @@ void		free_history(t_history *history)
 {
   int		i;
 
-  while (i < history->nb_max)
+  while (i < 1000)
     {
-      free(history->history_tab[i]);
+      if (history->history_tab[i] != NULL)
+	free(history->history_tab[i]);
       ++i;
     }
 }

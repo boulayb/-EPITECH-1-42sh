@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Thu May 21 15:23:09 2015 danilov dimitri
+** Last update Thu May 21 18:42:49 2015 Dylan Coodien
 */
 
 #ifndef MY_GET_LINE_H_
@@ -181,6 +181,10 @@ int		analyze_char(char c);
 int		count_char_pos(char buff[], int offset);
 void		free_complete(t_complet *to_free);
 void		free_params(t_params *params);
+void		change_new_current(t_history *history, t_line *line);
+void		rewrite_history(t_line *line,
+				t_history *history, t_env *env);
+char		*get_history_name(char *home);
 
 //functions
 
@@ -198,10 +202,8 @@ void		foreward(t_params *params, t_line *line);
 void		del_back(t_params *params, t_line *line);
 void		complete(t_params *params, t_line *line);
 void		myclear_screen(t_params *params, t_line *line);
-
 void		go_left(int offset, char buff[], int nb_char);
 void		go_right(int offset, char buff[], int nb_char, int len);
-
 int		get_tab_file(t_params *params, t_compl_par *complete);
 
 

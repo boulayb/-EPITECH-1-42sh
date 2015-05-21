@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Thu May 21 15:47:55 2015 danilov dimitri
+** Last update Thu May 21 18:35:06 2015 Dylan Coodien
 */
 
 #ifndef	MY_H_
@@ -95,5 +95,6 @@ t_env			*create_env(t_env *env_list);
 t_env			*create_list(char **env);
 char			**my_str_to_wordtab(char *str);
 void			catch_signal(int signal);
+int			epur_str(char *str);
 
 #endif /* !MY_H_ */
