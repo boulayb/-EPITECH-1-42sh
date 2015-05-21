@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed May 20 16:04:45 2015 Arnaud Boulay
-** Last update Thu May 21 16:33:11 2015 danilov dimitri
+** Last update Thu May 21 17:18:58 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -15,7 +15,7 @@
 int		is_operator(char *str)
 {
   if (str == NULL)
-    return (0);
+    return (1);
   else if (strcmp(str, "|") == 0 || strcmp(str, "||") == 0 ||
 	   strcmp(str, "&&") == 0 || strcmp(str, "<<") == 0 ||
 	   strcmp(str, ">>") == 0 || strcmp(str, "<") == 0 ||
