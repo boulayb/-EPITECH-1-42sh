@@ -1,0 +1,14 @@
+ls
+ls > toto
+cat < toto | grep l | cat -e > toto
+echo "Env:"
+setenv toto "Hello Wordld"
+env | grep toto
+unsetenv toto
+unsetenv toto
+echo "Lets see Error"
+< < < < |
+ls >> > toto
+ls | grep l | cat -e | cat -e | cat -e > toto
+cat < toto
+cat << toto

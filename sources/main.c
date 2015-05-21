@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Wed May 20 18:27:52 2015 danilov dimitri
+** Last update Thu May 21 13:11:52 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -79,6 +79,7 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
 
 int			my_prompt(char *str, char **path, t_env *env_list)
 {
+  char			**syntax;
   char			**tabsep;
   int			ret;
   int			i;
@@ -86,6 +87,14 @@ int			my_prompt(char *str, char **path, t_env *env_list)
   tabsep = NULL;
   i = -1;
   ret = 0;
+  if ((syntax = my_str_to_cmdtab(str)) == NULL)
+    return (-1);
+  if (check_syntax(syntax) == -1)
+    {
+      disp_prompt(env_list);
+      return (0);
+    }
+  free_tab(syntax);
   if ((tabsep = my_strtowordtab(tabsep, str, ";")) == NULL)
     return (-1);
   while (ret == 0 && tabsep[++i] != NULL)

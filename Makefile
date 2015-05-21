@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Wed May 20 21:45:20 2015 danilov dimitri
+## Last update Thu May 21 13:02:31 2015 Arnaud Boulay
 ##
 
 NAME	= 42sh
@@ -76,7 +76,8 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)string.c \
 	  $(SRCSFO)builtins.c \
 	  $(SRCSFO)tools.c \
-	  $(SRCSFO)print_list.c
+	  $(SRCSFO)print_list.c \
+	  $(SRCSFO)syntax.c
 
 OBJS	= $(SRCS:.c=.o)
 
