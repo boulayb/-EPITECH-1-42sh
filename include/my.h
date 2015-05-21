@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Thu May 21 15:24:14 2015 danilov dimitri
+** Last update Thu May 21 15:47:55 2015 danilov dimitri
 */
 
 #ifndef	MY_H_
@@ -44,6 +44,7 @@ typedef struct		s_builtins
 
 int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
 int			logic_sep_and(char *tabsep, char **path, t_env *env_list);
+int			check_syntax(char **line, t_env *env_list);
 int			check_status(t_env *env_list, int status);
 int			my_getnbr(char *str);
 int			is_char_inside(char *str, char c);
