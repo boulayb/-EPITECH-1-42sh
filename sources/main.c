@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Thu May 21 18:35:24 2015 Dylan Coodien
+** Last update Thu May 21 23:05:22 2015 danilov dimitri
 */
 
 #include <stdio.h>
@@ -20,7 +20,6 @@ extern t_env *g_env;
 static t_builtins	gl_builtins[] =
   {
     {"cd", &my_cd},
-    //    {"env", &my_env},
     {"setenv", &my_setenv},
     {"unsetenv", &my_unsetenv},
     {"echo", &my_echo},

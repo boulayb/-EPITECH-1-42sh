@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Sun May 10 16:28:24 2015 danilov dimitri
-** Last update Tue May 19 16:51:57 2015 Dylan Coodien
+** Last update Thu May 21 23:27:14 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -86,7 +86,8 @@ int		create_new_data(char *line, t_data *list)
 
   if ((elem = xmalloc(sizeof(t_data))) == NULL)
     return (-1);
-  elem->line = strdup(line);
+  if ((elem->line = strdup(line)) == NULL)
+    return (-1);
   elem->back = list->back;
   elem->next = list;
   list->back->next = elem;

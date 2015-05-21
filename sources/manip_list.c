@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Mon May  4 12:25:43 2015 Dylan Coodien
-** Last update Sun May 17 14:54:55 2015 Dylan Coodien
+** Last update Thu May 21 23:28:05 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -24,7 +24,8 @@ char		**set_av(char **av, int nb, int *av_nbr)
     return (NULL);
   while (i < nb)
     {
-      argv[i] = strdup(av[*av_nbr]);
+      if ((argv[i] = strdup(av[*av_nbr])) == NULL)
+	return (NULL);
       ++(*av_nbr);
       ++i;
     }
