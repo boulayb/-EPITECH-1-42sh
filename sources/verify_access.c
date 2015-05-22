@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Fri May 22 12:18:52 2015 danilov dimitri
+** Last update Fri May 22 16:56:21 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -20,7 +20,8 @@
 
 int		error(char **argv, char **path, int ret, int i)
 {
-  if (ret == -1 && strncmp(argv[0], "./", 2) != 0 && path[i] == NULL)
+  if (ret == -1 && (strncmp(argv[0], "./", 2) != 0 &&
+		    strncmp(argv[0], "/", 1) != 0) && path[i] == NULL)
     {
       printf("%s: ", argv[0]);
       return (127);
