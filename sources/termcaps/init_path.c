@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Wed May 20 17:56:25 2015 danilov dimitri
+** Last update Fri May 22 11:40:52 2015 Dylan Coodien
 */
 
 #include <stdlib.h>
@@ -30,7 +30,8 @@ static int      how_much_words(char *str)
 	  while (str[i] != ':' && str[i])
 	    i = i + 1;
 	}
-      i = i + 1;
+      if (str[i])
+	i = i + 1;
     }
   return (count);
 }

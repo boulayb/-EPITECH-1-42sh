@@ -5,16 +5,16 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Thu May 21 18:42:49 2015 Dylan Coodien
+** Last update Fri May 22 11:48:21 2015 Dylan Coodien
 */
 
 #ifndef MY_GET_LINE_H_
 # define MY_GET_LINE_H_
 
-#include <termios.h>
-#include <sys/types.h>
-#include <dirent.h>
-#include "my.h"
+# include <termios.h>
+# include <sys/types.h>
+# include <dirent.h>
+# include "my.h"
 
 # define BUFF		10000
 
@@ -185,6 +185,7 @@ void		change_new_current(t_history *history, t_line *line);
 void		rewrite_history(t_line *line,
 				t_history *history, t_env *env);
 char		*get_history_name(char *home);
+void		check_history_replace(t_history *history, t_line *line);
 
 //functions
 
