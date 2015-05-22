@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu May 21 22:10:02 2015 François CASSIN
-** Last update Fri May 22 14:08:43 2015 Sebastien BOULOC
+** Last update Fri May 22 16:21:39 2015 François CASSIN
 */
 
 #include <string.h>
@@ -102,7 +102,7 @@ void		check_history_replace(t_history *history, t_line *line)
 	  if (history->nb_max != 0 &&
 	      is_in_double_quotes(line->buffer, i) != 0)
 	    done = (replace_by_history(history, line, i, cmd_len) == 0 ? 1:0);
-	  i = i + cmd_len;
+	  i = cmd_len;
 	}
       else
 	++i;
