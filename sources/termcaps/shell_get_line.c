@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Thu May 21 18:45:32 2015 Dylan Coodien
+** Last update Fri May 22 11:27:24 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -14,12 +14,11 @@
 #include <term.h>
 #include <termios.h>
 #include <unistd.h>
-#include "my.h"
-#include "my_get_line.h"
-#include <errno.h>
 #include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "my.h"
+#include "my_get_line.h"
 
 void			init_line(t_line *line, t_caps *cap)
 {
@@ -59,11 +58,11 @@ int			init_term_attr(struct termios *t_attr, t_caps *cap)
 {
   int			fd;
 
-  fd = open("/dev/tty", O_RDWR);
+  if ((fd = open("/dev/tty", O_RDWR)) == -1)
+    return (-1);
   if ((tcgetattr(fd, t_attr)) < 0)
     {
       my_fputstr(2, "Can't get term attributes\n");
-      my_fputstr(2, strerror(errno));
       return (-1);
     }
   t_attr->c_lflag &= ~ICANON;
