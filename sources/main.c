@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri May 22 12:19:50 2015 Arnaud Boulay
+** Last update Fri May 22 14:29:58 2015 danilov dimitri
 */
 
 #include <stdio.h>
@@ -32,7 +32,7 @@ void			disp_prompt(t_env *env_list)
 {
   static int		i;
 
-  my_putstr(BLUE);
+  my_putstr(RED);
   my_putchar('(');
   if (env_list != NULL && get_env("USER=", env_list) != NULL)
     my_putstr(get_env("USER=", env_list) + 5);
@@ -44,11 +44,11 @@ void			disp_prompt(t_env *env_list)
   else
     my_putstr("42sh");
   my_putchar(' ');
-  my_putstr(LIGHT_BLUE);
+  my_putstr(RED);
   my_putnbr(i++);
-  my_putstr(BLUE);
+  my_putstr(RED);
   my_putstr(")$>");
-  my_putstr(LIGHT_BLUE);
+  my_putstr(DEFAULT);
 }
 
 int			fcnt_ptr(char **tab, char **path, t_env *env_list)
