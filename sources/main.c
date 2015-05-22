@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri May 22 14:29:58 2015 danilov dimitri
+** Last update Fri May 22 15:19:17 2015 François CASSIN
 */
 
 #include <stdio.h>
@@ -80,7 +80,8 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
   return (0);
 }
 
-int			my_prompt(char *str, char **path, t_env *env_list)
+int			my_prompt(char *str, char **path, t_env *env_list,
+				  int prompt)
 {
   char			**syntax;
   char			**tabsep;
@@ -100,7 +101,7 @@ int			my_prompt(char *str, char **path, t_env *env_list)
   while (ret == 0 && tabsep[++i] != NULL)
     if ((ret = logic_sep_and(tabsep[i], path, env_list)) == -1)
       return (-1);
-  if (ret == 0)
+  if (ret == 0 && prompt != 2)
     disp_prompt(env_list);
   free(str);
   free_tab(tabsep);
@@ -115,12 +116,11 @@ int			my_minishell(char **env)
   char			*str;
 
   path = NULL;
-  ret = 0;
+  ret = 2;
   if ((g_env = create_list(env)) == NULL || (g_alias = create_alias()) == NULL)
     return (-1);
-  disp_prompt(g_env);
   my_signal();
-  while (ret == 0 && (str = shell_get_line(g_env, &ret)) != NULL)
+  while ((ret == 0 || ret == 2) && (str = shell_get_line(g_env, &ret)) != NULL)
     {
       epur_str(str);
       if (ret == 1 && str[0] == 0)
@@ -130,7 +130,7 @@ int			my_minishell(char **env)
       if ((path = my_strtowordtab(get_env("PATH=", g_env) + 5, ":"))
 	  == NULL)
 	return (-1);
-      if ((ret = my_prompt(str, path, g_env)) == -1)
+      if ((ret = my_prompt(str, path, g_env, ret)) == -1)
 	return (-1);
     }
   rm_list(g_env);

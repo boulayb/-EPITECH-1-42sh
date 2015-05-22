@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Fri May 22 13:56:45 2015 Arnaud Boulay
+## Last update Fri May 22 14:59:04 2015 François CASSIN
 ##
 
 NAME	= 42sh
@@ -16,6 +16,7 @@ SRCSTO =  sources/termcaps/
 
 SRCS	= $(SRCSFO)main.c \
 	  $(SRCSTO)new_history_file.c \
+	  $(SRCSTO)get_42shrc.c \
 	  $(SRCSFO)epur_str.c \
 	  $(SRCSTO)check_history_built.c \
 	  $(SRCSTO)signal.c \

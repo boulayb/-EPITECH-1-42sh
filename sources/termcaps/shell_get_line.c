@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Fri May 22 14:48:35 2015 Sebastien BOULOC
+** Last update Fri May 22 15:21:00 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -85,8 +85,7 @@ static int		init_termcaps(t_env *env, struct termios *t_attr,
       my_fputstr(2, "Can't get terminal, can't init_termcaps\n");
       return (-1);
     }
-  term = term + 5;
-  if (tgetent(NULL, term) == ERR)
+  if (tgetent(NULL, term + 5) == ERR)
     {
       my_fputstr(2, "Can't get termcaps base\n");
       return (-1);
@@ -103,7 +102,10 @@ char			*shell_get_line(t_env *env, int *stop)
   t_completion		complet;
   t_history		history;
   t_params		params;
+  char			*s;
 
+  if ((s = check_42shrc(env, stop)) != NULL)
+    return (s);
   if (init_termcaps(env, &t_attr, &cap) == -1)
     return (NULL);
   init_line(&line, &cap);
@@ -120,6 +122,7 @@ char			*shell_get_line(t_env *env, int *stop)
     *stop = 1;
   check_history_replace(params.history, &line);
   rewrite_history(&line, params.history, params.env);
+  g_line = NULL;
   free_params(&params);
   if (put_term_back(&t_attr) == -1)
     return (NULL);

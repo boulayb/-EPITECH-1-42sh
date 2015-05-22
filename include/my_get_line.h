@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Fri May 22 11:48:21 2015 Dylan Coodien
+** Last update Fri May 22 15:01:06 2015 François CASSIN
 */
 
 #ifndef MY_GET_LINE_H_
@@ -19,6 +19,7 @@
 # define BUFF		10000
 
 # define HISTORY_FILE	".42sh_history"
+# define RC_FILE	".42shrc"
 
 // CTRL_KEYS
 
@@ -186,6 +187,7 @@ void		rewrite_history(t_line *line,
 				t_history *history, t_env *env);
 char		*get_history_name(char *home);
 void		check_history_replace(t_history *history, t_line *line);
+char		*check_42shrc(t_env *env, int *ret);
 
 //functions
 
