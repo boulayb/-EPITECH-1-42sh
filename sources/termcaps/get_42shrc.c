@@ -1,11 +1,11 @@
 /*
 ** get_42shrc.c for shell_get_line in /home/cassin_f/PSU_2014_42sh/sources/termcaps
-** 
+**
 ** Made by François CASSIN
 ** Login   <cassin_f@epitech.net>
-** 
+**
 ** Started on  Fri May 22 14:20:05 2015 François CASSIN
-** Last update Fri May 22 15:23:19 2015 François CASSIN
+** Last update Fri May 22 15:35:37 2015 Arnaud Boulay
 */
 
 #include <sys/types.h>
@@ -64,6 +64,7 @@ char		*check_42shrc(t_env *env, int *ret)
 	{
 	  *ret = 0;
 	  free(file);
+	  disp_prompt(env);
 	  return (NULL);
 	}
       free(file);

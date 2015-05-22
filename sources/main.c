@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri May 22 15:19:17 2015 François CASSIN
+** Last update Fri May 22 15:39:17 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -23,6 +23,7 @@ static t_builtins	gl_builtins[] =
     {"cd", &my_cd},
     {"setenv", &my_setenv},
     {"alias", &my_alias},
+    {"history", &my_history},
     {"unsetenv", &my_unsetenv},
     {"echo", &my_echo},
     {NULL, NULL}
@@ -32,22 +33,26 @@ void			disp_prompt(t_env *env_list)
 {
   static int		i;
 
-  my_putstr(RED);
+  my_putstr(LIGHT_BLUE);
   my_putchar('(');
   if (env_list != NULL && get_env("USER=", env_list) != NULL)
     my_putstr(get_env("USER=", env_list) + 5);
   else
     my_putstr("user");
+  my_putstr(BLUE);
   my_putstr(" - ");
+  my_putstr(LIGHT_BLUE);
   if (env_list != NULL && get_env("PWD=/", env_list) != NULL)
     my_putstr(get_env("PWD=/", env_list) + 4);
   else
     my_putstr("42sh");
   my_putchar(' ');
-  my_putstr(RED);
+  my_putstr(BLUE);
   my_putnbr(i++);
-  my_putstr(RED);
-  my_putstr(")$>");
+  my_putstr(LIGHT_BLUE);
+  my_putchar(')');
+  my_putstr(BLUE);
+  my_putstr("$>");
   my_putstr(DEFAULT);
 }
 

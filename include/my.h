@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Fri May 22 13:59:25 2015 Arnaud Boulay
+** Last update Fri May 22 15:00:43 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -54,7 +54,8 @@ typedef struct		s_builtins
 
 int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
 int			my_alias(char **blabla, char **path, t_env *env_list);
-int			logic_sep_and(char *tabsep, char **path, t_env *env_list);
+int			logic_sep_and(char *tabsep, char **path,
+				      t_env *env_list);
 int			check_syntax(char **line, t_env *env_list);
 int			check_status(t_env *env_list, int status);
 int			my_getnbr(char *str);
@@ -78,6 +79,7 @@ int			add_chain(t_env *env_list, char *str);
 int			my_echo(char **tab2, char **path, t_env *env_list);
 int			my_cd(char **tab2, char **path, t_env *env_list);
 int			my_env(char **tab2, char **path, t_env *env_list);
+int			my_history(char **tab2, char **path, t_env *env_list);
 int			my_setenv(char **tab2, char **path, t_env *env_list);
 int			my_unsetenv(char **tab2, char **path, t_env *env_list);
 int			my_strlen(char *str);
@@ -88,6 +90,7 @@ int			my_strcmp(char *str1, char *str2);
 int			exec_program(char **tab2, char **path, t_env *env_list);
 char			*change_for_home(char *str, t_env *env_list);
 char			*get_next_line(const int fd);
+char			*get_history_name(char *home);
 char			*my_strdup(char *str);
 char			*my_strcatdup(char *dest, char *src, int l, char c);
 char			*my_strcpy(char *dest, char *src);

@@ -1,11 +1,11 @@
 /*
 ** my_str_to_cmdtab.c for my_str_to_cmdtab.c in /home/bouloc_s/str_to_tab_42sh
-** 
+**
 ** Made by Sebastien BOULOC
 ** Login   <bouloc_s@epitech.net>
-** 
+**
 ** Started on  Tue May 19 15:43:11 2015 Sebastien BOULOC
-** Last update Wed May 20 15:25:58 2015 François CASSIN
+** Last update Fri May 22 15:37:02 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -114,7 +114,7 @@ char		**my_str_to_cmdtab(char *str)
     return (NULL);
   while (str[size] != '\0' && str[size] != '\n')
     ++size;
-  if ((tab = malloc(sizeof(char *) * size)) == NULL)
+  if ((tab = malloc(sizeof(char *) * (size + 1))) == NULL)
     return (NULL);
   if ((tab = my_str_to_cmdtab2(tab, str, size)) == NULL)
     return (NULL);
