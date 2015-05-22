@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Fri May 22 12:20:37 2015 Arnaud Boulay
+## Last update Fri May 22 13:56:45 2015 Arnaud Boulay
 ##
 
 NAME	= 42sh
@@ -82,6 +82,7 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)tools.c \
 	  $(SRCSFO)syntax.c \
 	  $(SRCSFO)alias.c \
+	  $(SRCSFO)tablen.c \
 	  $(SRCSFO)alias_list.c \
 	  $(SRCSFO)exec_alias.c \
 	  $(SRCSFO)quotetowordtab.c \
@@ -89,7 +90,7 @@ SRCS	= $(SRCSFO)main.c \
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS	= -Iinclude/ -Wall -Wextra -Werror -lncurses -g3
+CFLAGS	= -Iinclude/ -Wall -Wextra -Werror -lncurses
 
 all: $(NAME)
 

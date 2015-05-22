@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 01:33:48 2015 Arnaud Boulay
-** Last update Fri May 22 12:12:14 2015 Arnaud Boulay
+** Last update Fri May 22 14:01:31 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -13,63 +13,58 @@
 #include <string.h>
 #include "my.h"
 
-int		tablen(char **tab)
+char		**copy_vanilla(char **tab, char **new, int *i, int *j)
 {
-  int		i;
+  if ((new[*i] = malloc(sizeof(char) * (strlen(tab[*j]) + 1))) == NULL)
+    return (NULL);
+  new[*i] = strcpy(new[*i], tab[*j]);
+  ++*j;
+  ++*i;
+  return (new);
+}
 
-  i = 0;
-  while (tab[i] != NULL)
-    ++i;
-  return (i);
+char		**copy_alias(char **rep, char **new, int *i, int *j)
+{
+  int		k;
+
+  k = -1;
+  while (rep[++k] != NULL)
+    {
+      if ((new[*i] = malloc(sizeof(char) * (strlen(rep[k]) + 1))) == NULL)
+	return (NULL);
+      new[*i] = strcpy(new[*i], rep[k]);
+      ++*i;
+    }
+  ++*j;
+  return (new);
 }
 
 char		**replace_with_alias(char **tab, char **rep, int nb)
 {
   int		size;
   int		j;
-  int		k;
   int		i;
   char		**new;
 
-  i = -1;
+  i = 0;
   j = 0;
-  k = -1;
   if (rep == NULL)
     return (tab);
-  int	o = -1;
-  while (tab[++o] != NULL)
-    printf("%s\n", tab[o]);
-  int	u = -1;
-  while (rep[++u] != NULL)
-    printf("%s\n", rep[u]);
-  printf("done\n");
-  size = tablen(tab) + tablen(rep) + 1;
+  size = tablen(tab) + tablen(rep);
   if ((new = malloc(sizeof(char *) * size)) == NULL)
     return (NULL);
-  while (++i < size)
-    {
-      if (j != nb && tab[j] != NULL)
-	{
-	  if ((new[i] = malloc(sizeof(char) * (strlen(tab[j]) + 1))) == NULL)
-	    return (NULL);
-	  new[i] = strcpy(new[i], tab[j]);
-	  ++j;
-	}
-      else
-	{
-	  while (rep[++k] != NULL)
-	    {
-	      if ((new[i] = malloc(sizeof(char) * (strlen(rep[k]) + 1))) == NULL)
-		return (NULL);
-	      new[i] = strcpy(new[i], rep[k]);
-	      ++i;
-	    }
-	  ++j;
-	}
-    }
+  while (i < size - 1)
+    if (j != nb && tab[j] != NULL)
+      {
+	if (copy_vanilla(tab, new, &i, &j) == NULL)
+	  return (NULL);
+      }
+    else
+      if (copy_alias(rep, new, &i, &j) == NULL)
+	return (NULL);
   free_tab(tab);
   free_tab(rep);
-  new[++i] = NULL;
+  new[i] = NULL;
   return (new);
 }
 
@@ -101,9 +96,12 @@ char		**exec_alias(char *str)
   i = -1;
   if ((tab = my_quotetowordtab(str, " ")) == NULL)
     return (NULL);
+  if (tab[0] == NULL)
+    return (tab);
   if (strcmp(tab[0], "alias") == 0)
     return (tab);
-  tmp = tab;
+  if ((tmp = my_quotetowordtab(str, " ")) == NULL)
+    return (NULL);
   while (tmp[++i] != NULL)
     if ((tab = replace_with_alias(tab, is_alias(tmp[i]), i)) == NULL)
       return (NULL);

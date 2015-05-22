@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Fri May 22 10:56:53 2015 Arnaud Boulay
+** Last update Fri May 22 13:59:25 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -61,6 +61,7 @@ int			my_getnbr(char *str);
 int			is_cinside(char *str, char c);
 int			is_inside(char *str, char *str2);
 int			add_alias(char *name, char *to);
+int			tablen(char **array);
 int			add_path(char *str, t_env *env_list);
 int			check_env(t_env *env_list);
 int			cd_to_oldpath(t_env *env_list);
