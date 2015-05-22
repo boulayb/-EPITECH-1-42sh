@@ -5,13 +5,13 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Jan 28 13:58:49 2015 arnaud boulay
-** Last update Sun Feb  1 16:56:59 2015 arnaud boulay
+** Last update Fri May 22 17:56:00 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
 
-int		count_elem(t_env *env_list)
+static int	count_elem(t_env *env_list)
 {
   int		i;
   t_env		*tmp;
@@ -26,7 +26,7 @@ int		count_elem(t_env *env_list)
   return (i);
 }
 
-char		**my_listtotab(char **env, t_env *env_list)
+char	**my_listtotab(char **env, t_env *env_list)
 {
   t_env		*tmp;
   int		elem;

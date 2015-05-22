@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Thu May 21 21:45:34 2015 Arnaud Boulay
-** Last update Fri May 22 12:13:33 2015 Arnaud Boulay
+** Last update Fri May 22 17:45:07 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include "my.h"
 
-void		remove_alias(char *str)
+static void	remove_alias(char *str)
 {
   t_alias	*alias;
 
@@ -26,7 +26,7 @@ void		remove_alias(char *str)
     }
 }
 
-t_alias		*get_alias(char *name)
+static t_alias	*get_alias(char *name)
 {
   t_alias	*alias;
 
@@ -40,7 +40,7 @@ t_alias		*get_alias(char *name)
   return (NULL);
 }
 
-void		disp_alias(char *name)
+static void	disp_alias(char *name)
 {
   t_alias	*alias;
 

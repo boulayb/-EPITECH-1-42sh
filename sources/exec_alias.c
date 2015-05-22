@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 01:33:48 2015 Arnaud Boulay
-** Last update Fri May 22 14:01:31 2015 Arnaud Boulay
+** Last update Fri May 22 17:36:54 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
@@ -13,17 +13,17 @@
 #include <string.h>
 #include "my.h"
 
-char		**copy_vanilla(char **tab, char **new, int *i, int *j)
+static char	**copy_vanilla(char **tab, char **new, int *i, int *j)
 {
   if ((new[*i] = malloc(sizeof(char) * (strlen(tab[*j]) + 1))) == NULL)
     return (NULL);
   new[*i] = strcpy(new[*i], tab[*j]);
-  ++*j;
-  ++*i;
+  ++(*j);
+  ++(*i);
   return (new);
 }
 
-char		**copy_alias(char **rep, char **new, int *i, int *j)
+static char	**copy_alias(char **rep, char **new, int *i, int *j)
 {
   int		k;
 
@@ -33,13 +33,13 @@ char		**copy_alias(char **rep, char **new, int *i, int *j)
       if ((new[*i] = malloc(sizeof(char) * (strlen(rep[k]) + 1))) == NULL)
 	return (NULL);
       new[*i] = strcpy(new[*i], rep[k]);
-      ++*i;
+      ++(*i);
     }
-  ++*j;
+  ++(*j);
   return (new);
 }
 
-char		**replace_with_alias(char **tab, char **rep, int nb)
+static char	**replace_with_alias(char **tab, char **rep, int nb)
 {
   int		size;
   int		j;
@@ -68,7 +68,7 @@ char		**replace_with_alias(char **tab, char **rep, int nb)
   return (new);
 }
 
-char		**is_alias(char *str)
+static char	**is_alias(char *str)
 {
   char		**tab;
   t_alias	*alias;

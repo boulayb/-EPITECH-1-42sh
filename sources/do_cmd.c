@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Fri May 22 15:22:05 2015 danilov dimitri
+** Last update Fri May 22 17:28:58 2015 Sebastien BOULOC
 */
 
 #define _GNU_SOURCE
@@ -15,7 +15,7 @@
 #include "my.h"
 #include "sh42.h"
 
-void		free_tabl(char **tab)
+static void	free_tabl(char **tab)
 {
   int		i;
 
@@ -45,7 +45,7 @@ void		free_list(t_list *list)
     free(list);
 }
 
-int		find_correct_return(int status, t_list *list)
+static int	find_correct_return(int status, t_list *list)
 {
   if (WIFSIGNALED(status))
     status = 128 + WTERMSIG(status);
@@ -55,7 +55,7 @@ int		find_correct_return(int status, t_list *list)
   return (status);
 }
 
-int		do_cmd(char **tab, char **path, char **env)
+static int	do_cmd(char **tab, char **path, char **env)
 {
   t_list	*list;
   int		i;

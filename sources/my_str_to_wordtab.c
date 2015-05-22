@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu Jan 22 12:43:23 2015 François CASSIN
-** Last update Wed May 20 19:37:51 2015 danilov dimitri
+** Last update Fri May 22 18:10:04 2015 Sebastien BOULOC
 */
 
 #include <string.h>
@@ -22,21 +22,21 @@ static int	how_much_words(char *str)
     {
       if (str[i] != ' ' && str[i] != '\t' && str[i] != '"')
 	{
-	  count = count + 1;
+	  ++count;
 	  while (str[i] != ' ' && str[i] != '\t' && str[i] && str[i] != '"')
-	    i = i + 1;
+	    ++i;
 	}
       else if (str[i] == '"')
 	{
-	  count = count + 1;
-	  i = i + 1;
+	  ++count;
+	  ++i;
 	  while (str[i] != '"' && str[i])
-	    i = i + 1;
+	    ++i;
 	  if (str[i] == '"')
-	    i = i + 1;
+	    ++i;
 	}
       else
-	i = i + 1;
+	++i;
     }
   return (count);
 }
@@ -55,7 +55,7 @@ char	**malloc_str_to_tab(char *str)
     {
       if ((tab[i] = malloc(sizeof(char) * (strlen(str) + 1))) == NULL)
 	return (NULL);
-      i = i + 1;
+      ++i;
     }
   tab[i] = NULL;
   return (tab);
@@ -66,16 +66,16 @@ void	copy_in_quotes(char *str, char **tab, int *i, int *n)
   int	j;
 
   j = 0;
-  *i = *i + 1;
+  ++(*i);
   while (str[*i] != '"' && str[*i])
     {
       tab[*n][j] = str[*i];
-      *i = *i + 1;
-      j = j + 1;
+      ++(*i);
+      ++j;
     }
   tab[*n][j] = 0;
   if (str[*i] == '"')
-    *i = *i + 1;
+    ++(*i);
 }
 
 void	copy_my_word(char **tab, char *str, int *i, int *n)
@@ -93,12 +93,12 @@ void	copy_my_word(char **tab, char *str, int *i, int *n)
 		 str[*i] != '"')
 	    {
 	      tab[*n][j] = str[*i];
-	      *i = *i + 1;
-	      j = j + 1;
+	      ++(*i);
+	      ++j;
 	    }
 	  tab[*n][j] = 0;
 	}
-      *n = *n + 1;
+      ++(*n);
     }
 }
 
@@ -115,7 +115,7 @@ char	**my_str_to_wordtab(char *str)
   while (str[i])
     {
       while (str[i] && (str[i] == ' ' || str[i] == '\t'))
-	i = i + 1;
+	++i;
       copy_my_word(tab, str, &i, &n);
     }
   tab[n] = NULL;

@@ -5,15 +5,15 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Tue Jan 20 17:23:44 2015 arnaud boulay
-** Last update Fri May 15 00:16:20 2015 Arnaud Boulay
+** Last update Fri May 22 17:33:35 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
 
-void		disp_env(t_env *env_list)
+void	disp_env(t_env *env_list)
 {
-  t_env		*tmp;
+  t_env	*tmp;
 
   tmp = env_list->next;
   while (tmp != env_list)
@@ -24,7 +24,7 @@ void		disp_env(t_env *env_list)
     }
 }
 
-int		check_env(t_env *env_list)
+int	check_env(t_env *env_list)
 {
   if (get_env("PATH=", env_list) == NULL)
     if (add_chain(env_list, MY_PATH) == -1)
@@ -38,9 +38,9 @@ int		check_env(t_env *env_list)
   return (0);
 }
 
-char		*get_env(char *str, t_env *env_list)
+char	*get_env(char *str, t_env *env_list)
 {
-  t_env		*tmp;
+  t_env	*tmp;
 
   tmp = env_list->next;
   while (tmp != env_list)
@@ -52,9 +52,9 @@ char		*get_env(char *str, t_env *env_list)
   return (NULL);
 }
 
-int		remove_env(t_env *env_list, char *str)
+int	remove_env(t_env *env_list, char *str)
 {
-  t_env		*tmp;
+  t_env	*tmp;
 
   tmp = env_list->next;
   while (tmp != env_list)

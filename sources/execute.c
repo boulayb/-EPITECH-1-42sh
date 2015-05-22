@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Fri May 22 17:18:18 2015 François CASSIN
+** Last update Fri May 22 17:41:29 2015 Sebastien BOULOC
 */
 
 #include <sys/types.h>
@@ -18,7 +18,7 @@
 
 extern int	g_fd;
 
-int		son(int *fd_in, int p[2], t_list *cmd, char **env)
+static int	son(int *fd_in, int p[2], t_list *cmd, char **env)
 {
   signal(SIGINT, SIG_DFL);
   signal(SIGTSTP, SIG_IGN);
@@ -38,7 +38,7 @@ int		son(int *fd_in, int p[2], t_list *cmd, char **env)
   return (0);
 }
 
-t_list		*execute_pipe(t_list *cmd, int *fd_in, int *status, char **env)
+static t_list	*execute_pipe(t_list *cmd, int *fd_in, int *status, char **env)
 {
   int		p[2];
   pid_t		pid;

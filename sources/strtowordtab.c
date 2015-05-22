@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Tue Jan 20 00:26:54 2015 arnaud boulay
-** Last update Fri May 22 11:48:22 2015 Arnaud Boulay
+** Last update Fri May 22 18:13:09 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
@@ -31,7 +31,7 @@ int		my_wordlen(char *str, int *i, char *sep)
   int		j;
 
   j = 0;
-  while (str[++*i] != '\0')
+  while (str[++(*i)] != '\0')
     if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
       {
 	++j;
@@ -47,7 +47,7 @@ char		*my_wordcpy(char *tab, char *str, int *i, char *sep)
   int		j;
 
   j = -1;
-  while (str[++*i] != '\0')
+  while (str[++(*i)] != '\0')
     if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
       {
 	tab[++j] = str[*i];

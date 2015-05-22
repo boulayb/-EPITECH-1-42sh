@@ -5,14 +5,14 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat Jan 31 18:25:00 2015 arnaud boulay
-** Last update Tue May 19 14:27:43 2015 danilov dimitri
+** Last update Fri May 22 17:32:08 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "my.h"
 
-char		**keep_program(char **tab, int options)
+static char	**keep_program(char **tab, int options)
 {
   char		**new_tab;
   int		i;
@@ -21,7 +21,7 @@ char		**keep_program(char **tab, int options)
   i = 0;
   j = -1;
   while (tab[i] != NULL)
-    i++;
+    ++i;
   if ((new_tab = malloc(sizeof(char *) * (i - options + 1))) == NULL)
     return (NULL);
   i = options - 1;
@@ -36,7 +36,8 @@ char		**keep_program(char **tab, int options)
   return (new_tab);
 }
 
-int		exec_fake_env(char **tab, char **path, t_env *tmp_env, int options)
+int		exec_fake_env(char **tab, char **path, t_env *tmp_env,
+			      int options)
 {
   char		**new_tab;
 
@@ -51,7 +52,8 @@ int		exec_fake_env(char **tab, char **path, t_env *tmp_env, int options)
   return (0);
 }
 
-int		unset_option(char **tab, t_env *tmp_env, int *exec, int *options)
+static int	unset_option(char **tab, t_env *tmp_env, int *exec,
+			     int *options)
 {
   if (tab[2] == NULL)
     {
@@ -67,14 +69,15 @@ int		unset_option(char **tab, t_env *tmp_env, int *exec, int *options)
   return (0);
 }
 
-int		find_options(char **tab, t_env *tmp_env, int *exec, int *options)
+int		find_options(char **tab, t_env *tmp_env, int *exec,
+			     int *options)
 {
   if (my_strcmp(tab[1], "-i") == 1 ||
       my_strcmp(tab[1], "--ignore-environment") == 1)
     {
       empty_list(tmp_env);
       *exec = 1;
-      ++*options;
+      ++(*options);
     }
   else if (is_inside(tab[1], "=") == 1)
     {
@@ -83,7 +86,7 @@ int		find_options(char **tab, t_env *tmp_env, int *exec, int *options)
       else if (tab[2] != NULL)
 	{
 	  *exec = 1;
-	  ++*options;
+	  ++(*options);
 	}
     }
   else if (my_strcmp(tab[1], "-u") == 1 || my_strcmp(tab[1], "--unset") == 1)

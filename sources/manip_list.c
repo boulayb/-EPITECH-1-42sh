@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Mon May  4 12:25:43 2015 Dylan Coodien
-** Last update Thu May 21 23:28:05 2015 danilov dimitri
+** Last update Fri May 22 18:07:02 2015 Sebastien BOULOC
 */
 
 #define _GNU_SOURCE
@@ -14,7 +14,7 @@
 #include <string.h>
 #include "sh42.h"
 
-char		**set_av(char **av, int nb, int *av_nbr)
+static char	**set_av(char **av, int nb, int *av_nbr)
 {
   char		**argv;
   int		i;
@@ -33,7 +33,7 @@ char		**set_av(char **av, int nb, int *av_nbr)
   return (argv);
 }
 
-void		fill_act(t_list *list, char **av, int *av_nbr)
+static void	fill_act(t_list *list, char **av, int *av_nbr)
 {
   if (av[*av_nbr] != NULL)
     {
@@ -47,7 +47,7 @@ void		fill_act(t_list *list, char **av, int *av_nbr)
 	list->act = DRIGHT;
       if (strcmp(av[*av_nbr], "<<") == 0)
 	list->act = DLEFT;
-      *av_nbr += 1;
+      ++(*av_nbr);
     }
   else
     list->act = ENDACT;

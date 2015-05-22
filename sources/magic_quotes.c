@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Wed May 20 18:32:28 2015 danilov dimitri
-** Last update Thu May 21 12:07:59 2015 danilov dimitri
+** Last update Fri May 22 18:00:12 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
@@ -17,7 +17,7 @@
 #include "my.h"
 #include "sh42.h"
 
-char		*find_correct_access(char *str, char **path)
+static char	*find_correct_access(char *str, char **path)
 {
   int		i;
   char		*command;
@@ -32,12 +32,12 @@ char		*find_correct_access(char *str, char **path)
       if ((ret = access(command, F_OK)) == 0)
 	if ((str = strdup(command)) == NULL)
 	  return (NULL);
-      i++;
+      ++i;
     }
   return (command);
 }
 
-char		*read_buffer(int fd)
+static char	*read_buffer(int fd)
 {
   int		ret;
   char		buffer[BUFFER_SIZE];

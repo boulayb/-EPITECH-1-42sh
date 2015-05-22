@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
-** Last update Fri May 22 16:16:11 2015 Arnaud Boulay
+** Last update Fri May 22 18:11:31 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
@@ -66,7 +66,7 @@ static int	my_wordlen(char *str, int *i, char *sep)
 
   j = 0;
   quote = 0;
-  while (str[++*i] != '\0')
+  while (str[++(*i)] != '\0')
     if (str[*i] == '"' && quote == 0)
       quote = 1;
     else if (quote == 1 || (quote == 0 && is_cinside(sep, str[*i]) == 0 &&
@@ -79,7 +79,7 @@ static int	my_wordlen(char *str, int *i, char *sep)
 			    str[*i + 1] == '\0')))
 	  {
 	    if (quote == 1 && str[*i + 1] == '"')
-	      ++*i;
+	      ++(*i);
 	    return (j);
 	  }
       }
@@ -93,7 +93,7 @@ static char	*my_wordcpy(char *tab, char *str, int *i, char *sep)
 
   j = -1;
   quote = 0;
-  while (str[++*i] != '\0')
+  while (str[++(*i)] != '\0')
     if (str[*i] == '"' && quote == 0)
       quote = 1;
     else if (quote == 1 || (quote == 0 &&
@@ -105,7 +105,7 @@ static char	*my_wordcpy(char *tab, char *str, int *i, char *sep)
 			    str[*i + 1] == '\t' || str[*i + 1] == '\0')))
 	  {
 	    if (quote == 1 && str[*i + 1] == '"')
-	      ++*i;
+	      ++(*i);
 	    tab[++j] = '\0';
 	    return (tab);
 	  }

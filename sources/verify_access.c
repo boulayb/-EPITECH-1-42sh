@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Fri May 22 16:56:21 2015 danilov dimitri
+** Last update Fri May 22 18:13:54 2015 Sebastien BOULOC
 */
 
 #define _GNU_SOURCE
@@ -53,7 +53,8 @@ int		help(int *ret, int *i, t_list *tmp)
 {
   *ret = 1;
   *i = -1;
-  if (tmp->back->act == PIPE || tmp->back->act == ENDACT || tmp->back->act == -1)
+  if (tmp->back->act == PIPE || tmp->back->act == ENDACT ||
+      tmp->back->act == -1)
     return (0);
   return (-1);
 }

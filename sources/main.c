@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri May 22 15:39:17 2015 Arnaud Boulay
+** Last update Fri May 22 18:05:34 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
@@ -85,7 +85,7 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
   return (0);
 }
 
-int			my_prompt(char *str, char **path, t_env *env_list,
+static int		my_prompt(char *str, char **path, t_env *env_list,
 				  int prompt)
 {
   char			**syntax;
@@ -114,7 +114,7 @@ int			my_prompt(char *str, char **path, t_env *env_list,
   return (ret);
 }
 
-int			my_minishell(char **env)
+static int		my_minishell(char **env)
 {
   int			ret;
   char			**path;
