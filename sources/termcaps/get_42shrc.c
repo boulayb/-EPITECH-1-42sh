@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Fri May 22 14:20:05 2015 François CASSIN
-** Last update Fri May 22 15:35:37 2015 Arnaud Boulay
+** Last update Fri May 22 15:42:26 2015 François CASSIN
 */
 
 #include <sys/types.h>
@@ -57,7 +57,10 @@ char		*check_42shrc(t_env *env, int *ret)
   if (fd == 0)
     {
       if ((home = get_env("HOME=", env)) == NULL)
-	return (NULL);
+	{
+	  disp_prompt(env);
+	  return (NULL);
+	}
       if ((file = get_rcfile_name(home + 5)) == NULL)
 	return (NULL);
       if ((fd = open(file, O_RDONLY)) == -1)
