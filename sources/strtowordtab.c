@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Tue Jan 20 00:26:54 2015 arnaud boulay
-** Last update Thu May 14 20:54:07 2015 Arnaud Boulay
+** Last update Fri May 22 11:48:22 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -19,8 +19,8 @@ int		count_words(char *str, char *sep)
   i = -1;
   words = 0;
   while (str[++i] != '\0')
-    if ((is_char_inside(sep, str[i]) == 0 && str[i] != '\t') &&
-	(is_char_inside(sep, str[i + 1]) == 1 ||
+    if ((is_cinside(sep, str[i]) == 0 && str[i] != '\t') &&
+	(is_cinside(sep, str[i + 1]) == 1 ||
 	 str[i + 1] == '\t' || str[i + 1] == '\0'))
       ++words;
   return (words);
@@ -32,10 +32,10 @@ int		my_wordlen(char *str, int *i, char *sep)
 
   j = 0;
   while (str[++*i] != '\0')
-    if (is_char_inside(sep, str[*i]) == 0 && str[*i] != '\t')
+    if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
       {
 	++j;
-	if (is_char_inside(sep, str[*i + 1]) == 1 ||
+	if (is_cinside(sep, str[*i + 1]) == 1 ||
 	    str[*i + 1] == '\t' || str[*i + 1] == '\0')
 	  return (j);
       }
@@ -48,10 +48,10 @@ char		*my_wordcpy(char *tab, char *str, int *i, char *sep)
 
   j = -1;
   while (str[++*i] != '\0')
-    if (is_char_inside(sep, str[*i]) == 0 && str[*i] != '\t')
+    if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
       {
 	tab[++j] = str[*i];
-	if (is_char_inside(sep, str[*i + 1]) == 1 ||
+	if (is_cinside(sep, str[*i + 1]) == 1 ||
 	    str[*i + 1] == '\t' || str[*i + 1] == '\0')
 	  {
 	    tab[++j] = '\0';
@@ -61,8 +61,9 @@ char		*my_wordcpy(char *tab, char *str, int *i, char *sep)
   return (NULL);
 }
 
-char		**my_strtowordtab(char **tab, char *str, char *sep)
+char		**my_strtowordtab(char *str, char *sep)
 {
+  char		**tab;
   int		words;
   int		i;
   int		j;

@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 04:24:39 2015 Arnaud Boulay
-** Last update Tue May 19 18:35:16 2015 Arnaud Boulay
+** Last update Fri May 22 01:57:43 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -21,7 +21,7 @@ int			logic_sep_or_core(char **or, int pos, char **path, t_env *env_list)
   i = -1;
   while (ret == 0 && or[++i] != NULL)
     {
-      if ((tab = my_strtowordtab(tab, or[i], " ")) == NULL)
+      if ((tab = exec_alias(or[i])) == NULL)
 	return (-1);
       if ((pos != 0 && i == 0 && my_getnbr(get_env("?", env_list) + 2) == 0) ||
 	  (pos == 0 && i == 0) ||
@@ -38,9 +38,8 @@ int			logic_sep_or(char *and, int pos, char **path, t_env *env_list)
   int			ret;
   char			**or;
 
-  or = NULL;
   ret = 0;
-  if ((or = my_strtowordtab(or, and, "||")) == NULL)
+  if ((or = my_strtowordtab(and, "||")) == NULL)
     return (-1);
   if ((ret = logic_sep_or_core(or, pos, path, env_list)) == -1)
     return (-1);
@@ -57,8 +56,7 @@ int			logic_sep_and(char *tabsep, char **path, t_env *env_list)
 
   i = -1;
   ret = 0;
-  and = NULL;
-  if ((and = my_strtowordtab(and, tabsep, "&&")) == NULL)
+  if ((and = my_strtowordtab(tabsep, "&&")) == NULL)
     return (-1);
   while (ret == 0 && and[++i] != NULL)
     if (is_inside(and[i], "||") == 1)
@@ -68,7 +66,7 @@ int			logic_sep_and(char *tabsep, char **path, t_env *env_list)
       }
     else if (my_getnbr(get_env("?", env_list) + 2) == 0 || i == 0)
       {
-	if ((tab = my_strtowordtab(tab, and[i], " ")) == NULL ||
+	if ((tab = exec_alias(and[i])) == NULL ||
 	    ((ret = fcnt_ptr(tab, path, env_list)) == -1))
 	  return (-1);
 	free_tab(tab);

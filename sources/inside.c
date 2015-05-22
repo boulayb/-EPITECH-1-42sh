@@ -5,10 +5,10 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Thu May 14 20:53:43 2015 Arnaud Boulay
-** Last update Thu May 14 20:53:44 2015 Arnaud Boulay
+** Last update Thu May 21 23:49:10 2015 Arnaud Boulay
 */
 
-int	is_char_inside(char *str, char c)
+int	is_cinside(char *str, char c)
 {
   int	i;
 

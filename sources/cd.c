@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Jan 28 15:23:01 2015 arnaud boulay
-** Last update Thu May 14 20:55:58 2015 Arnaud Boulay
+** Last update Thu May 21 22:49:58 2015 Arnaud Boulay
 */
 
 #include <unistd.h>
@@ -109,8 +109,7 @@ int		change_oldpwd(char **tab, t_env *env_list)
 	return (-1);
       return (0);
     }
-  path = NULL;
-  if ((path = my_strtowordtab(path, tab[1], "/")) == NULL)
+  if ((path = my_strtowordtab(tab[1], "/")) == NULL)
     return (-1);
   if (change_pwd(tab, path, env_list) == -1)
     return (-1);

@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Thu May 21 23:05:22 2015 danilov dimitri
+** Last update Fri May 22 12:19:50 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -15,12 +15,14 @@
 #include "my.h"
 #include "sh42.h"
 
-extern t_env *g_env;
+extern t_alias		*g_alias;
+extern t_env		*g_env;
 
 static t_builtins	gl_builtins[] =
   {
     {"cd", &my_cd},
     {"setenv", &my_setenv},
+    {"alias", &my_alias},
     {"unsetenv", &my_unsetenv},
     {"echo", &my_echo},
     {NULL, NULL}
@@ -93,7 +95,7 @@ int			my_prompt(char *str, char **path, t_env *env_list)
   if (check_syntax(syntax, env_list) == -1)
     return (0);
   free_tab(syntax);
-  if ((tabsep = my_strtowordtab(tabsep, str, ";")) == NULL)
+  if ((tabsep = my_strtowordtab(str, ";")) == NULL)
     return (-1);
   while (ret == 0 && tabsep[++i] != NULL)
     if ((ret = logic_sep_and(tabsep[i], path, env_list)) == -1)
@@ -114,7 +116,7 @@ int			my_minishell(char **env)
 
   path = NULL;
   ret = 0;
-  if ((g_env = create_list(env)) == NULL)
+  if ((g_env = create_list(env)) == NULL || (g_alias = create_alias()) == NULL)
     return (-1);
   disp_prompt(g_env);
   my_signal();
@@ -125,7 +127,7 @@ int			my_minishell(char **env)
 	return (0);
       if (check_env(g_env) == -1)
 	return (-1);
-      if ((path = my_strtowordtab(path, get_env("PATH=", g_env) + 5, ":"))
+      if ((path = my_strtowordtab(get_env("PATH=", g_env) + 5, ":"))
 	  == NULL)
 	return (-1);
       if ((ret = my_prompt(str, path, g_env)) == -1)
