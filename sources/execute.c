@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Fri May 22 13:57:12 2015 François CASSIN
+** Last update Fri May 22 17:18:18 2015 François CASSIN
 */
 
 #include <sys/types.h>
@@ -21,6 +21,7 @@ extern int	g_fd;
 int		son(int *fd_in, int p[2], t_list *cmd, char **env)
 {
   signal(SIGINT, SIG_DFL);
+  signal(SIGTSTP, SIG_IGN);
   if (g_fd != -1)
     {
       dup2(g_fd, 0);

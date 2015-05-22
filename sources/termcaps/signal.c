@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Thu May 21 15:11:56 2015 danilov dimitri
-** Last update Fri May 22 16:50:02 2015 François CASSIN
+** Last update Fri May 22 17:17:13 2015 François CASSIN
 */
 
 #include <signal.h>
@@ -16,7 +16,7 @@
 
 void	catch_signal(int signal)
 {
-  if (signal == SIGINT || signal == SIGSTOP)
+  if (signal == SIGINT || signal == SIGTSTP)
     {
       my_putchar('\n');
       if (g_line != NULL)
