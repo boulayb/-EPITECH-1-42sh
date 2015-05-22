@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri May 22 18:05:34 2015 Sebastien BOULOC
+** Last update Fri May 22 19:20:11 2015 François CASSIN
 */
 
 #include <stdio.h>
@@ -31,7 +31,7 @@ static t_builtins	gl_builtins[] =
 
 void			disp_prompt(t_env *env_list)
 {
-  static int		i;
+  static int		i = 1;
 
   my_putstr(LIGHT_BLUE);
   my_putchar('(');
