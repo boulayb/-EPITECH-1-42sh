@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 00:08:36 2015 François CASSIN
-** Last update Thu May 21 14:00:38 2015 danilov dimitri
+** Last update Fri May 22 11:00:57 2015 Dylan Coodien
 */
 
 #include <stdlib.h>
@@ -34,7 +34,7 @@ void		add_elem_to_complet(t_complet *cmds, char *str)
 {
   t_complet	*new;
 
-  if ((new = malloc(sizeof(new))) != NULL)
+  if ((new = malloc(sizeof(t_complet))) != NULL)
     {
       new->name = str;
       new->next = cmds;

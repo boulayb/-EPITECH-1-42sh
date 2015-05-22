@@ -1,11 +1,11 @@
 /*
 ** new_history_file.c for shell_get_line in /home/cassin_f/42sh_cassin
-** 
+**
 ** Made by François CASSIN
 ** Login   <cassin_f@epitech.net>
-** 
+**
 ** Started on  Thu May 21 17:11:56 2015 François CASSIN
-** Last update Thu May 21 17:49:38 2015 François CASSIN
+** Last update Fri May 22 11:12:43 2015 Dylan Coodien
 */
 
 #include <sys/stat.h>
@@ -21,7 +21,10 @@ void		write_history_into_file(t_line *line,
 {
   int		i;
 
-  i = 0;
+  if (history->nb_max == 999)
+    i = 1;
+  else
+    i = 0;
   while (i < history->nb_max)
     {
       if (history->history_tab[i] != NULL)

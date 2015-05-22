@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Thu May 21 17:57:03 2015 danilov dimitri
+** Last update Fri May 22 11:30:46 2015 Dylan Coodien
 */
 
 #define _GNU_SOURCE
@@ -30,8 +30,10 @@ char		*concat_string(char *command, char *path)
 {
   char		*str;
 
+  if (command == NULL)
+    return (NULL);
   if ((str = xmalloc(strlen(path) + strlen(command) + 2)) == NULL)
-      return (NULL);
+    return (NULL);
   str[0] = 0;
   strcat(str, path);
   strcat(str, "/");
