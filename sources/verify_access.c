@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Fri May 22 11:30:46 2015 Dylan Coodien
+** Last update Fri May 22 12:18:52 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -13,12 +13,19 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <fcntl.h>
 #include "sh42.h"
 
 int		error(char **argv, char **path, int ret, int i)
 {
-  if (ret == -1 && path[i] == NULL
-      && access(argv[0], X_OK) == -1)
+  if (ret == -1 && strncmp(argv[0], "./", 2) != 0 && path[i] == NULL)
+    {
+      printf("%s: ", argv[0]);
+      return (127);
+    }
+  else if (access(argv[0], X_OK) != 0)
     {
       printf("%s: ", argv[0]);
       return (127);
