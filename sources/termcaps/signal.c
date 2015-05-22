@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Thu May 21 15:11:56 2015 danilov dimitri
-** Last update Fri May 22 16:09:05 2015 François CASSIN
+** Last update Fri May 22 16:50:02 2015 François CASSIN
 */
 
 #include <signal.h>
@@ -32,5 +32,7 @@ void	catch_signal(int signal)
 	  if (g_caps != NULL)
 	    xtputs(g_caps->savecu_str, 1, my_putint);
 	}
+      else
+	disp_prompt(g_env);
     }
 }

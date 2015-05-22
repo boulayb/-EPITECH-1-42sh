@@ -1,4 +1,3 @@
-
 /*
 ** shell_get_line.c for 42sh_getline in /home/cassin_f/B2/B2-Systeme_Unix/42sh_cassin
 **
@@ -6,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Fri May 22 16:08:07 2015 François CASSIN
+** Last update Fri May 22 16:43:22 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -60,19 +59,13 @@ static int		init_term_attr(struct termios *t_attr, t_caps *cap)
   if ((fd = open("/dev/tty", O_RDWR)) == -1)
     return (-1);
   if ((tcgetattr(fd, t_attr)) < 0)
-    {
-      my_fputstr(2, "Can't get term attributes\n");
-      return (-1);
-    }
+    return (-1);
   t_attr->c_lflag &= ~ICANON;
   t_attr->c_lflag &= ~ECHO;
   t_attr->c_cc[VMIN] = 1;
   t_attr->c_cc[VTIME] = 0;
   if (tcsetattr(fd, TCSANOW, t_attr) < 0)
-    {
-      my_fputstr(2, "Can't set term attributes\n");
-      return (-1);
-    }
+    return (-1);
   return (get_capacities(cap));
 }
 
@@ -82,15 +75,9 @@ static int		init_termcaps(t_env *env, struct termios *t_attr,
   char			*term;
 
   if ((term = get_env("TERM=", env)) == NULL)
-    {
-      my_fputstr(2, "Can't get terminal, can't init_termcaps\n");
-      return (-1);
-    }
+    return (-1);
   if (tgetent(NULL, term + 5) == ERR)
-    {
-      my_fputstr(2, "Can't get termcaps base\n");
-      return (-1);
-    }
+    return (-1);
   return (init_term_attr(t_attr, cap));
 }
 
@@ -108,7 +95,7 @@ char			*shell_get_line(t_env *env, int *stop)
   if ((s = check_42shrc(env, stop)) != NULL)
     return (s);
   if (init_termcaps(env, &t_attr, &cap) == -1)
-    return (NULL);
+    return (get_next_line(0));
   init_line(&line, &cap);
   if (init_completion(&complet, env) == -1)
     return (NULL);
