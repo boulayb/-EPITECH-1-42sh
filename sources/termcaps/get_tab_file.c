@@ -1,3 +1,5 @@
+
+
 /*
 ** get_tab_file.c for shell_get_line in /home/cassin_f/B2/B2-Systeme_Unix/42sh_cassin
 **
@@ -5,7 +7,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 17:41:58 2015 François CASSIN
-** Last update Fri May 22 16:56:13 2015 François CASSIN
+** Last update Fri May 22 17:10:29 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -33,22 +35,28 @@ static void	change_tild_into_home(t_params *params, char *path)
 {
   int		i;
   char		*home;
+  char		save[BUFF];
 
   i = -1;
   if (char_is_in_str(path, '~') == 0)
     {
-      while (path[++i] != '~')
-	if ((i == 1) || (path[i] == ' ') || (path[i] == '&') ||
-	    (path[i] == ';') || (path[i] == '|'))
-	  {
-	    if ((home = get_env("HOME=", params->env)))
-	      {
-		home = home + 5;
-		go_right(i, path + i - 1, my_strlen(path),
-			 my_strlen(home) - 1);
-		memcpy(path + i - 1, home, my_strlen(home));
-	      }
-	  }
+      while (path[++i] != '~');
+      if ((i == 0) || (path[i] == ' ') || (path[i] == '&') ||
+	  (path[i] == ';') || (path[i] == '|'))
+	{
+	  if ((home = get_env("HOME=", params->env)))
+	    {
+	      home = home + 5;
+	      if (my_strlen(path) + my_strlen(home) <= BUFF - 2)
+		{
+		  memset(save, 0, BUFF);
+		  memcpy(save, path + i + 1, my_strlen(path + i + 1));
+		  memcpy(path + i, home, my_strlen(home));
+		  path[i + my_strlen(home)] = 0;
+		  memcpy(path + i + my_strlen(home), save, my_strlen(save));
+		}
+	    }
+	}
     }
 }
 
