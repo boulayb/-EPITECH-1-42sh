@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 04:23:19 2015 François CASSIN
-** Last update Fri May 22 13:40:07 2015 Sebastien BOULOC
+** Last update Fri May 22 19:05:11 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -26,6 +26,7 @@ static int	recup_datas(t_history *history, int fd)
       epur_str(history->history_tab[history->nb_max]);
       ++history->nb_max;
     }
+  history->history_tab[history->nb_max] = NULL;
   return (0);
 }
 

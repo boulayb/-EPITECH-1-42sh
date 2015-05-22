@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Fri May 22 14:50:08 2015 Sebastien BOULOC
+** Last update Fri May 22 19:03:38 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -14,10 +14,15 @@
 
 void		change_new_current(t_history *history, t_line *line)
 {
-  if (history->history_tab[history->nb_max - (line->history_offset)] != NULL)
-    free(history->history_tab[history->nb_max - (line->history_offset)]);
-  history->history_tab[history->nb_max -
-		       (line->history_offset)] = strdup(line->buffer);
+  if (history->history_tab != NULL)
+    {
+      if (history->history_tab[history->nb_max -
+			       (line->history_offset)] != NULL)
+	free(history->history_tab[history->nb_max -
+				  (line->history_offset)]);
+      history->history_tab[history->nb_max -
+			   (line->history_offset)] = strdup(line->buffer);
+    }
 }
 
 void		up_histo(t_params *params, t_line *line)
