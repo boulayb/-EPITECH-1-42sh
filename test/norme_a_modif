@@ -2,3 +2,4 @@ Nom de globale dans le main.c (gl_builtins ---> g_builtins) l:18
 Nom de globale dans status.c (gl_status ----> g_status) l:15
 Optimisation incrementation get_tab_file.c (l:41) ---> set i à -1 est faire ++i
 Refresh_screen.c fonctions de 28 lignes (A voir avec Francois)
+indenter les includes par rapport au "# define" ---> "# include"
