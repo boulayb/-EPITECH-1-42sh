@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Fri May 22 15:01:06 2015 François CASSIN
+** Last update Fri May 22 16:07:57 2015 François CASSIN
 */
 
 #ifndef MY_GET_LINE_H_
@@ -99,6 +99,8 @@ struct		s_caps
 };
 
 typedef	struct s_caps		t_caps;
+
+t_caps		*g_caps;
 
 struct			s_complet
 {
