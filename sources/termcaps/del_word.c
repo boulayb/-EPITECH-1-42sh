@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 12:15:03 2015 François CASSIN
+** Last update Fri May 22 14:19:44 2015 Sebastien BOULOC
 */
 
 #include <string.h>
@@ -27,7 +27,7 @@ int		count_char_pos(char buff[], int offset)
   return (count);
 }
 
-int		get_end_last_word(char buff[], int len)
+static int	get_end_last_word(char buff[], int len)
 {
   while (len != 0 && (buff[len] == ' ' || buff[len] == '\t'))
     --len;

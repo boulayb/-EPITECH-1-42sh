@@ -5,14 +5,14 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 15:34:01 2015 François CASSIN
+** Last update Fri May 22 14:11:55 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "my_get_line.h"
 
-int		get_word_begin(int offset_cur, char buff[])
+static int	get_word_begin(int offset_cur, char buff[])
 {
   int		i;
 
@@ -20,12 +20,12 @@ int		get_word_begin(int offset_cur, char buff[])
   buff[i] = 0;
   while ((i >= 0) && (buff[i] != ' ') && (buff[i] != ';') &&
 	 (buff[i] != '&') && (buff[i] != '|') && (buff[i] != '/'))
-    i--;
-  i++;
+    --i;
+  ++i;
   return (i);
 }
 
-int		get_word_type(t_compl_par *complete)
+static int	get_word_type(t_compl_par *complete)
 {
   int		i;
 
@@ -48,7 +48,7 @@ int		get_word_type(t_compl_par *complete)
   return (UNKNOWN);
 }
 
-void		order_by_asc(t_complet *to_order)
+static void	order_by_asc(t_complet *to_order)
 {
   t_complet	*tmp;
   char		*tmp_str;
@@ -73,7 +73,7 @@ void		order_by_asc(t_complet *to_order)
     }
 }
 
-int		get_matched_str(t_compl_par *complete, t_complet *list_tab)
+static int	get_matched_str(t_compl_par *complete, t_complet *list_tab)
 {
   t_complet	*tmp;
 

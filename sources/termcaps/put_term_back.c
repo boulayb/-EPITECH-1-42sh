@@ -5,17 +5,16 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 22:43:05 2015 François CASSIN
-** Last update Fri May 22 11:28:56 2015 danilov dimitri
+** Last update Fri May 22 13:48:15 2015 Sebastien BOULOC
 */
 
 #include <ncurses/curses.h>
 #include <term.h>
 #include <unistd.h>
 #include <stdlib.h>
-#include "my_get_line.h"
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
+#include "my_get_line.h"
 
 int     put_term_back(struct termios *t_attr)
 {

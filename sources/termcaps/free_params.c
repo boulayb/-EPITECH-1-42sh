@@ -5,17 +5,18 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Wed May 20 14:58:39 2015 François CASSIN
-** Last update Fri May 22 11:31:11 2015 François CASSIN
+** Last update Fri May 22 14:43:05 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my_get_line.h"
 
-void		free_history(t_history *history)
+static void	free_history(t_history *history)
 {
   int		i;
 
-  while (i < 1000)
+  i = 0;
+  while (i < 999)
     {
       if (history->history_tab[i] != NULL)
 	free(history->history_tab[i]);
@@ -23,7 +24,7 @@ void		free_history(t_history *history)
     }
 }
 
-void		free_caps(t_caps *cap)
+static void	free_caps(t_caps *cap)
 {
   free(cap->clear_str);
   free(cap->down_str);
@@ -43,4 +44,6 @@ void		free_params(t_params *params)
 {
   free_complete(params->completion->path);
   free_complete(params->completion->local);
+  free_caps(params->caps);
+  free_history(params->history);
 }

@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 02:17:56 2015 François CASSIN
-** Last update Thu May 21 14:59:06 2015 danilov dimitri
+** Last update Fri May 22 14:27:46 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
@@ -34,7 +34,7 @@ int		check_overflow(t_caps *cap, t_line *line, int len)
   return (0);
 }
 
-int		add_new_char(t_line *line, t_caps *cap)
+static int	add_new_char(t_line *line, t_caps *cap)
 {
   char		save[BUFF];
 
@@ -80,7 +80,8 @@ int		get_cmd(t_line *line, t_params *params)
 	  my_fputchar(1, '\n');
 	  return (0);
 	}
-     if (((line->nb_char == 0) && (check_ctrl(line->character) == CTRL_D)) || ret == 0)
+     if (((line->nb_char == 0) &&
+	  (check_ctrl(line->character) == CTRL_D)) || ret == 0)
 	return (1);
       else if ((key = get_key(line)) != -1)
 	fkey[key](params, line);

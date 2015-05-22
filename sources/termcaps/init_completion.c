@@ -5,13 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Sun May 17 23:40:02 2015 François CASSIN
-** Last update Mon May 18 00:38:38 2015 François CASSIN
+** Last update Fri May 22 13:40:26 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my_get_line.h"
 
-int		init_completion(t_completion *complet, t_env *env)
+int	init_completion(t_completion *complet, t_env *env)
 {
   if ((complet->path = malloc(sizeof(t_complet))) == NULL)
     return (-1);

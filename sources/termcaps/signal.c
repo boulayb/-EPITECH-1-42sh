@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Thu May 21 15:11:56 2015 danilov dimitri
-** Last update Thu May 21 15:30:54 2015 danilov dimitri
+** Last update Fri May 22 14:49:12 2015 Sebastien BOULOC
 */
 
 #include <signal.h>
@@ -14,7 +14,7 @@
 #include "my_get_line.h"
 #include "my.h"
 
-void		catch_signal(int signal)
+void	catch_signal(int signal)
 {
   if (signal == SIGINT || signal == SIGSTOP)
     {

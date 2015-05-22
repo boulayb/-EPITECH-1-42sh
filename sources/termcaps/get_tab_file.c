@@ -5,18 +5,17 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 17:41:58 2015 François CASSIN
-** Last update Fri May 22 12:24:43 2015 Dylan Coodien
+** Last update Fri May 22 14:32:21 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <unistd.h>
 #include "my.h"
 #include "my_get_line.h"
 
-int		char_is_in_str(char *str, char c)
+static int	char_is_in_str(char *str, char c)
 {
   int		i;
 
@@ -30,15 +29,15 @@ int		char_is_in_str(char *str, char c)
   return (1);
 }
 
-void		change_tild_into_home(t_params *params, char *path)
+static void	change_tild_into_home(t_params *params, char *path)
 {
   int		i;
   char		*home;
 
-  i = 0;
+  i = -1;
   if (char_is_in_str(path, '~') == 0)
     {
-      while (path[i++] != '~')
+      while (path[++i] != '~')
 	if ((i == 1) || (path[i] == ' ') || (path[i] == '&') ||
 	    (path[i] == ';') || (path[i] == '|'))
 	  {
@@ -53,7 +52,7 @@ void		change_tild_into_home(t_params *params, char *path)
     }
 }
 
-int		read_folder(t_complet *file, DIR *directory, char *path)
+static int	read_folder(t_complet *file, DIR *directory, char *path)
 {
   struct dirent	*d;
   struct stat	s;
@@ -74,7 +73,7 @@ int		read_folder(t_complet *file, DIR *directory, char *path)
   return (0);
 }
 
-int		open_file_tab(t_params *params, t_compl_par *complete,
+static int	open_file_tab(t_params *params, t_compl_par *complete,
 			      char *path)
 {
   DIR		*directory;

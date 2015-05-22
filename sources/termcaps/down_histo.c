@@ -5,16 +5,16 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Thu May 21 17:10:24 2015 François CASSIN
+** Last update Fri May 22 13:32:25 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "my_get_line.h"
 
-void		down_histo(t_params *params, t_line *line)
+void	down_histo(t_params *params, t_line *line)
 {
-  char		*str;
+  char	*str;
 
   if (line->history_offset != 0)
     {

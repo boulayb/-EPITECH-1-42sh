@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Thu May 21 17:04:05 2015 François CASSIN
+** Last update Fri May 22 14:50:08 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>

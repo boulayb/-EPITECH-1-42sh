@@ -5,13 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 13:31:54 2015 François CASSIN
+** Last update Fri May 22 14:22:07 2015 Sebastien BOULOC
 */
 
 #include <string.h>
 #include "my_get_line.h"
 
-int		get_char_first_offset(char buff[], int offset)
+static int	get_char_first_offset(char buff[], int offset)
 {
   int		nb_bytes;
 
@@ -25,7 +25,7 @@ int		get_char_first_offset(char buff[], int offset)
     }
 }
 
-int		get_char_len(char c)
+static int	get_char_len(char c)
 {
   int		res;
 
@@ -35,7 +35,7 @@ int		get_char_len(char c)
     return (res);
 }
 
-int		exchange_chars(char buff[], int offset)
+static int	exchange_chars(char buff[], int offset)
 {
   int		first_char_off;
   int		sec_char_off;

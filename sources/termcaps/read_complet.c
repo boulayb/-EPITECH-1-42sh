@@ -5,18 +5,17 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 00:08:36 2015 François CASSIN
-** Last update Fri May 22 11:00:57 2015 Dylan Coodien
+** Last update Fri May 22 13:55:05 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
-#include <sys/types.h>
 #include <unistd.h>
 #include "my.h"
 #include "my_get_line.h"
 
-int		check_already(t_complet *cmds, char *str)
+static int	check_already(t_complet *cmds, char *str)
 {
   t_complet	*tmp;
 

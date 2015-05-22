@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 11:22:08 2015 François CASSIN
+** Last update Fri May 22 14:04:46 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-void		decale_bytes_left(t_line *line, int offset)
+static void	decale_bytes_left(t_line *line, int offset)
 {
   int		nb_bytes;
 

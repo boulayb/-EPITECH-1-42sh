@@ -5,17 +5,16 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 01:35:40 2015 François CASSIN
-** Last update Thu May 21 14:00:13 2015 danilov dimitri
+** Last update Fri May 22 14:28:59 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <fcntl.h>
 #include <string.h>
 #include "my_get_line.h"
 
-void		get_coord(int *x, int *y, char *buff)
+static void	get_coord(int *x, int *y, char *buff)
 {
   int		i;
   int		save;
@@ -35,7 +34,7 @@ void		get_coord(int *x, int *y, char *buff)
 	  buff[i] = 0;
 	  *x = my_getnbr(buff + save);
 	}
-      i = i + 1;
+      ++i;
     }
 }
 

@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 11:41:23 2015 François CASSIN
+** Last update Fri May 22 14:16:48 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-void		delete_back_spec_char(t_line *line, int offset)
+static void	delete_back_spec_char(t_line *line, int offset)
 {
   int		nb_bytes;
 

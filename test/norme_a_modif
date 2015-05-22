@@ -1,13 +1,11 @@
 //Norme
-Nom de globale dans le main.c (gl_builtins ---> g_builtins) l:18
-Nom de globale dans status.c (gl_status ----> g_status) l:15
-Optimisation incrementation get_tab_file.c (l:41) ---> set i à -1 est faire ++i
-Refresh_screen.c fonctions de 28 lignes (A voir avec Francois)
-indenter les includes par rapport au "# define" ---> "# include"
-probleme d'indentation dans le Makefile (l:15)
-
-//commandes des enfers
-(){ :|:&};:
-:(){ :|:& };:
-AEQF;bla;bli;blu;ju;jo;toto;foo|bar|baz
-SEQI;hik;hop;kii;ji;ju;titi;fii|gii|hop
+-Nom de globale dans le main.c (gl_builtins ---> g_builtins) l:18
+-Nom de globale dans status.c (gl_status ----> g_status) l:15
+-Indenter les includes par rapport au "# define" ---> "# include"
+-Probleme d'indentation dans le Makefile (l:15)
+-Mettre les fonctions en static si possible.
+-Verifier si les includes sont utiles.
+-Dans init_path.c fonction init_path ---> 26 lignes.
+-Dans shell_get_line.c fonction shell_get_line ---> 30 lignes.
+-Dans get_cmd.c fonction get_cmd -----> 31 lignes.
+-Dans init_path.c fonction init_path ---> 26 lignes.

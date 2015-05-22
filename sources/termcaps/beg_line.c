@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:25:31 2015 François CASSIN
-** Last update Wed May 20 11:00:17 2015 François CASSIN
+** Last update Fri May 22 13:27:21 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-void		beg_line(t_params *params, t_line *line)
+void	beg_line(t_params *params, t_line *line)
 {
   xtputs(params->caps->rescu_str, 1, my_putint);
   line->cursor_offset = 0;

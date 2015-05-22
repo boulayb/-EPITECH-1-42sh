@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 22:51:43 2015 François CASSIN
-** Last update Wed May 20 18:08:37 2015 danilov dimitri
+** Last update Fri May 22 13:58:24 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
@@ -21,13 +21,13 @@ static int	count_elem(t_complet *list)
   tmp = list->next;
   while (tmp != list)
     {
-      count = count + 1;
+      ++count;
       tmp = tmp->next;
     }
   return (count);
 }
 
-char		wait_for_y_or_n()
+static char	wait_for_y_or_n()
 {
   char		buffer[BUFF];
   int		ret;
@@ -44,7 +44,7 @@ char		wait_for_y_or_n()
   return (buffer[0]);
 }
 
-void		aff_possibilities(t_complet *matched)
+static void	aff_possibilities(t_complet *matched)
 {
   t_complet	*tmp;
 

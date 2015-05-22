@@ -5,13 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 03:16:57 2015 François CASSIN
-** Last update Thu May 21 18:29:11 2015 Dylan Coodien
+** Last update Fri May 22 14:30:10 2015 Sebastien BOULOC
 */
 
 #include "my.h"
 #include "my_get_line.h"
 
-int		get_key2(t_line *line)
+static int	get_key2(t_line *line)
 {
   char		*str;
 

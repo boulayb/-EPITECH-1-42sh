@@ -5,13 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu May 21 22:10:02 2015 François CASSIN
-** Last update Fri May 22 12:08:25 2015 Dylan Coodien
+** Last update Fri May 22 14:08:43 2015 Sebastien BOULOC
 */
 
 #include <string.h>
 #include "my_get_line.h"
 
-int		get_cmd_len(char buff[], int i)
+static int	get_cmd_len(char buff[], int i)
 {
   if (buff[i + 1] && buff[i + 1] == '!')
     return (i + 2);
@@ -22,7 +22,7 @@ int		get_cmd_len(char buff[], int i)
   return (i);
 }
 
-int		replace_history(char buff[], int i, int len, char *history)
+static int	replace_history(char buff[], int i, int len, char *history)
 {
   char		save[BUFF];
 
@@ -37,7 +37,7 @@ int		replace_history(char buff[], int i, int len, char *history)
   return (0);
 }
 
-int		replace_by_history(t_history *history, t_line *line, int i,
+static int	replace_by_history(t_history *history, t_line *line, int i,
 				   int len)
 {
   int		n;
@@ -67,7 +67,7 @@ int		replace_by_history(t_history *history, t_line *line, int i,
   return (1);
 }
 
-int		is_in_double_quotes(char buff[], int offset)
+static int	is_in_double_quotes(char buff[], int offset)
 {
   int		i;
   int		quotes;

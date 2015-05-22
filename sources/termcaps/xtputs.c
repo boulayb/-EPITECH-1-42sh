@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 22:21:50 2015 François CASSIN
-** Last update Wed May 20 15:40:06 2015 danilov dimitri
+** Last update Fri May 22 14:51:13 2015 Sebastien BOULOC
 */
 
 #include <ncurses/curses.h>
@@ -27,27 +27,6 @@ char		*xtgetstr(char *id, char **area)
       if ((ret = tgetstr(id, area)) == NULL)
 	{
 	  my_fputstr(2, "Error tgetstr\n");
-	  return (NULL);
-	}
-      else
-	return (ret);
-    }
-}
-
-char		*xtgoto(char *cap, int col, int row)
-{
-  char		*ret;
-
-  if (cap == NULL)
-    {
-      my_fputstr(2, "Error tgoto\n");
-      return (NULL);
-    }
-  else
-    {
-      if ((ret = tgoto(cap, col, row)) == NULL)
-	{
-	  my_fputstr(2, "Error tputs\n");
 	  return (NULL);
 	}
       else

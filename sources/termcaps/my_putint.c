@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 01:02:29 2015 François CASSIN
-** Last update Mon May 18 01:02:58 2015 François CASSIN
+** Last update Fri May 22 13:45:11 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
 
-int		my_putint(int i)
+int	my_putint(int i)
 {
   if (write(1, &i, 1) == -1)
     return (-1);

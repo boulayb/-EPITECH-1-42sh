@@ -5,13 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Wed May 20 12:04:39 2015 François CASSIN
+** Last update Fri May 22 13:30:02 2015 Sebastien BOULOC
 */
 
 #include <string.h>
 #include "my_get_line.h"
 
-void		del_all(t_params *params, t_line *line)
+void	del_all(t_params *params, t_line *line)
 {
   if (line->nb_char != 0)
     {

@@ -5,22 +5,20 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Fri May 22 11:49:24 2015 Dylan Coodien
+** Last update Fri May 22 14:48:35 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include <ncurses/curses.h>
 #include <term.h>
-#include <termios.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "my.h"
 #include "my_get_line.h"
 
-void			init_line(t_line *line, t_caps *cap)
+static void		init_line(t_line *line, t_caps *cap)
 {
   line->nb_char_pos = 0;
   line->nb_char = 0;
@@ -35,7 +33,7 @@ void			init_line(t_line *line, t_caps *cap)
   xtputs(cap->rescu_str, 1, my_putint);
 }
 
-int			get_capacities(t_caps *cap)
+static int		get_capacities(t_caps *cap)
 {
   cap->column = xtgetnum("co");
   cap->line = xtgetnum("li");
@@ -54,7 +52,7 @@ int			get_capacities(t_caps *cap)
   return (0);
 }
 
-int			init_term_attr(struct termios *t_attr, t_caps *cap)
+static int		init_term_attr(struct termios *t_attr, t_caps *cap)
 {
   int			fd;
 
@@ -77,7 +75,7 @@ int			init_term_attr(struct termios *t_attr, t_caps *cap)
   return (get_capacities(cap));
 }
 
-int			init_termcaps(t_env *env, struct termios *t_attr,
+static int		init_termcaps(t_env *env, struct termios *t_attr,
 				      t_caps *cap)
 {
   char			*term;

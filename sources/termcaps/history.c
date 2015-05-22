@@ -5,13 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 04:23:19 2015 François CASSIN
-** Last update Fri May 22 12:15:49 2015 Dylan Coodien
+** Last update Fri May 22 13:40:07 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include "my.h"

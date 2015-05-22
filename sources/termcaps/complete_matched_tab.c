@@ -5,13 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 20:13:24 2015 François CASSIN
-** Last update Wed May 20 18:25:09 2015 danilov dimitri
+** Last update Fri May 22 14:15:20 2015 Sebastien BOULOC
 */
 
 #include <string.h>
 #include "my_get_line.h"
 
-void		add_to_buff(t_params *params, t_line *line, char buff[])
+static void	add_to_buff(t_params *params, t_line *line, char buff[])
 {
   if (check_overflow(params->caps, line, my_strlen(buff)) == 0)
     {
@@ -26,7 +26,7 @@ void		add_to_buff(t_params *params, t_line *line, char buff[])
     }
 }
 
-int		get_same_begin(t_complet *matched)
+static int	get_same_begin(t_complet *matched)
 {
   t_complet	*tmp;
   int		nb_chars;
@@ -48,7 +48,7 @@ int		get_same_begin(t_complet *matched)
     }
 }
 
-void		do_multiple_matched(t_params *params, t_compl_par *complete,
+static void	do_multiple_matched(t_params *params, t_compl_par *complete,
 				    t_line *line, char new_chars[])
 {
   int		begin_idem;

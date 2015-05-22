@@ -5,12 +5,11 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Fri May 22 11:40:52 2015 Dylan Coodien
+** Last update Fri May 22 14:36:03 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
-#include <sys/types.h>
 #include <dirent.h>
 #include "my.h"
 #include "my_get_line.h"
@@ -26,12 +25,12 @@ static int      how_much_words(char *str)
     {
       if (str[i] != ':')
 	{
-	  count = count + 1;
+	  ++count;
 	  while (str[i] != ':' && str[i])
-	    i = i + 1;
+	    ++i;
 	}
       if (str[i])
-	i = i + 1;
+	++i;
     }
   return (count);
 }
@@ -50,18 +49,18 @@ static char     **malloc_str_to_tab(char *str)
     {
       if ((tab[i] = malloc(sizeof(char) * (my_strlen(str) + 1))) == NULL)
 	return (NULL);
-      i = i + 1;
+      ++i;
     }
   tab[i] = NULL;
   return (tab);
 }
 
-char    **copy_path_to_wordtab(char *str)
+static char	**copy_path_to_wordtab(char *str)
 {
-  int   i;
-  char  **tab;
-  int   n;
-  int   j;
+  int		i;
+  char		**tab;
+  int		n;
+  int		j;
 
   i = 0;
   n = 0;
@@ -70,16 +69,16 @@ char    **copy_path_to_wordtab(char *str)
   while (str[i])
     {
       while (str[i] == ':' && str[i])
-	i = i + 1;
+	++i;
       j = 0;
       while (str[i] != ':' && str[i])
 	{
 	  tab[n][j] = str[i];
-	  i = i + 1;
-	  j = j + 1;
+	  ++i;
+	  ++j;
 	}
       tab[n][j] = 0;
-      n = n + 1;
+      ++n;
     }
   tab[n] = NULL;
   return (tab);

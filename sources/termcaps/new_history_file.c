@@ -5,18 +5,17 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu May 21 17:11:56 2015 François CASSIN
-** Last update Fri May 22 12:14:35 2015 Dylan Coodien
+** Last update Fri May 22 13:46:55 2015 Sebastien BOULOC
 */
 
 #include <sys/stat.h>
-#include <sys/types.h>
 #include <fcntl.h>
 #include <unistd.h>
 #include <stdlib.h>
 #include <string.h>
 #include "my_get_line.h"
 
-void		write_history_into_file(t_line *line,
+static void	write_history_into_file(t_line *line,
 					t_history *history, int fd)
 {
   int		i;

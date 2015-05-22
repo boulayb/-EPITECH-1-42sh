@@ -5,12 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:25:58 2015 François CASSIN
-** Last update Wed May 20 11:06:41 2015 François CASSIN
+** Last update Fri May 22 13:32:46 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-void		end_line(t_params *params, t_line *line)
+void	end_line(t_params *params, t_line *line)
 {
   if (line->cursor_offset < line->nb_char)
     {
