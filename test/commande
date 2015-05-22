@@ -25,7 +25,6 @@ ls | ||| pwd || cat -e | ls -l
 /ls
 ////////////ls
 ////bin///////ls
-`
 ~
 cd ~
 env
