@@ -1,63 +1,110 @@
 /*
-** strtowordtab.c for minishell1 in /home/boulay_b/Rendu/PSU/PSU_2014_minishell1
+** quotetowordtab.c for quotetowordtab in /home/boulay_b/Work/SE2/PSU/42sh/PSU_2014_42sh
 **
-** Made by arnaud boulay
+** Made by Arnaud Boulay
 ** Login   <boulay_b@epitech.net>
 **
-** Started on  Tue Jan 20 00:26:54 2015 arnaud boulay
-** Last update Fri May 22 18:13:09 2015 Sebastien BOULOC
+** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
+** Last update Fri May 22 21:28:43 2015 Arnaud Boulay
 */
 
+#include <stdio.h>
 #include <stdlib.h>
 #include "my.h"
 
-int		count_words(char *str, char *sep)
+static int	count_words(char *str, char *sep)
 {
+  int		quote;
   int		words;
   int		i;
 
   i = -1;
+  if (count_quotes(str) == -1)
+    return (0);
   words = 0;
+  quote = 0;
   while (str[++i] != '\0')
-    if ((is_cinside(sep, str[i]) == 0 && str[i] != '\t') &&
-	(is_cinside(sep, str[i + 1]) == 1 ||
-	 str[i + 1] == '\t' || str[i + 1] == '\0'))
-      ++words;
+    {
+      if (str[i] == '"')
+	{
+	  if (quote == 0)
+	    quote = 1;
+	  else
+	    quote = 0;
+	}
+      if (quote == 0
+	  && (is_cinside(sep, str[i]) == 0 && str[i] != '\t' &&
+	      (is_cinside(sep, str[i + 1]) == 1 ||
+	       str[i + 1] == '\t' || str[i + 1] == '\0')))
+	++words;
+    }
   return (words);
 }
 
-int		my_wordlen(char *str, int *i, char *sep)
+static void	my_wordlen_core(int quote, char *str, int *i, int *j)
 {
+  if (quote == 1 && str[*i + 1] == '"')
+    {
+      ++(*j);
+      ++(*i);
+    }
+}
+
+static int	my_wordlen(char *str, int *i, char *sep)
+{
+  int		quote;
   int		j;
 
   j = 0;
+  quote = 0;
   while (str[++(*i)] != '\0')
-    if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
+    if (str[*i] == '"' && quote == 0)
       {
 	++j;
-	if (is_cinside(sep, str[*i + 1]) == 1 ||
-	    str[*i + 1] == '\t' || str[*i + 1] == '\0')
-	  return (j);
+	quote = 1;
+      }
+    else if (quote == 1 || (quote == 0 && is_cinside(sep, str[*i]) == 0 &&
+			    str[*i] != '\t'))
+      {
+	++j;
+	if ((quote == 1 && str[*i + 1] == '"') ||
+	    (quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
+			    str[*i + 1] == '\t' ||
+			    str[*i + 1] == '\0')))
+	  {
+	    my_wordlen_core(quote, str, i, &j);
+	    return (j);
+	  }
       }
   return (-1);
 }
 
-char		*my_wordcpy(char *tab, char *str, int *i, char *sep)
+static char	*my_wordcpy(char *tab, char *str, int *i, char *sep)
 {
+  int		quote;
   int		j;
 
   j = -1;
+  quote = 0;
   while (str[++(*i)] != '\0')
-    if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
+    if (str[*i] == '"' && quote == 0)
       {
 	tab[++j] = str[*i];
-	if (is_cinside(sep, str[*i + 1]) == 1 ||
-	    str[*i + 1] == '\t' || str[*i + 1] == '\0')
-	  {
-	    tab[++j] = '\0';
-	    return (tab);
-	  }
+	quote = 1;
       }
+    else if ((quote == 1 || (quote == 0 &&
+			     is_cinside(sep, str[*i]) == 0 && str[*i] != '\t'))
+	     && (tab[++j] = str[*i]))
+      if ((quote == 1 && str[*i + 1] == '"') ||
+	  (quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
+			  str[*i + 1] == '\t' || str[*i + 1] == '\0')))
+	{
+	  if (quote == 1 && str[*i + 1] == '"')
+	    if ((tab[++j] = str[*i + 1]))
+	      ++(*i);
+	  tab[++j] = '\0';
+	  return (tab);
+	}
   return (NULL);
 }
 
@@ -72,29 +119,18 @@ char		**my_strtowordtab(char *str, char *sep)
   i = -1;
   j = -1;
   k = -1;
-  if (str == NULL || sep == NULL)
+  if (str == NULL)
     return (NULL);
   words = count_words(str, sep);
   if ((tab = malloc(sizeof(char *) * (words + 1))) == NULL)
     return (NULL);
   while (++i < words)
     {
-      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 1)))
+      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 1000)))
 	  == NULL)
 	return (NULL);
       tab[i] = my_wordcpy(tab[i], str, &k, sep);
     }
   tab[i] = NULL;
   return (tab);
-}
-
-void		free_tab(char **tab)
-{
-  int		i;
-
-  i = -1;
-  while (tab[++i] != NULL)
-    free(tab[i]);
-  free(tab[i]);
-  free(tab);
 }

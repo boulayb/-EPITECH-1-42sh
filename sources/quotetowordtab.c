@@ -5,30 +5,12 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
-** Last update Fri May 22 18:11:31 2015 Sebastien BOULOC
+** Last update Fri May 22 21:26:10 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "my.h"
-
-static int	count_quotes(char *str)
-{
-  int		quote;
-  int		i;
-
-  i = -1;
-  quote = 0;
-  while (str[++i] != '\0')
-    if (str[i] == '"')
-      ++quote;
-  if (quote % 2 != 0)
-    {
-      printf("Unmatched \".\n");
-      return (-1);
-    }
-  return (quote);
-}
 
 static int	count_words(char *str, char *sep)
 {
@@ -131,11 +113,22 @@ char		**my_quotetowordtab(char *str, char *sep)
     return (NULL);
   while (++i < words)
     {
-      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 2)))
+      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 1000)))
 	  == NULL)
 	return (NULL);
       tab[i] = my_wordcpy(tab[i], str, &k, sep);
     }
   tab[i] = NULL;
   return (tab);
+}
+
+void		free_tab(char **tab)
+{
+  int		i;
+
+  i = -1;
+  while (tab[++i] != NULL)
+    free(tab[i]);
+  free(tab[i]);
+  free(tab);
 }
