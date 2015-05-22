@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu May 21 17:11:56 2015 François CASSIN
-** Last update Fri May 22 11:12:43 2015 Dylan Coodien
+** Last update Fri May 22 12:14:35 2015 Dylan Coodien
 */
 
 #include <sys/stat.h>
@@ -28,7 +28,9 @@ void		write_history_into_file(t_line *line,
   while (i < history->nb_max)
     {
       if (history->history_tab[i] != NULL)
-	my_fputstr(fd, history->history_tab[i]);
+	{
+	  my_fputstr(fd, history->history_tab[i]);
+	}
       my_fputchar(fd, '\n');
       ++i;
     }

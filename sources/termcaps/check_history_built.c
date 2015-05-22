@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu May 21 22:10:02 2015 François CASSIN
-** Last update Fri May 22 11:48:56 2015 Dylan Coodien
+** Last update Fri May 22 12:08:25 2015 Dylan Coodien
 */
 
 #include <string.h>
@@ -54,7 +54,7 @@ int		replace_by_history(t_history *history, t_line *line, int i,
 	    {
 	      if (history->history_tab[n] != NULL &&
 		  strncmp(line->buffer + i + 1,
-			  history->history_tab[n], len - 1 - i) == 0)
+			  history->history_tab[n], len - (1 + i)) == 0)
 		{
 		  replace_history(line->buffer, i, len,
 				  history->history_tab[n]);

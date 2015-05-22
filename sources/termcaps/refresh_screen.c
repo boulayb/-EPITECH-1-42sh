@@ -1,16 +1,22 @@
 /*
 ** refresh_screen.c for shell_get_line.c in /home/cassin_f/B2/B2-Systeme_Unix/42sh_cassin
-** 
+**
 ** Made by François CASSIN
 ** Login   <cassin_f@epitech.net>
-** 
+**
 ** Started on  Mon May 18 01:59:34 2015 François CASSIN
-** Last update Wed May 20 11:07:33 2015 François CASSIN
+** Last update Fri May 22 12:22:39 2015 Dylan Coodien
 */
 
 #include "my_get_line.h"
 
-// 28 lignes
+static void	go_to_line_up(t_caps *cap)
+{
+  my_fputchar(1, '\n');
+  xtputs(cap->rescu_str, 1, my_putint);
+  xtputs_param(cap->UP_str, 1, my_putint, 1);
+  xtputs(cap->savecu_str, 1, my_putint);
+}
 
 void		refresh_screen(t_line *line, int cursor_off, char buffer[],
 			       t_caps *cap)
@@ -21,12 +27,7 @@ void		refresh_screen(t_line *line, int cursor_off, char buffer[],
   line->line_nb = (cursor_off + line->cursor_begin - 1) / cap->column;
   if ((line->line_begin + line->line_nb >= cap->line + 1) &&
       (save != line->line_nb) && ((line->line_begin--) || 1))
-    {
-      my_fputchar(1, '\n');
-      xtputs(cap->rescu_str, 1, my_putint);
-      xtputs_param(cap->UP_str, 1, my_putint, 1);
-      xtputs(cap->savecu_str, 1, my_putint);
-    }
+    go_to_line_up(cap);
   xtputs(cap->rescu_str, 1, my_putint);
   xtputs(cap->cl_cureos_str, 1, my_putint);
   my_fputstr(1, buffer);

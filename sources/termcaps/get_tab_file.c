@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 17:41:58 2015 François CASSIN
-** Last update Wed May 20 17:56:34 2015 danilov dimitri
+** Last update Fri May 22 12:24:43 2015 Dylan Coodien
 */
 
 #include <stdlib.h>
@@ -42,8 +42,9 @@ void		change_tild_into_home(t_params *params, char *path)
 	if ((i == 1) || (path[i] == ' ') || (path[i] == '&') ||
 	    (path[i] == ';') || (path[i] == '|'))
 	  {
-	    if ((home = get_env("HOME=", params->env) + 5))
+	    if ((home = get_env("HOME=", params->env)))
 	      {
+		home = home + 5;
 		go_right(i, path + i - 1, my_strlen(path),
 			 my_strlen(home) - 1);
 		memcpy(path + i - 1, home, my_strlen(home));

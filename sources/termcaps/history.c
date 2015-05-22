@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 04:23:19 2015 François CASSIN
-** Last update Thu May 21 18:44:01 2015 Dylan Coodien
+** Last update Fri May 22 12:15:49 2015 Dylan Coodien
 */
 
 #include <stdlib.h>
@@ -24,6 +24,7 @@ static int	recup_datas(t_history *history, int fd)
   while ((s = get_next_line(fd)) && history->nb_max < 999)
     {
       history->history_tab[history->nb_max] = s;
+      epur_str(history->history_tab[history->nb_max]);
       ++history->nb_max;
     }
   return (0);
