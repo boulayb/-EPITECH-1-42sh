@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Fri May 22 16:43:22 2015 François CASSIN
+** Last update Fri May 22 18:00:24 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -31,6 +31,8 @@ static void		init_line(t_line *line, t_caps *cap)
   get_cursor_pos(&line->cursor_begin, &line->line_begin);
   xtputs(cap->cl_cureos_str, 1, my_putint);
   xtputs(cap->rescu_str, 1, my_putint);
+  g_line = line;
+  g_caps = cap;
 }
 
 static int		get_capacities(t_caps *cap)
@@ -83,7 +85,6 @@ static int		init_termcaps(t_env *env, struct termios *t_attr,
 
 char			*shell_get_line(t_env *env, int *stop)
 {
-  int			ret;
   struct termios	t_attr;
   t_line		line;
   t_caps		cap;
@@ -100,23 +101,13 @@ char			*shell_get_line(t_env *env, int *stop)
   if (init_completion(&complet, env) == -1)
     return (NULL);
   complete_history(&history, env);
-  params.history = &history;
-  params.completion = &complet;
-  params.caps = &cap;
-  params.env = env;
-  g_line = &line;
-  g_caps = &cap;
-  refresh_screen(&line, line.cursor_position, line.buffer, &cap);
-  if ((ret = get_cmd(&line, &params)) == 1)
+  init_params_his_compl(&params, &history, &complet);
+  init_params(&params, env, &cap, &line);
+  if (get_cmd(&line, &params) == 1)
     *stop = 1;
-  check_history_replace(params.history, &line);
   rewrite_history(&line, params.history, params.env);
-  g_line = NULL;
-  g_caps = NULL;
   free_params(&params);
   if (put_term_back(&t_attr) == -1)
-    return (NULL);
-  if (ret == -1)
     return (NULL);
   return (strdup(line.buffer));
 }

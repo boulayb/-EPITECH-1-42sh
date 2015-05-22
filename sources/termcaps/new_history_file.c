@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Thu May 21 17:11:56 2015 François CASSIN
-** Last update Fri May 22 13:46:55 2015 Sebastien BOULOC
+** Last update Fri May 22 17:55:32 2015 François CASSIN
 */
 
 #include <sys/stat.h>
@@ -50,6 +50,7 @@ void		rewrite_history(t_line *line, t_history *history, t_env *env)
   char		*file;
   int		fd;
 
+  check_history_replace(history, line);
   if ((home = get_env("HOME=", env)) != NULL)
     {
       home = home + 5;

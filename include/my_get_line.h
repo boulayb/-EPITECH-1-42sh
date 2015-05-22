@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Fri May 22 16:07:57 2015 François CASSIN
+** Last update Fri May 22 17:59:48 2015 François CASSIN
 */
 
 #ifndef MY_GET_LINE_H_
@@ -190,6 +190,10 @@ void		rewrite_history(t_line *line,
 char		*get_history_name(char *home);
 void		check_history_replace(t_history *history, t_line *line);
 char		*check_42shrc(t_env *env, int *ret);
+void		init_params(t_params *params, t_env *env, t_caps *cap,
+			    t_line *line);
+void		init_params_his_compl(t_params *params, t_history *history,
+				      t_completion *completion);
 
 //functions
 

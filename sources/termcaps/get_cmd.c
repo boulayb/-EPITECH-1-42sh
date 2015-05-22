@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 02:17:56 2015 François CASSIN
-** Last update Fri May 22 14:27:46 2015 Sebastien BOULOC
+** Last update Fri May 22 18:14:01 2015 François CASSIN
 */
 
 #include <unistd.h>
@@ -61,6 +61,12 @@ static int	add_new_char(t_line *line, t_caps *cap)
   return (0);
 }
 
+int		return_zero_new_line()
+{
+  my_fputchar(1, '\n');
+  return (0);
+}
+
 int		get_cmd(t_line *line, t_params *params)
 {
   int		ret;
@@ -73,13 +79,10 @@ int		get_cmd(t_line *line, t_params *params)
     {
       memset(line->character, 0, BUFF);
       if ((ret = read(0, line->character, BUFF)) == -1)
-	return (-1);
+	return (1);
      if (my_strcmp(line->character, "\n") == 1 ||
 	 check_ctrl(line->character) == CTRL_J)
-	{
-	  my_fputchar(1, '\n');
-	  return (0);
-	}
+       return (return_zero_new_line());
      if (((line->nb_char == 0) &&
 	  (check_ctrl(line->character) == CTRL_D)) || ret == 0)
 	return (1);
@@ -88,10 +91,7 @@ int		get_cmd(t_line *line, t_params *params)
       else if (add_new_char(line, params->caps) == -1)
 	return (0);
      if (line->character[my_strlen(line->character) - 1] == '\n')
-       {
-	 my_fputchar(1, '\n');
-	 return (0);
-       }
+       return (return_zero_new_line());
     }
   return (0);
 }

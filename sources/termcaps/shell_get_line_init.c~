@@ -1,0 +1,17 @@
+/*
+** shell_get_line_init.c for shell_get_line in /home/cassin_f/PSU_2014_42sh
+** 
+** Made by François CASSIN
+** Login   <cassin_f@epitech.net>
+** 
+** Started on  Fri May 22 17:56:44 2015 François CASSIN
+** Last update Fri May 22 17:57:17 2015 François CASSIN
+*/
+
+#include "my_get_line.h"
+
+void		init_params(t_params *params, t_env *env, t_caps *cap,
+			    t_line *line)
+{
+
+}

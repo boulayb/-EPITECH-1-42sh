@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Fri May 22 14:36:03 2015 Sebastien BOULOC
+** Last update Fri May 22 18:07:35 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -84,6 +84,17 @@ static char	**copy_path_to_wordtab(char *str)
   return (tab);
 }
 
+static void	open_local(t_complet *path)
+{
+  DIR		*dir;
+
+  if ((dir = opendir(".")) != NULL)
+    {
+      read_local(path, dir);
+      closedir(dir);
+    }
+}
+
 int		init_path(t_complet *path, t_env *env)
 {
   DIR		*dir;
@@ -105,11 +116,7 @@ int		init_path(t_complet *path, t_env *env)
 	  closedir(dir);
 	}
     }
-  if ((dir = opendir(".")) != NULL)
-    {
-      read_local(path, dir);
-      closedir(dir);
-    }
+  open_local(path);
   free_tab(path_tab);
   return (0);
 }

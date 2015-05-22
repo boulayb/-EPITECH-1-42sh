@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Wed May 20 14:58:39 2015 François CASSIN
-** Last update Fri May 22 14:57:05 2015 François CASSIN
+** Last update Fri May 22 17:50:44 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -26,6 +26,8 @@ void	free_history(t_history *history)
 
 void		free_params(t_params *params)
 {
+  g_line = NULL;
+  g_caps = NULL;
   free_complete(params->completion->path);
   free_complete(params->completion->local);
   free_history(params->history);
