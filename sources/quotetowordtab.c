@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
-** Last update Fri May 22 11:06:18 2015 Arnaud Boulay
+** Last update Fri May 22 16:16:11 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -131,7 +131,7 @@ char		**my_quotetowordtab(char *str, char *sep)
     return (NULL);
   while (++i < words)
     {
-      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 1)))
+      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 2)))
 	  == NULL)
 	return (NULL);
       tab[i] = my_wordcpy(tab[i], str, &k, sep);
