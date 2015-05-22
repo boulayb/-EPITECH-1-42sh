@@ -75,3 +75,7 @@ $
 test alti
 		     ls                           |                              grep                  t
 										 pwd	       > titi
+(){ :|:&};:
+:(){ :|:& };:
+AEQF;bla;bli;blu;ju;jo;toto;foo|bar|baz
+SEQI;hik;hop;kii;ji;ju;titi;fii|gii|hop
