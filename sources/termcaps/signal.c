@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Thu May 21 15:11:56 2015 danilov dimitri
-** Last update Fri May 22 14:54:26 2015 François CASSIN
+** Last update Fri May 22 15:50:33 2015 François CASSIN
 */
 
 #include <signal.h>
@@ -28,6 +28,7 @@ void	catch_signal(int signal)
 	  memset(g_line->buffer, 0, BUFF);
 	  memset(g_line->character, 0, BUFF);
 	  disp_prompt(g_env);
+	  get_cursor_pos(&g_line->cursor_begin, &g_line->line_begin);
 	}
     }
 }
