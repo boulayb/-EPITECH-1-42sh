@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
-** Last update Fri May 22 21:28:43 2015 Arnaud Boulay
+** Last update Fri May 22 22:57:38 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -112,6 +112,7 @@ char		**my_strtowordtab(char *str, char *sep)
 {
   char		**tab;
   int		words;
+  int		len;
   int		i;
   int		j;
   int		k;
@@ -126,8 +127,8 @@ char		**my_strtowordtab(char *str, char *sep)
     return (NULL);
   while (++i < words)
     {
-      if ((tab[i] = malloc(sizeof(char) * (my_wordlen(str, &j, sep) + 1000)))
-	  == NULL)
+      if ((len = my_wordlen(str, &j, sep)) == -1 ||
+	  (tab[i] = malloc(sizeof(char) * (len + 1))) == NULL)
 	return (NULL);
       tab[i] = my_wordcpy(tab[i], str, &k, sep);
     }
