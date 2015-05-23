@@ -1,11 +1,11 @@
 /*
-** quotetowordtab.c for quotetowordtab in /home/boulay_b/Work/SE2/PSU/42sh/PSU_2014_42sh
+** strtowordtab.c for 42sh in /home/boulay_b/Work/SE2/PSU/42sh/PSU_2014_42sh
 **
 ** Made by Arnaud Boulay
 ** Login   <boulay_b@epitech.net>
 **
-** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
-** Last update Sat May 23 14:18:28 2015 danilov dimitri
+** Started on  Sat May 23 18:35:27 2015 Arnaud Boulay
+** Last update Sat May 23 18:47:25 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -31,10 +31,10 @@ static int	count_words(char *str, char *sep)
 	  else
 	    quote = 0;
 	}
-      if (quote == 0
-	  && (is_cinside(sep, str[i]) == 0 && str[i] != '\t' &&
-	      (is_cinside(sep, str[i + 1]) == 1 ||
-	       str[i + 1] == '\t' || str[i + 1] == '\0')))
+      if (quote == 0 && (is_cinside(sep, str[i]) == 0 &&
+			 str[i] != '\t' &&
+			 (is_cinside(sep, str[i + 1]) == 1 ||
+			  str[i + 1] == '\t' || str[i + 1] == '\0')))
 	++words;
     }
   return (words);
@@ -66,10 +66,9 @@ static int	my_wordlen(char *str, int *i, char *sep)
 			    str[*i] != '\t'))
       {
 	++j;
-	if ((quote == 1 && str[*i + 1] == '"') ||
-	    (quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
-			    str[*i + 1] == '\t' ||
-			    str[*i + 1] == '\0')))
+	if ((quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
+			    str[*i + 1] == '\t')) ||
+	    str[*i + 1] == '\0')
 	  {
 	    my_wordlen_core(quote, str, i, &j);
 	    return (j);
@@ -94,9 +93,8 @@ static char	*my_wordcpy(char *tab, char *str, int *i, char *sep)
     else if ((quote == 1 || (quote == 0 &&
 			     is_cinside(sep, str[*i]) == 0 && str[*i] != '\t'))
 	     && (tab[++j] = str[*i]))
-      if ((quote == 1 && str[*i + 1] == '"') ||
-	  (quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
-			  str[*i + 1] == '\t' || str[*i + 1] == '\0')))
+      if ((quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
+			  str[*i + 1] == '\t')) || str[*i + 1] == '\0')
 	{
 	  if (quote == 1 && str[*i + 1] == '"')
 	    if ((tab[++j] = str[*i + 1]))

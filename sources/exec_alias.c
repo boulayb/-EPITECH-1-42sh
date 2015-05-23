@@ -5,11 +5,12 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 01:33:48 2015 Arnaud Boulay
-** Last update Sat May 23 17:26:56 2015 Arnaud Boulay
+** Last update Sat May 23 18:30:23 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "my_get_line.h"
 #include "my.h"
 
