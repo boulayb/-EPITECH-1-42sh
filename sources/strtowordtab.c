@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat May 23 18:35:27 2015 Arnaud Boulay
-** Last update Sat May 23 18:54:25 2015 Arnaud Boulay
+** Last update Sat May 23 18:59:16 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -13,7 +13,6 @@
 
 static int	count_words(char *str, char *sep)
 {
-  int		quote;
   int		words;
   int		i;
 
@@ -21,22 +20,11 @@ static int	count_words(char *str, char *sep)
   if (count_quotes(str) == -1)
     return (0);
   words = 0;
-  quote = 0;
   while (str[++i] != '\0')
-    {
-      if (str[i] == '"')
-	{
-	  if (quote == 0)
-	    quote = 1;
-	  else
-	    quote = 0;
-	}
-      if (quote == 0 && (is_cinside(sep, str[i]) == 0 &&
-			 str[i] != '\t' &&
-			 (is_cinside(sep, str[i + 1]) == 1 ||
-			  str[i + 1] == '\t' || str[i + 1] == '\0')))
-	++words;
-    }
+    if (is_cinside(sep, str[i]) == 0 && str[i] != '\t' &&
+	(is_cinside(sep, str[i + 1]) == 1 ||
+	 str[i + 1] == '\t' || str[i + 1] == '\0'))
+      ++words;
   return (words);
 }
 
