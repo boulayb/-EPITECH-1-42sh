@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 03:16:57 2015 François CASSIN
-** Last update Sat May 23 16:37:19 2015 François CASSIN
+** Last update Sat May 23 18:01:11 2015 François CASSIN
 */
 
 #include "my_get_line.h"
@@ -45,10 +45,10 @@ int		get_key(t_line *line)
       (line->nb_char && check_ctrl(line->character) == CTRL_H))
     return (DEL_BACK);
   else if (check_ctrl(line->character) == CTRL_A ||
-	   (str[0] == 27 && str[1] == 79 && str[2] == 72 && str[3] == 0))
+	   (str[0] == 27 && str[2] == 72 && str[3] == 0))
     return (BEG_LINE);
   else if (check_ctrl(line->character) == CTRL_E ||
-	   (str[0] == 27 && str[1] == 79 && str[2] == 70 && str[3] == 0))
+	   (str[0] == 27 && str[2] == 70 && str[3] == 0))
     return (END_LINE);
   else if (check_ctrl(line->character) == CTRL_L)
     return (CLEAR_SCREEN);
