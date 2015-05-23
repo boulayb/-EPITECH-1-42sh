@@ -1,0 +1,101 @@
+.TH "42sh" "1" "1.0" "coodie_d, cassin_f, boulay_b, bouloc_c, danilo_d" "Program section"
+.SH "NAME"
+42sh \- Epitech shell
+.SH "COPYRIGHT"
+42sh is not copyrighted but any illegal reproduction of this shell will exult of \-42.
+.SH "DESCRIPTION"
+42sh is a Unix shell command language interpretor that executes 
+
+commands read from the standard input or from a file.
+.SH "FILES"
+The 42sh reads two file which are situated in your /home/login/ 
+
+directory.
+
+.42shrc
+
+When 42sh start , it reads and execute all the commands which are in this file.
+
+.42sh_history
+
+Load history at the start of 42sh.
+Every commands done in 42sh are saved in this file.
+.SH "COMMAND LINE EDITING"
+The 42sh supports differents key bindings.
+
+Arrow down	Down history
+
+Arrow up		Up history
+
+Arrow left	Backward character
+
+Arrow right	Forward character
+
+Tab			Auto\-complete the line by going browsing the variable 				PATH
+
+Ctrl\-L		Clear the screen
+
+Ctrl\-A		Go to the beginning of the line
+
+Ctrl\-B		Backward one character
+
+Ctrl\-D		Delete the character under the cursor
+
+Ctrl\-E		Go to the end of the line
+
+Ctrl\-F		Foreward one character
+
+Ctrl\-H		Delete the character before the cursor
+
+Ctrl\-J		Submit the command
+
+Ctrl\-K		Delete words after the cursor
+
+Ctrl\-L		Clear the screen
+
+Ctrl\-N		Next command in the history
+
+Ctrl\-P		Previous command in the history
+
+Ctrl\-T		Swap the last two characters before the cursor
+
+Ctrl\-U		Delete the line before the cursor position
+
+Ctrl\-W 		Delete the word backward the cursor
+.SH "BUILTINS"
+\fBSETENV\fR
+
+Setenv adds a new environnement variable.
+
+Use : setenv foo foo_value
+
+\fBUNSETENV\fR
+
+Unsetenv remove an environnement variable.
+
+Use : unsetenv foo
+
+\fBHISTORY\fR
+
+History display the history.
+You can also do the last command entered by doing ![your command].
+
+\fBALIAS\fR
+
+Alias do an alias of a command. 
+They can be recursif, an alias can be point to another alias.
+
+
+Use : \fBalias foo ls\fR
+
+To remove an alias you can do : 
+
+alias \-r foo
+
+\fBECHO\fR
+
+Echo display a line of text and can be used to display an environnement variable.
+.SH "RETURN VALUE"
+The 42sh returns 0 if it receive the signal EOF else if the 42sh is quit by exit 42, it will return 42.
+.SH "NOTES"
+If you are trying to segfault us by doing /dev/urandom and at some moment the 42sh freeze, type something and the 42sh will continue.
