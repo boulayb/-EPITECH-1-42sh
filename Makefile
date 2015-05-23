@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sat May 23 15:18:57 2015 François CASSIN
+## Last update Sat May 23 15:52:48 2015 François CASSIN
 ##
 
 NAME	= 42sh
@@ -79,7 +79,6 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)signal.c \
 	  $(SRCSFO)count_quotes.c \
 	  $(SRCSFO)strtowordtab.c \
-	  $(SRCSFO)my_str_to_wordtab.c \
 	  $(SRCSFO)listtotab.c \
 	  $(SRCSFO)string.c \
 	  $(SRCSFO)builtins.c \
