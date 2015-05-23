@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Sat May 23 13:38:50 2015 danilov dimitri
+** Last update Sat May 23 15:50:37 2015 danilov dimitri
 */
 
 #include <sys/wait.h>
@@ -36,7 +36,8 @@ static int	son(int *fd_in, int p[2], t_list *cmd, char **env)
   return (0);
 }
 
-static t_list	*execute_pipe(t_list *cmd, int *fd_in, int *status, char **env)
+static t_list	*execute_pipe(t_list *cmd, int *fd_in,
+			      int *status, char **env)
 {
   int		p[2];
   pid_t		pid;

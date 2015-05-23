@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Sat May 23 15:28:11 2015 Dylan Coodien
+** Last update Sat May 23 15:54:21 2015 danilov dimitri
 */
 
 #ifndef SH42_H_
@@ -48,5 +48,6 @@ t_list		*check_left_reddir(t_list *list, t_list *tmp2);
 void		free_tab(char **tab);
 int		print_list(t_data *list);
 char		*concat_string(char *command, char *path);
+void		free_list2(t_data *data);
 
 #endif /* !SH42_H_ */

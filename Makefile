@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sat May 23 15:52:48 2015 François CASSIN
+## Last update Sat May 23 15:55:32 2015 danilov dimitri
 ##
 
 NAME	= 42sh
@@ -65,6 +65,7 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)verify_access.c \
 	  $(SRCSFO)execute.c \
 	  $(SRCSFO)reddir_left.c \
+	  $(SRCSFO)free.c \
 	  $(SRCSFO)reddir_right.c \
 	  $(SRCSFO)do_cmd.c \
 	  $(SRCSFO)pwd.c \

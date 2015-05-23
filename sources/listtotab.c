@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Jan 28 13:58:49 2015 arnaud boulay
-** Last update Fri May 22 17:56:00 2015 Sebastien BOULOC
+** Last update Sat May 23 15:48:46 2015 danilov dimitri
 */
 
 #include <stdlib.h>
@@ -42,7 +42,8 @@ char	**my_listtotab(char **env, t_env *env_list)
     }
   while (tmp != env_list)
     {
-      if ((env[++i] = malloc(sizeof(char) * (my_strlen(tmp->str) + 1))) == NULL)
+      if ((env[++i] = malloc(sizeof(char) *
+			     (my_strlen(tmp->str) + 1))) == NULL)
 	{
 	  my_putstr("Error: Malloc failed in my_listtotab.\n");
 	  return (NULL);

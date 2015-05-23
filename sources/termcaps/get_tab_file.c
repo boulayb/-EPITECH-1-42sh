@@ -1,5 +1,3 @@
-
-
 /*
 ** get_tab_file.c for shell_get_line in /home/cassin_f/B2/B2-Systeme_Unix/42sh_cassin
 **
@@ -7,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 17:41:58 2015 François CASSIN
-** Last update Sat May 23 14:31:24 2015 François CASSIN
+** Last update Sat May 23 15:47:31 2015 danilov dimitri
 */
 
 #include <stdlib.h>
