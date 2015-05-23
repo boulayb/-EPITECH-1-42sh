@@ -1,11 +1,11 @@
 /*
 ** change_tild.c for tild in /home/cassin_f/PSU_2014_42sh
-** 
+**
 ** Made by François CASSIN
 ** Login   <cassin_f@epitech.net>
-** 
+**
 ** Started on  Sat May 23 15:06:01 2015 François CASSIN
-** Last update Sat May 23 15:19:06 2015 François CASSIN
+** Last update Sat May 23 15:32:29 2015 Dylan Coodien
 */
 
 #include <string.h>
@@ -34,9 +34,7 @@ static void	copy_home_to_str(char *new_str, char *home, char *str)
       ++i;
       ++n;
     }
-  i = 0;
-  new_str[n] = '/';
-  ++n;
+  i = 1;
   while (str[i])
     {
       new_str[n] = str[i];
@@ -57,7 +55,7 @@ static char	*replace_tild(char *str, t_env *env)
     return (str);
   home = home + 5;
   if ((new_str = malloc(sizeof(char) *
-			(strlen(str) + strlen(home) + 2))) == NULL)
+			(strlen(str) + strlen(home) + 1))) == NULL)
     return (str);
   copy_home_to_str(new_str, home, str);
   free(str);

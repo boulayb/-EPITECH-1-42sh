@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sat May 23 15:09:31 2015 Arnaud Boulay
+** Last update Sat May 23 15:28:51 2015 Dylan Coodien
 */
 
 #ifndef	MY_H_
@@ -118,5 +118,6 @@ t_alias			*create_alias(void);
 char			**my_str_to_wordtab(char *str);
 void			catch_signal(int signal);
 int			epur_str(char *str);
+void			change_tild(char **, t_env *env);
 
 #endif /* !MY_H_ */

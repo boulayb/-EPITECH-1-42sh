@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Sat May 23 13:26:09 2015 danilov dimitri
+** Last update Sat May 23 15:26:22 2015 Dylan Coodien
 */
 
 #define _GNU_SOURCE
@@ -79,8 +79,7 @@ static int	do_cmd(char **tab, char **path, char **env)
     }
   if ((verify_access(list, path)) != 0)
     return (127);
-  i = start_cmd(list, env);
-  return (find_correct_return(i, list));
+  return (find_correct_return(start_cmd(list, env), list));
 }
 
 int		exec_program(char **tab, char **path, t_env *env_list)
@@ -93,6 +92,7 @@ int		exec_program(char **tab, char **path, t_env *env_list)
     return (0);
   if ((env = my_listtotab(env, env_list)) == NULL)
     return (-1);
+  change_tild(tab, env_list);
   ret = do_cmd(tab, path, env);
   free_tab(env);
   return (ret);

@@ -82,3 +82,4 @@ SEQI;hik;hop;kii;ji;ju;titi;fii|gii|hop
 alias "ll" "ls -l"
 alias "ll" ""
 rm titi toto
+ls|grep l ; pwd || ls && ll > toto

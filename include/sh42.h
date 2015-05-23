@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Sat May 23 14:20:31 2015 danilov dimitri
+** Last update Sat May 23 15:28:11 2015 Dylan Coodien
 */
 
 #ifndef SH42_H_
