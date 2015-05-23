@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat May 23 18:35:27 2015 Arnaud Boulay
-** Last update Sat May 23 18:47:25 2015 Arnaud Boulay
+** Last update Sat May 23 18:54:25 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -40,68 +40,38 @@ static int	count_words(char *str, char *sep)
   return (words);
 }
 
-static void	my_wordlen_core(int quote, char *str, int *i, int *j)
-{
-  if (quote == 1 && str[*i + 1] == '"')
-    {
-      ++(*j);
-      ++(*i);
-    }
-}
-
 static int	my_wordlen(char *str, int *i, char *sep)
 {
-  int		quote;
   int		j;
 
   j = 0;
-  quote = 0;
   while (str[++(*i)] != '\0')
-    if (str[*i] == '"' && quote == 0)
+    if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
       {
 	++j;
-	quote = 1;
-      }
-    else if (quote == 1 || (quote == 0 && is_cinside(sep, str[*i]) == 0 &&
-			    str[*i] != '\t'))
-      {
-	++j;
-	if ((quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
-			    str[*i + 1] == '\t')) ||
-	    str[*i + 1] == '\0')
-	  {
-	    my_wordlen_core(quote, str, i, &j);
-	    return (j);
-	  }
+	if (is_cinside(sep, str[*i + 1]) == 1 ||
+	    str[*i + 1] == '\t' || str[*i + 1] == '\0')
+	  return (j);
       }
   return (-1);
 }
 
 static char	*my_wordcpy(char *tab, char *str, int *i, char *sep)
 {
-  int		quote;
   int		j;
 
   j = -1;
-  quote = 0;
   while (str[++(*i)] != '\0')
-    if (str[*i] == '"' && quote == 0)
+    if (is_cinside(sep, str[*i]) == 0 && str[*i] != '\t')
       {
 	tab[++j] = str[*i];
-	quote = 1;
+	if (is_cinside(sep, str[*i + 1]) == 1 ||
+	    str[*i + 1] == '\t' || str[*i + 1] == '\0')
+	  {
+	    tab[++j] = '\0';
+	    return (tab);
+	  }
       }
-    else if ((quote == 1 || (quote == 0 &&
-			     is_cinside(sep, str[*i]) == 0 && str[*i] != '\t'))
-	     && (tab[++j] = str[*i]))
-      if ((quote == 0 && (is_cinside(sep, str[*i + 1]) == 1 ||
-			  str[*i + 1] == '\t')) || str[*i + 1] == '\0')
-	{
-	  if (quote == 1 && str[*i + 1] == '"')
-	    if ((tab[++j] = str[*i + 1]))
-	      ++(*i);
-	  tab[++j] = '\0';
-	  return (tab);
-	}
   return (NULL);
 }
 
