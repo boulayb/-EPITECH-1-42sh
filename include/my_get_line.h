@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Fri May 22 17:59:48 2015 François CASSIN
+** Last update Sat May 23 16:04:42 2015 Dylan Coodien
 */
 
 #ifndef MY_GET_LINE_H_
@@ -214,6 +214,5 @@ void		myclear_screen(t_params *params, t_line *line);
 void		go_left(int offset, char buff[], int nb_char);
 void		go_right(int offset, char buff[], int nb_char, int len);
 int		get_tab_file(t_params *params, t_compl_par *complete);
-
 
 #endif /* !MY_GET_LINE_H_ */
