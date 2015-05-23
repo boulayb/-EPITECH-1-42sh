@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 01:33:48 2015 Arnaud Boulay
-** Last update Sat May 23 14:34:54 2015 Arnaud Boulay
+** Last update Sat May 23 15:05:06 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -103,7 +103,10 @@ char		**exec_alias(char *str)
   if ((tmp = my_str_to_cmdtab(str)) == NULL)
     return (NULL);
   while (tmp[++i] != NULL)
-    if ((tab = replace_with_alias(tab, is_alias(tmp[i]), i)) == NULL)
-      return (NULL);
+    {
+      if (i == 0 || is_cmd(tmp[i - 1]) == 0)
+	if ((tab = replace_with_alias(tab, is_alias(tmp[i]), i)) == NULL)
+	  return (NULL);
+    }
   return (tab);
 }

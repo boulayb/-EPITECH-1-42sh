@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sat May 23 13:40:47 2015 danilov dimitri
+## Last update Sat May 23 15:08:56 2015 Arnaud Boulay
 ##
 
 NAME	= 42sh
@@ -72,6 +72,7 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)env_builtin.c \
 	  $(SRCSFO)logic.c \
 	  $(SRCSFO)list.c \
+	  $(SRCSFO)is_cmd.c \
 	  $(SRCSFO)inside.c \
 	  $(SRCSFO)status.c \
 	  $(SRCSFO)signal.c \
