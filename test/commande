@@ -1,85 +1,55 @@
-ls
-ls > toto
-cat < toto | grep l | cat -e > toto
-echo "Env:"
-setenv toto "Hello Wordld"
-env | grep toto
-unsetenv toto
-unsetenv toto
-echo "Lets see Error"
-< < < < |
-< ls < cat lol << ls >> grep toto
->>>>>>>>>>>>>>>>>>>>>>>>>>>>> ls
-<><><><><><><><><>><>
-ls >> > toto
-ls | grep l | cat -e | cat -e | cat -e > toto
-cat < toto
-pwd | ls > toto | cat -e
-ls |
-ls >>> toto
-cat -e || ls | grep l
-ls || || grep l | cat -e
-ls | || cat -e
-ls | ||| pwd || cat -e | ls -l
-/bin/ls
-/ls
-////////////ls
-////bin///////ls
-~
-cd ~
-env
-setenv toto titi 0
-env
-unsetenv toto
-unsetenv titi
-cd -
-cd
-cd .. && ls && cd PSU_2014_42sh && ls
-ls || pwd
-ls && pwd
-ls ; pwd || ls -l && grep l
-</etc/hosts od -c | grep xx | wc >> /tmp/z -l
-&
-é
-~
-"
-#
-'
-}
-{
-]
-[
-è
-`
-ç
-^
-à
-@
-°
-€
-¨
-$
-£
-¤
-µ
-ù
-§
-?
-%
-
-
-
-
-
-test alti
-		     ls                           |                              grep                  t
-										 pwd	       > titi
-cat titi
-(){ :|:&};:
-:(){ :|:& };:
-AEQF;bla;bli;blu;ju;jo;toto;foo|bar|baz
-SEQI;hik;hop;kii;ji;ju;titi;fii|gii|hop
-alias "ll" "ls -l"
-alias "ll" ""
-rm titi toto
-ls|grep l ; pwd || ls && ll > toto
+#!/bin/bash
+echo "ls" | ./42sh
+echo "ls > toto" | ./42sh
+echo "cat < toto | grep l | cat -e > toto" | ./42sh
+echo "echo \"Env:\"" | ./42sh
+echo "setenv toto \"Hello Wordld\"" | ./42sh
+echo "env | grep toto" | ./42sh
+echo "unsetenv toto" | ./42sh
+echo "echo \"Lets see Error\"" | ./42sh
+echo "< < < < |" | ./42sh
+echo "< ls < cat lol << ls >> grep toto" | ./42sh
+echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> ls" | ./42sh
+echo "<><><><><><><><><>><>" | ./42sh
+echo "ls >> > toto" | ./42sh
+echo "ls | grep l | cat -e | cat -e | cat -e > toto" | ./42sh
+echo "cat < toto" | ./42sh
+echo "pwd | ls > toto | cat -e" | ./42sh
+echo "ls |" | ./42sh
+echo "ls >>> toto" | ./42sh
+echo "cat -e || ls | grep l" | ./42sh
+echo "ls || || grep l | cat -e" | ./42sh
+echo "ls | || cat -e" | ./42sh
+echo "ls | ||| pwd || cat -e | ls -l" | ./42sh
+echo "/bin/ls" | ./42sh
+echo "/ls |" ./42sh
+echo "////////////ls" | ./42sh
+echo "////bin///////ls" | ./42sh
+echo "~" | ./42sh
+echo "cd ~" | ./42sh
+echo "env" | ./42sh
+echo "setenv toto titi" | ./42sh
+echo "env" | ./42sh
+echo "unsetenv toto" | ./42sh
+echo "unsetenv titi" | ./42sh
+echo "cd -" | ./42sh
+echo "cd" | ./42sh
+echo "cd .. && ls && cd PSU_2014_42sh && ls" | ./42sh
+echo "ls || pwd" | ./42sh
+echo "ls && pwd" | ./42sh
+echo "ls ; pwd || ls -l && grep l" | ./42sh
+echo "</etc/hosts od -c | grep xx | wc >> /tmp/z -l" | ./42sh
+echo "&" | ./42sh
+echo "é" | ./42sh
+echo "test alti" | ./42sh
+echo "		     ls                           |                              grep                  t" | ./42sh
+echo "										 pwd	       > titi" | ./42sh
+echo "cat titi" | ./42sh
+echo "(){ :|:&};:" | ./42sh
+echo ":(){ :|:& };:" | ./42sh
+echo "AEQF;bla;bli;blu;ju;jo;toto;foo|bar|baz" | ./42sh
+echo "SEQI;hik;hop;kii;ji;ju;titi;fii|gii|hop" | ./42sh
+echo "alias ll \"ls -l\"" | ./42sh
+echo "alias ll \"\"" | ./42sh
+echo "rm titi toto" | ./42sh
+echo "ls|grep l ; pwd || ls && ll > toto" | ./42sh
