@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 03:16:57 2015 François CASSIN
-** Last update Sat May 23 14:31:37 2015 François CASSIN
+** Last update Sat May 23 16:37:19 2015 François CASSIN
 */
 
 #include "my_get_line.h"
@@ -38,12 +38,17 @@ static int	get_key2(t_line *line)
 
 int		get_key(t_line *line)
 {
+  char		*str;
+
+  str = line->character;
   if ((line->character[0] == DELETE_KEY && line->character[1] == 0) ||
       (line->nb_char && check_ctrl(line->character) == CTRL_H))
     return (DEL_BACK);
-  else if (check_ctrl(line->character) == CTRL_A)
+  else if (check_ctrl(line->character) == CTRL_A ||
+	   (str[0] == 27 && str[1] == 79 && str[2] == 72 && str[3] == 0))
     return (BEG_LINE);
-  else if (check_ctrl(line->character) == CTRL_E)
+  else if (check_ctrl(line->character) == CTRL_E ||
+	   (str[0] == 27 && str[1] == 79 && str[2] == 70 && str[3] == 0))
     return (END_LINE);
   else if (check_ctrl(line->character) == CTRL_L)
     return (CLEAR_SCREEN);
