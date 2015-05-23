@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed May 20 16:04:45 2015 Arnaud Boulay
-** Last update Thu May 21 17:18:58 2015 Arnaud Boulay
+** Last update Sat May 23 19:40:14 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -34,6 +34,8 @@ int		check_syntax(char **line, t_env *env_list)
     {
       if ((i == 0 && is_operator(line[i]) == 1) ||
 	  (i != 0 && is_operator(line[i - 1]) == 1 && is_operator(line[i]) == 1) ||
+	  (i != 0 && is_operator(line[i - 1]) == 1 && strcmp(line[i], ";") == 0) ||
+	  (strcmp(line[i], ";") == 0 && is_operator(line[i + 1]) == 1) ||
 	  (is_operator(line[i]) == 1 && is_operator(line[i + 1]) == 1))
 	{
 	  printf("Invalid null command.\n");
