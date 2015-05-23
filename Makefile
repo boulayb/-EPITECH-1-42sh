@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sat May 23 15:55:32 2015 danilov dimitri
+## Last update Sat May 23 17:35:31 2015 Arnaud Boulay
 ##
 
 NAME	= 42sh
@@ -89,6 +89,8 @@ SRCS	= $(SRCSFO)main.c \
 	  $(SRCSFO)tablen.c \
 	  $(SRCSFO)my_history.c \
 	  $(SRCSFO)alias_list.c \
+	  $(SRCSFO)is_alias.c \
+	  $(SRCSFO)alias_done.c \
 	  $(SRCSFO)exec_alias.c \
 	  $(SRCSFO)quotetowordtab.c \
 	  $(SRCSFO)print_list.c

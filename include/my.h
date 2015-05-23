@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sat May 23 15:28:51 2015 Dylan Coodien
+** Last update Sat May 23 17:34:43 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -54,12 +54,14 @@ typedef struct		s_builtins
 
 int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
 int			count_quotes(char *str);
+int			alias_done(char **done, char *name);
 int			my_alias(char **blabla, char **path, t_env *env_list);
 int			logic_sep_and(char *tabsep, char **path,
 				      t_env *env_list);
 int			check_syntax(char **line, t_env *env_list);
 int			check_status(t_env *env_list, int status);
 int			my_getnbr(char *str);
+int			epur_str(char *str);
 int			is_cinside(char *str, char c);
 int			is_inside(char *str, char *str2);
 int			add_alias(char *name, char *to);
@@ -98,7 +100,11 @@ char			*my_strcatdup(char *dest, char *src, int l, char c);
 char			*my_strcpy(char *dest, char *src);
 char			*get_env(char *str, t_env *env_list);
 char			**exec_alias(char *str);
+char			**is_alias(char *str);
+char			**is_alias_done(char *str, char **done);
+char			**done_alias(char **done, char *name);
 char			**my_quotetowordtab(char *str, char *sep);
+char			**my_str_to_wordtab(char *str);
 char			**my_strtowordtab(char *str, char *sep);
 char			**my_listtotab(char **env, t_env *env_list);
 void			my_putchar(char c);
@@ -112,12 +118,10 @@ void			disp_prompt(t_env *env_list);
 void			my_signal(void);
 void			rm_alias(t_alias *chain);
 void			empty_list(t_env *env_list);
+void			change_tild(char **, t_env *env);
+void			catch_signal(int signal);
 t_env			*create_env(t_env *env_list);
 t_env			*create_list(char **env);
 t_alias			*create_alias(void);
-char			**my_str_to_wordtab(char *str);
-void			catch_signal(int signal);
-int			epur_str(char *str);
-void			change_tild(char **, t_env *env);
 
 #endif /* !MY_H_ */
