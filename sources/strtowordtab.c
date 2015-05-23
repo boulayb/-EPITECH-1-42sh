@@ -5,10 +5,9 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 00:35:07 2015 Arnaud Boulay
-** Last update Fri May 22 22:57:38 2015 Arnaud Boulay
+** Last update Sat May 23 14:18:28 2015 danilov dimitri
 */
 
-#include <stdio.h>
 #include <stdlib.h>
 #include "my.h"
 

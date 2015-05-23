@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Fri May 22 18:13:54 2015 Sebastien BOULOC
+** Last update Sat May 23 14:21:19 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
@@ -13,8 +13,7 @@
 #include <unistd.h>
 #include <string.h>
 #include <stdlib.h>
-#include <sys/types.h>
-#include <sys/stat.h>
+#include <stdio.h>
 #include <fcntl.h>
 #include "sh42.h"
 

@@ -1,11 +1,11 @@
 /*
 ** reddir_right.c for reddir_right in /home/dcoodien/rendu/SysUnix/B2/coodie/src
-** 
+**
 ** Made by Dylan Coodien
 ** Login   <coodie_d@epitech.eu>
-** 
+**
 ** Started on  Sun May 10 17:05:10 2015 Dylan Coodien
-** Last update Tue May 19 16:57:46 2015 Dylan Coodien
+** Last update Sat May 23 13:57:39 2015 danilov dimitri
 */
 
 #include <sys/types.h>

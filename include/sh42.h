@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Wed May 20 21:46:21 2015 danilov dimitri
+** Last update Sat May 23 14:20:31 2015 danilov dimitri
 */
 
 #ifndef SH42_H_
@@ -17,8 +17,6 @@
 # define DRIGHT	4
 # define PIPE	5
 # define ENDACT	42
-
-#include <stdio.h>
 
 typedef struct	s_data
 {

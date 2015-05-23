@@ -5,11 +5,10 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sun Feb  1 14:49:42 2015 arnaud boulay
-** Last update Thu May 21 15:20:39 2015 danilov dimitri
+** Last update Sat May 23 13:59:23 2015 danilov dimitri
 */
 
 #include <signal.h>
-#include <stdlib.h>
 #include "my.h"
 
 void		my_signal(void)
