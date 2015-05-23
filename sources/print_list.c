@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue May 19 14:38:35 2015 Dylan Coodien
-** Last update Thu May 21 12:01:14 2015 danilov dimitri
+** Last update Sat May 23 13:47:46 2015 danilov dimitri
 */
 
 #include <string.h>

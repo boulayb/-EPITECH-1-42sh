@@ -5,12 +5,11 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri May 22 19:20:11 2015 François CASSIN
+** Last update Sat May 23 13:43:32 2015 danilov dimitri
 */
 
 #include <stdio.h>
 #include <stdlib.h>
-#include <signal.h>
 #include "my_get_line.h"
 #include "my.h"
 #include "sh42.h"

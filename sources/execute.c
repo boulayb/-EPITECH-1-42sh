@@ -5,14 +5,12 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Fri May 22 17:41:29 2015 Sebastien BOULOC
+** Last update Sat May 23 13:38:50 2015 danilov dimitri
 */
 
-#include <sys/types.h>
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <unistd.h>
-#include <string.h>
 #include <signal.h>
 #include "sh42.h"
 

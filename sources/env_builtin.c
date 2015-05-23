@@ -5,11 +5,10 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat Jan 31 18:25:00 2015 arnaud boulay
-** Last update Fri May 22 17:32:08 2015 Sebastien BOULOC
+** Last update Sat May 23 13:32:12 2015 danilov dimitri
 */
 
 #include <stdlib.h>
-#include <stdio.h>
 #include "my.h"
 
 static char	**keep_program(char **tab, int options)

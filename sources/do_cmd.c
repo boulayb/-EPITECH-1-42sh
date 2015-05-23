@@ -5,12 +5,11 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Fri May 22 17:28:58 2015 Sebastien BOULOC
+** Last update Sat May 23 13:26:09 2015 danilov dimitri
 */
 
 #define _GNU_SOURCE
 
-#include <string.h>
 #include <stdlib.h>
 #include "my.h"
 #include "sh42.h"
