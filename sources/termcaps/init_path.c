@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Fri May 22 18:07:35 2015 François CASSIN
+** Last update Sat May 23 13:43:57 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -103,7 +103,7 @@ int		init_path(t_complet *path, t_env *env)
   int		i;
 
   if ((path_str = get_env("PATH=", env)) == NULL)
-    return (-1);
+    return (0);
   path_str = path_str + 5;
   if ((path_tab = copy_path_to_wordtab(path_str)) == NULL)
     return (-1);
