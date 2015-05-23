@@ -5,10 +5,9 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Fri May 22 14:20:05 2015 François CASSIN
-** Last update Fri May 22 16:46:50 2015 François CASSIN
+** Last update Sat May 23 14:36:38 2015 François CASSIN
 */
 
-#include <sys/types.h>
 #include <sys/stat.h>
 #include <fcntl.h>
 #include <stdlib.h>

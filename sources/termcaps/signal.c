@@ -5,14 +5,13 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Thu May 21 15:11:56 2015 danilov dimitri
-** Last update Fri May 22 17:17:13 2015 François CASSIN
+** Last update Sat May 23 14:31:57 2015 François CASSIN
 */
 
 #include <signal.h>
 #include <stdlib.h>
 #include <string.h>
 #include "my_get_line.h"
-#include "my.h"
 
 void	catch_signal(int signal)
 {

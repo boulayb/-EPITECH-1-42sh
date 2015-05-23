@@ -7,14 +7,13 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 17:41:58 2015 François CASSIN
-** Last update Fri May 22 17:10:29 2015 François CASSIN
+** Last update Sat May 23 14:31:24 2015 François CASSIN
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "my.h"
 #include "my_get_line.h"
 
 static int	char_is_in_str(char *str, char c)

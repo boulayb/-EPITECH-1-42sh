@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 04:23:19 2015 François CASSIN
-** Last update Fri May 22 19:05:11 2015 François CASSIN
+** Last update Sat May 23 14:32:03 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -13,7 +13,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "my.h"
 #include "my_get_line.h"
 
 static int	recup_datas(t_history *history, int fd)

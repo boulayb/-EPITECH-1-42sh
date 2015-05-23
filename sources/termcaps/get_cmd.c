@@ -5,12 +5,11 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 02:17:56 2015 François CASSIN
-** Last update Fri May 22 18:14:01 2015 François CASSIN
+** Last update Sat May 23 14:31:51 2015 François CASSIN
 */
 
 #include <unistd.h>
 #include <string.h>
-#include "my.h"
 #include "my_get_line.h"
 
 int		check_ctrl(char buff[])

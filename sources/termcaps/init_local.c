@@ -5,10 +5,9 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 00:28:37 2015 François CASSIN
-** Last update Fri May 22 13:40:57 2015 Sebastien BOULOC
+** Last update Sat May 23 14:34:16 2015 François CASSIN
 */
 
-#include <dirent.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>

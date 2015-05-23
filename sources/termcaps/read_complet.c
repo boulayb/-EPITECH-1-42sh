@@ -5,14 +5,13 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 00:08:36 2015 François CASSIN
-** Last update Fri May 22 13:55:05 2015 Sebastien BOULOC
+** Last update Sat May 23 14:31:17 2015 François CASSIN
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
 #include <unistd.h>
-#include "my.h"
 #include "my_get_line.h"
 
 static int	check_already(t_complet *cmds, char *str)

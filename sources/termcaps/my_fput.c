@@ -5,14 +5,14 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:45:30 2015 François CASSIN
-** Last update Fri May 22 13:44:57 2015 Sebastien BOULOC
+** Last update Sat May 23 14:34:46 2015 François CASSIN
 */
 
 #include <unistd.h>
 
 void	my_fputchar(int fd, char c)
 {
-  write(fd, &c, 1);
+  (void)write(fd, &c, 1);
 }
 
 void	my_fputstr(int fd, char *str)
@@ -22,7 +22,7 @@ void	my_fputstr(int fd, char *str)
   i = 0;
   while (str[i])
     ++i;
-  write(fd, str, i);
+  (void)write(fd, str, i);
 }
 
 void	my_fputnbr(int fd, int nb)

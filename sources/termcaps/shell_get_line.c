@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Fri May 22 18:00:24 2015 François CASSIN
+** Last update Sat May 23 14:31:45 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -15,7 +15,6 @@
 #include <unistd.h>
 #include <sys/stat.h>
 #include <fcntl.h>
-#include "my.h"
 #include "my_get_line.h"
 
 static void		init_line(t_line *line, t_caps *cap)

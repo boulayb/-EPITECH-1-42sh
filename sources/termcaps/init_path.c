@@ -5,13 +5,11 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Sat May 23 13:43:57 2015 François CASSIN
+** Last update Sat May 23 14:34:25 2015 François CASSIN
 */
 
 #include <stdlib.h>
 #include <string.h>
-#include <dirent.h>
-#include "my.h"
 #include "my_get_line.h"
 
 static int      how_much_words(char *str)
