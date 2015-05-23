@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 00:29:03 2015 Arnaud Boulay
-** Last update Tue May 19 18:20:21 2015 Arnaud Boulay
+** Last update Sat May 23 15:36:12 2015 danilov dimitri
 */
 
 #include <stdio.h>
@@ -14,7 +14,6 @@
 
 static t_status	gl_status[] =
     {
-      {1, "Unknow Error.\n"},
       {126, "Cannot execute command.\n"},
       {127, "Command not found.\n"},
       {128, "Invalid argument.\n"},
