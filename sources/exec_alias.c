@@ -5,12 +5,13 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 01:33:48 2015 Arnaud Boulay
-** Last update Sat May 23 13:35:01 2015 danilov dimitri
+** Last update Sat May 23 14:34:54 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "my.h"
+#include "my_get_line.h"
 
 static char	**copy_vanilla(char **tab, char **new, int *i, int *j)
 {
@@ -93,13 +94,13 @@ char		**exec_alias(char *str)
   char		**tmp;
 
   i = -1;
-  if ((tab = my_quotetowordtab(str, " ")) == NULL)
+  if ((tab = my_str_to_cmdtab(str)) == NULL)
     return (NULL);
   if (tab[0] == NULL)
     return (tab);
   if (strcmp(tab[0], "alias") == 0)
     return (tab);
-  if ((tmp = my_quotetowordtab(str, " ")) == NULL)
+  if ((tmp = my_str_to_cmdtab(str)) == NULL)
     return (NULL);
   while (tmp[++i] != NULL)
     if ((tab = replace_with_alias(tab, is_alias(tmp[i]), i)) == NULL)
