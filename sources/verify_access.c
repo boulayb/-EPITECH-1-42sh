@@ -5,10 +5,8 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Sat May 23 14:21:19 2015 danilov dimitri
+** Last update Sat May 23 16:01:58 2015 Dylan Coodien
 */
-
-#define _GNU_SOURCE
 
 #include <unistd.h>
 #include <string.h>

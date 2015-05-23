@@ -5,10 +5,8 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Sun May  3 17:15:22 2015 Dylan Coodien
-** Last update Sat May 23 15:26:22 2015 Dylan Coodien
+** Last update Sat May 23 16:01:25 2015 Dylan Coodien
 */
-
-#define _GNU_SOURCE
 
 #include <stdlib.h>
 #include "my.h"
