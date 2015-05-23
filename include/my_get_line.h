@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:58:29 2015 François CASSIN
-** Last update Sat May 23 16:04:42 2015 Dylan Coodien
+** Last update Sun May 24 00:26:24 2015 François CASSIN
 */
 
 #ifndef MY_GET_LINE_H_
@@ -61,6 +61,8 @@
 # define FILE		0
 # define WORD		1
 # define UNKNOWN	2
+
+int		*g_prompt;
 
 struct		s_line
 {

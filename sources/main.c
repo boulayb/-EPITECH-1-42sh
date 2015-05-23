@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Sat May 23 20:08:59 2015 Arnaud Boulay
+** Last update Sun May 24 00:25:56 2015 François CASSIN
 */
 
 #include <stdio.h>
@@ -92,6 +92,7 @@ static int		my_prompt(char *str, char **path, t_env *env_list,
   int			ret;
   int			i;
 
+  g_prompt = &prompt;
   tabsep = NULL;
   i = -1;
   ret = 0;
