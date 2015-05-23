@@ -1,55 +1,218 @@
 #!/bin/bash
+rougefonce='\e[0;31m'
+default='\033[39m'
 echo "ls" | ./42sh
+if [ $? -gt 129 ]
+then
+    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls > toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cat < toto | grep l | cat -e > toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "echo \"Env:\"" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "setenv toto \"Hello Wordld\"" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "env | grep toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "unsetenv toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "echo \"Lets see Error\"" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "< < < < |" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "< ls < cat lol << ls >> grep toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo ">>>>>>>>>>>>>>>>>>>>>>>>>>>>> ls" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "<><><><><><><><><>><>" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls >> > toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls | grep l | cat -e | cat -e | cat -e > toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cat < toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "pwd | ls > toto | cat -e" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls |" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls >>> toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cat -e || ls | grep l" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls || || grep l | cat -e" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls | || cat -e" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls | ||| pwd || cat -e | ls -l" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "/bin/ls" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "/ls |" ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "////////////ls" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "////bin///////ls" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "~" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cd ~" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "env" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "setenv toto titi" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "env" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "unsetenv toto" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "unsetenv titi" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cd -" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cd" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cd .. && ls && cd PSU_2014_42sh && ls" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls || pwd" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls && pwd" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls ; pwd || ls -l && grep l" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "</etc/hosts od -c | grep xx | wc >> /tmp/z -l" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "&" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "é" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "test alti" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "		     ls                           |                              grep                  t" | ./42sh
 echo "										 pwd	       > titi" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "cat titi" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "(){ :|:&};:" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo ":(){ :|:& };:" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "AEQF;bla;bli;blu;ju;jo;toto;foo|bar|baz" | ./42sh
+if [ $? -gt 129 ]
+then    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "SEQI;hik;hop;kii;ji;ju;titi;fii|gii|hop" | ./42sh
+if [ $? -gt 129 ]
+then
+    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "alias ll \"ls -l\"" | ./42sh
 echo "alias ll \"\"" | ./42sh
+if [ $? -gt 129 ]
+then
+    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "rm titi toto" | ./42sh
+if [ $? -gt 129 ]
+then
+    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi
 echo "ls|grep l ; pwd || ls && ll > toto" | ./42sh
+if [ $? -gt 129 ]
+then
+    echo -e "${rougefonce}<<<<<<<<<<!!!!!!!!!!!!!SEGMENTATION FAULT!!!!!!!>>>>>>>>>>>>>>>>>${default}"
+fi

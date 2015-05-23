@@ -1,7 +1,0 @@
-#!/bin/bash
-rougefonce='\e[0;31m'
-echo "ls" | ./42sh
-if [ $? -eq 139 ]
-then
-echo -e "${rougefonce}segmentation fault\033[39m"
-fi
