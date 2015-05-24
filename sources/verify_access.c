@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Sun May 24 19:51:14 2015 Sebastien BOULOC
+** Last update Sun May 24 20:34:06 2015 Dylan Coodien
 */
 
 #include <unistd.h>
@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <fcntl.h>
+#include "my.h"
 #include "sh42.h"
 
 static int	error(char **argv, char **path, int ret, int i)
@@ -50,8 +51,11 @@ static int	help(int *ret, int *i, t_list *tmp)
 {
   *ret = 1;
   *i = -1;
-  if (strlen(tmp->av[0]) > 2 && strncmp(tmp->av[0], "./", 2) == 0)
-    *ret = 0;
+  if (my_strlen(tmp->av[0]) > 2)
+    {
+      if (strncmp(tmp->av[0], "./", 2) == 0)
+	*ret = 0;
+    }
   if (tmp->back->act == PIPE || tmp->back->act == ENDACT ||
       tmp->back->act == -1)
     return (0);

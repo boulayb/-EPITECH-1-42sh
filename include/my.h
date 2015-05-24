@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sun May 24 19:13:51 2015 Sebastien BOULOC
+** Last update Sun May 24 20:32:22 2015 Dylan Coodien
 */
 
 #ifndef	MY_H_
@@ -125,5 +125,6 @@ t_env			*create_env(t_env *env_list);
 t_env			*create_list(char **env);
 t_alias			*create_alias(void);
 int			if_wordlen(char *, int *, int *);
+int			my_strlen(char *str);
 
 #endif /* !MY_H_ */
