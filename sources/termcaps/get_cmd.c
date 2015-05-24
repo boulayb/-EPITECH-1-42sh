@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 02:17:56 2015 François CASSIN
-** Last update Sat May 23 14:31:51 2015 François CASSIN
+** Last update Sun May 24 20:04:25 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
@@ -60,7 +60,7 @@ static int	add_new_char(t_line *line, t_caps *cap)
   return (0);
 }
 
-int		return_zero_new_line()
+static int	return_zero_new_line()
 {
   my_fputchar(1, '\n');
   return (0);

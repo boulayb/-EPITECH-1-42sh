@@ -5,16 +5,16 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat May 23 16:12:44 2015 Arnaud Boulay
-** Last update Sun May 24 02:52:57 2015 Arnaud Boulay
+** Last update Sun May 24 19:00:40 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "my.h"
 
-int		alias_done(char **done, char *name)
+int	alias_done(char **done, char *name)
 {
-  int		i;
+  int	i;
 
   i = -1;
   while (done != NULL && done[++i] != NULL)
@@ -23,11 +23,11 @@ int		alias_done(char **done, char *name)
   return (0);
 }
 
-char		**done_alias(char **done, char *name)
+char	**done_alias(char **done, char *name)
 {
-  char		**new;
-  int		i;
-  int		size;
+  char	**new;
+  int	i;
+  int	size;
 
   i = -1;
   if ((size = tablen(done)) == 0)

@@ -5,14 +5,14 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Mon May 18 14:26:27 2015 François CASSIN
-** Last update Fri May 22 19:03:38 2015 François CASSIN
+** Last update Sun May 24 20:17:16 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "my_get_line.h"
 
-void		change_new_current(t_history *history, t_line *line)
+void	change_new_current(t_history *history, t_line *line)
 {
   if (history->history_tab != NULL)
     {
@@ -25,9 +25,9 @@ void		change_new_current(t_history *history, t_line *line)
     }
 }
 
-void		up_histo(t_params *params, t_line *line)
+void	up_histo(t_params *params, t_line *line)
 {
-  char		*str;
+  char	*str;
 
   if (line->history_offset < params->history->nb_max)
     {

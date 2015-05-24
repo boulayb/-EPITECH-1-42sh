@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri Jan 23 14:44:32 2015 arnaud boulay
-** Last update Sat May 23 13:22:33 2015 danilov dimitri
+** Last update Sun May 24 19:06:34 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
@@ -13,7 +13,7 @@
 #include <stdio.h>
 #include "my.h"
 
-int		my_cd(char **tab, char **path, t_env *env_list)
+int	my_cd(char **tab, char **path, t_env *env_list)
 {
   (void)path;
   if (tab[1] == NULL)
@@ -39,39 +39,10 @@ int		my_cd(char **tab, char **path, t_env *env_list)
   return (0);
 }
 
-int		my_env(char **tab, char **path, t_env *env_list)
+int	my_setenv(char **tab, char **path, t_env *env_list)
 {
-  char		**env;
-  t_env		*tmp_env;
-  int		exec;
-  int		options;
-
-  env = NULL;
-  exec = 0;
-  options = 1;
-  if ((env = my_listtotab(env, env_list)) == NULL)
-    return (-1);
-  if ((tmp_env = create_list(env)) == NULL)
-    return (-1);
-  free_tab(env);
-  if (tab[1] != NULL && find_options(tab, tmp_env, &exec, &options) == -1)
-    return (-1);
-  if (exec == 1)
-    {
-      if (check_syntax(&tab[1], tmp_env) == -1 ||
-	  exec_fake_env(tab, path, tmp_env, options) == -1)
-	return (-1);
-    }
-  else
-    disp_env(tmp_env);
-  rm_list(tmp_env);
-  return (0);
-}
-
-int		my_setenv(char **tab, char **path, t_env *env_list)
-{
-  char		*env;
-  int		i;
+  char	*env;
+  int	i;
 
   (void)path;
   i = 0;
@@ -92,7 +63,7 @@ int		my_setenv(char **tab, char **path, t_env *env_list)
   return (0);
 }
 
-int		my_unsetenv(char **tab, char **path, t_env *env_list)
+int	my_unsetenv(char **tab, char **path, t_env *env_list)
 {
   (void)env_list;
   (void)path;
@@ -101,9 +72,9 @@ int		my_unsetenv(char **tab, char **path, t_env *env_list)
   return (0);
 }
 
-int		my_echo(char **tab, char **path, t_env *env_list)
+int	my_echo(char **tab, char **path, t_env *env_list)
 {
-  char		*str;
+  char	*str;
 
   (void)path;
   if (tab[1] != NULL)

@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sun May 24 17:53:25 2015 danilov dimitri
+** Last update Sun May 24 19:13:51 2015 Sebastien BOULOC
 */
 
 #ifndef	MY_H_
@@ -84,16 +84,15 @@ int			swap_pwd(t_env *env_list);
 int			add_chain(t_env *env_list, char *str);
 int			my_echo(char **tab2, char **path, t_env *env_list);
 int			my_cd(char **tab2, char **path, t_env *env_list);
-int			my_env(char **tab2, char **path, t_env *env_list);
 int			my_history(char **tab2, char **path, t_env *env_list);
 int			my_setenv(char **tab2, char **path, t_env *env_list);
 int			my_unsetenv(char **tab2, char **path, t_env *env_list);
 int			my_strlen(char *str);
 int			remove_env(t_env *env_list, char *str);
-int			change_pwd(char **tab2, char **path, t_env *env_list);
 int			change_oldpwd(char **tab2, t_env *env_list);
 int			my_strcmp(char *str1, char *str2);
-int			exec_program(char **tab2, char **path, t_env *env_list);
+int			exec_program(char **tab2, char **path,
+				     t_env *env_list);
 char			*change_for_home(char *str, t_env *env_list);
 char			*get_next_line(const int fd);
 char			*get_history_name(char *home);
@@ -116,7 +115,6 @@ void			my_putnbr(int nb);
 void			free_tab(char **tab2);
 void			rm_chain(t_env *chain);
 void			rm_list(t_env *env_list);
-void			disp_env(t_env *env_list);
 void			disp_prompt(t_env *env_list);
 void			my_signal(void);
 void			rm_alias(t_alias *chain);

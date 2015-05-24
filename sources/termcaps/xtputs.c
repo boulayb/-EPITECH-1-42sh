@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 22:21:50 2015 François CASSIN
-** Last update Fri May 22 14:51:13 2015 Sebastien BOULOC
+** Last update Sun May 24 20:19:05 2015 Sebastien BOULOC
 */
 
 #include <ncurses/curses.h>
@@ -13,9 +13,9 @@
 #include <stdlib.h>
 #include "my_get_line.h"
 
-char		*xtgetstr(char *id, char **area)
+char	*xtgetstr(char *id, char **area)
 {
-  char		*ret;
+  char	*ret;
 
   if (id == NULL)
     {
@@ -34,7 +34,7 @@ char		*xtgetstr(char *id, char **area)
     }
 }
 
-int		xtputs(char *str, int affcnt, int (*putc)(int))
+int	xtputs(char *str, int affcnt, int (*putc)(int))
 {
   if (str == NULL)
     {
@@ -53,8 +53,7 @@ int		xtputs(char *str, int affcnt, int (*putc)(int))
     }
 }
 
-int		xtputs_param(char *str, int affcnt, int (*putc)(int),
-			     int param)
+int	xtputs_param(char *str, int affcnt, int (*putc)(int), int param)
 {
   if (str == NULL)
     {
@@ -67,9 +66,9 @@ int		xtputs_param(char *str, int affcnt, int (*putc)(int),
     }
 }
 
-int		xtgetnum(char *id)
+int	xtgetnum(char *id)
 {
-  int		ret;
+  int	ret;
 
   if (id == NULL)
     {

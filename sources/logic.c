@@ -5,18 +5,18 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 04:24:39 2015 Arnaud Boulay
-** Last update Sun May 24 02:01:05 2015 Arnaud Boulay
+** Last update Sun May 24 19:20:28 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
 
-static int		logic_sep_or_core(char **or, int pos, char **path,
-					  t_env *env_list)
+static int	logic_sep_or_core(char **or, int pos, char **path,
+				  t_env *env_list)
 {
-  int			i;
-  int			ret;
-  char			**tab;
+  int		i;
+  int		ret;
+  char		**tab;
 
   ret = 0;
   i = -1;
@@ -34,11 +34,11 @@ static int		logic_sep_or_core(char **or, int pos, char **path,
   return (ret);
 }
 
-static int		logic_sep_or(char *and, int pos, char **path,
-				     t_env *env_list)
+static int	logic_sep_or(char *and, int pos, char **path,
+			     t_env *env_list)
 {
-  int			ret;
-  char			**or;
+  int		ret;
+  char		**or;
 
   ret = 0;
   if ((or = my_strtowordtab(and, "||")) == NULL)
@@ -49,13 +49,13 @@ static int		logic_sep_or(char *and, int pos, char **path,
   return (ret);
 }
 
-int			logic_sep_and(char *tabsep, char **path,
-				      t_env *env_list)
+int		logic_sep_and(char *tabsep, char **path,
+			      t_env *env_list)
 {
-  int			ret;
-  int			i;
-  char			**tab;
-  char			**and;
+  int		ret;
+  int		i;
+  char		**tab;
+  char		**and;
 
   i = -1;
   ret = 0;

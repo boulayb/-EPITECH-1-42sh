@@ -5,14 +5,14 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 00:29:03 2015 Arnaud Boulay
-** Last update Sat May 23 15:36:12 2015 danilov dimitri
+** Last update Sun May 24 19:45:15 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
 #include <stdlib.h>
 #include "my.h"
 
-static t_status	gl_status[] =
+static t_status	g_status[] =
     {
       {126, "Cannot execute command.\n"},
       {127, "Command not found.\n"},
@@ -24,7 +24,7 @@ static t_status	gl_status[] =
       {0, NULL}
     };
 
-char		*itoa(int nb)
+static char	*itoa(int nb)
 {
   int		mul;
   int		i;
@@ -53,7 +53,7 @@ char		*itoa(int nb)
   return (rslt);
 }
 
-int		change_status(t_env *env_list, int status)
+static int	change_status(t_env *env_list, int status)
 {
   char		*nb;
   char		*stat;
@@ -75,10 +75,10 @@ int		check_status(t_env *env_list, int status)
   int		i;
 
   i = -1;
-  while (gl_status[++i].mess != NULL)
+  while (g_status[++i].mess != NULL)
     {
-      if (gl_status[i].nb == status)
-	printf("%s", gl_status[i].mess);
+      if (g_status[i].nb == status)
+	printf("%s", g_status[i].mess);
     }
   if (change_status(env_list, status) == -1)
     return (-1);

@@ -5,16 +5,17 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 01:31:42 2015 Arnaud Boulay
-** Last update Fri May 15 02:05:07 2015 Arnaud Boulay
+** Last update Sun May 24 19:10:44 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include <stdio.h>
 #include "my.h"
 
-int		my_echo(char **tab, char **path, char **tabsep, t_env *env_list)
+int	my_echo(char **tab, char **path, char **tabsep,
+		t_env *env_list)
 {
-  char		*str;
+  char	*str;
 
   (void)path;
   (void)tabsep;

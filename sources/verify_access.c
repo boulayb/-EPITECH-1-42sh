@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Sun May 24 17:26:23 2015 Dylan Coodien
+** Last update Sun May 24 19:51:14 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
@@ -15,7 +15,7 @@
 #include <fcntl.h>
 #include "sh42.h"
 
-int		error(char **argv, char **path, int ret, int i)
+static int	error(char **argv, char **path, int ret, int i)
 {
   if (ret == -1 && (strncmp(argv[0], "./", 2) != 0 &&
 		    strncmp(argv[0], "/", 1) != 0) && path[i] == NULL)
@@ -31,7 +31,7 @@ int		error(char **argv, char **path, int ret, int i)
   return (0);
 }
 
-char		*concat_string(char *command, char *path)
+static char	*concat_string(char *command, char *path)
 {
   char		*str;
 
@@ -46,7 +46,7 @@ char		*concat_string(char *command, char *path)
   return (str);
 }
 
-int		help(int *ret, int *i, t_list *tmp)
+static int	help(int *ret, int *i, t_list *tmp)
 {
   *ret = 1;
   *i = -1;

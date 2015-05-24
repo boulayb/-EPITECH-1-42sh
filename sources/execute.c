@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Sun May 24 17:07:34 2015 Dylan Coodien
+** Last update Sun May 24 19:15:22 2015 Sebastien BOULOC
 */
 
 #include <sys/wait.h>
@@ -14,7 +14,7 @@
 #include <signal.h>
 #include "sh42.h"
 
-int	g_fd;
+int		g_fd;
 
 static int	son(int *fd_in, int p[2], t_list *cmd, char **env)
 {

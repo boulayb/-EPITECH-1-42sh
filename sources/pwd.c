@@ -5,15 +5,15 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Thu Jan 29 18:36:26 2015 arnaud boulay
-** Last update Sun Feb  1 16:55:27 2015 arnaud boulay
+** Last update Sun May 24 19:26:23 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
 
-int		add_path(char *str, t_env *env_list)
+int	add_path(char *str, t_env *env_list)
 {
-  char		*pwd;
+  char	*pwd;
 
   if ((pwd = my_strcatdup(get_env("PWD=", env_list), str, 2, '/')) != NULL)
     {
@@ -25,10 +25,10 @@ int		add_path(char *str, t_env *env_list)
   return (0);
 }
 
-int		remove_path(t_env *env_list)
+int	remove_path(t_env *env_list)
 {
-  int		lenght;
-  char		*pwd;
+  int	lenght;
+  char	*pwd;
 
   if ((pwd = my_strdup(get_env("PWD=", env_list))) == NULL)
     return (-1);
@@ -49,11 +49,11 @@ int		remove_path(t_env *env_list)
   return (0);
 }
 
-char		*change_for_home(char *str, t_env *env_list)
+char	*change_for_home(char *str, t_env *env_list)
 {
-  int		i;
-  char		*home;
-  char		*dest;
+  int	i;
+  char	*home;
+  char	*dest;
 
   i = -1;
   if ((home = get_env("HOME=", env_list) + 6) == NULL)
@@ -70,9 +70,9 @@ char		*change_for_home(char *str, t_env *env_list)
   return (dest);
 }
 
-int		pwd_to_home(t_env *env_list)
+int	pwd_to_home(t_env *env_list)
 {
-  char		*pwd;
+  char	*pwd;
 
   remove_env(env_list, "PWD=");
   if ((pwd = my_strcatdup("PWD=", get_env("HOME=", env_list) + 5, 1, ' '))
@@ -84,10 +84,10 @@ int		pwd_to_home(t_env *env_list)
   return (0);
 }
 
-int		swap_pwd(t_env *env_list)
+int	swap_pwd(t_env *env_list)
 {
-  char		*pwd;
-  char		*tmp;
+  char	*pwd;
+  char	*tmp;
 
   if ((tmp = my_strdup(get_env("OLDPWD=", env_list) + 7)) == NULL)
     return (-1);

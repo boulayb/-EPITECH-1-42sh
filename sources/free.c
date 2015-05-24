@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Sat May 23 15:50:53 2015 danilov dimitri
-** Last update Sat May 23 15:51:55 2015 danilov dimitri
+** Last update Sun May 24 19:15:51 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>

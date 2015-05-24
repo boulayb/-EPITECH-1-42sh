@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Jan 28 15:23:01 2015 arnaud boulay
-** Last update Fri May 22 17:43:12 2015 Sebastien BOULOC
+** Last update Sun May 24 19:08:38 2015 Sebastien BOULOC
 */
 
 #include <unistd.h>
@@ -64,7 +64,7 @@ int		cd_to_oldpath(t_env *env_list)
   return (0);
 }
 
-int		change_pwd(char **tab, char **path, t_env *env_list)
+static int	change_pwd(char **tab, char **path, t_env *env_list)
 {
   int		i;
 

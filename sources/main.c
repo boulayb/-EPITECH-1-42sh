@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Sun May 24 03:05:22 2015 Arnaud Boulay
+** Last update Sun May 24 19:22:33 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
@@ -17,7 +17,7 @@
 extern t_alias		*g_alias;
 extern t_env		*g_env;
 
-static t_builtins	gl_builtins[] =
+static t_builtins	g_builtins[] =
   {
     {"cd", &my_cd},
     {"setenv", &my_setenv},
@@ -69,10 +69,10 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
 	return (my_getnbr(tab[1]));
       return (-2);
     }
-  while (gl_builtins[++i].str != NULL)
-    if (my_strcmp(tab[0], gl_builtins[i].str) == 1)
+  while (g_builtins[++i].str != NULL)
+    if (my_strcmp(tab[0], g_builtins[i].str) == 1)
       {
-	if (gl_builtins[i].ptr(tab, path, env_list) == -1)
+	if (g_builtins[i].ptr(tab, path, env_list) == -1)
 	  return (-1);
 	return (0);
       }

@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Sun May 24 16:40:42 2015 Dylan Coodien
+** Last update Sun May 24 19:51:43 2015 Sebastien BOULOC
 */
 
 #ifndef SH42_H_
@@ -39,15 +39,11 @@ int		my_put_in_list(t_list *list, char **av, int *, int *);
 void		*xmalloc(size_t size);
 int		start_cmd(t_list *list, char **env);
 int		verify_access(t_list *comm, char **path);
-t_list		*write_on_std_output(t_list *tmp);
 t_list		*create_file(t_list *tmp, int fd_tmp);
 t_list		*go_trough_left_reddir(t_list *tmp);
-t_list          *write_on_std_output(t_list *tmp);
-int		dleft_reddirection(t_list *tmp, int flag);
 t_list		*check_left_reddir(t_list *list, t_list *tmp2);
 void		free_tab(char **tab);
 int		print_list(t_data *list);
-char		*concat_string(char *command, char *path);
 void		free_list2(t_data *data);
 void		sup_elem(t_list *tmp);
 

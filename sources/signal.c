@@ -5,13 +5,13 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sun Feb  1 14:49:42 2015 arnaud boulay
-** Last update Sat May 23 13:59:23 2015 danilov dimitri
+** Last update Sun May 24 19:41:38 2015 Sebastien BOULOC
 */
 
 #include <signal.h>
 #include "my.h"
 
-void		my_signal(void)
+void	my_signal(void)
 {
   signal(SIGINT, catch_signal);
   signal(SIGTSTP, catch_signal);

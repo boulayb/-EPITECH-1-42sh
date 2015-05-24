@@ -5,16 +5,16 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat Jan 24 15:34:47 2015 arnaud boulay
-** Last update Sun Feb  1 16:54:28 2015 arnaud boulay
+** Last update Sun May 24 19:18:56 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
 
-t_env		*create_list(char **env)
+t_env	*create_list(char **env)
 {
-  int		i;
-  t_env		*env_list;
+  int	i;
+  t_env	*env_list;
 
   i = -1;
   if ((env_list = malloc(sizeof(t_env))) == NULL)
@@ -31,9 +31,9 @@ t_env		*create_list(char **env)
   return (env_list);
 }
 
-int		add_chain(t_env *env_list, char *str)
+int	add_chain(t_env *env_list, char *str)
 {
-  t_env		*new_chain;
+  t_env	*new_chain;
 
   if (str == NULL)
     {
@@ -54,7 +54,7 @@ int		add_chain(t_env *env_list, char *str)
   return (0);
 }
 
-void		rm_chain(t_env *chain)
+void	rm_chain(t_env *chain)
 {
   free(chain->str);
   chain->back->next = chain->next;
@@ -62,10 +62,10 @@ void		rm_chain(t_env *chain)
   free(chain);
 }
 
-void		rm_list(t_env *env_list)
+void	rm_list(t_env *env_list)
 {
-  t_env		*chain;
-  t_env		*tmp;
+  t_env	*chain;
+  t_env	*tmp;
 
   chain = env_list->next;
   while (chain != env_list)
@@ -77,10 +77,10 @@ void		rm_list(t_env *env_list)
   free(env_list);
 }
 
-void		empty_list(t_env *env_list)
+void	empty_list(t_env *env_list)
 {
-  t_env		*chain;
-  t_env		*tmp;
+  t_env	*chain;
+  t_env	*tmp;
 
   chain = env_list->next;
   while (chain != env_list)

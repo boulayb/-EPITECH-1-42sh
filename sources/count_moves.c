@@ -5,14 +5,14 @@
 ** Login   <coodie_d@epitech.eu>
 ** 
 ** Started on  Mon May  4 12:14:05 2015 Dylan Coodien
-** Last update Tue May 19 14:28:15 2015 Dylan Coodien
+** Last update Sun May 24 19:09:47 2015 Sebastien BOULOC
 */
 
 #include <string.h>
 
-int		count_av(char **av, int *i)
+int	count_av(char **av, int *i)
 {
-  int		n;
+  int	n;
 
   n = *i;
   while (av[*i] != NULL && ((strcmp("|", av[*i])) != 0)
@@ -24,7 +24,7 @@ int		count_av(char **av, int *i)
   return (*i - n - 1);
 }
 
-int		count_moves(char **av)
+int	count_moves(char **av)
 {
   int	i;
   int	n;

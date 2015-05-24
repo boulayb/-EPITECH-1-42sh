@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Mon May 18 03:16:57 2015 François CASSIN
-** Last update Sat May 23 18:01:11 2015 François CASSIN
+** Last update Sun May 24 20:07:33 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
@@ -22,7 +22,7 @@ static int	get_key2(t_line *line)
 	   check_ctrl(line->character) == CTRL_P)
     return (UP_HISTO);
   else if ((str[0] == 27 && str[1] == 91 && str[2] == 68 && str[3] == 0) ||
-	  check_ctrl(line->character) == CTRL_B)
+	   check_ctrl(line->character) == CTRL_B)
     return (BACK);
   else if ((str[0] == 27 && str[1] == 91 && str[2] == 67 && str[3] == 0) ||
 	   check_ctrl(line->character) == CTRL_F)

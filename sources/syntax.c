@@ -5,14 +5,14 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed May 20 16:04:45 2015 Arnaud Boulay
-** Last update Sun May 24 03:05:40 2015 Arnaud Boulay
+** Last update Sun May 24 19:47:37 2015 Sebastien BOULOC
 */
 
 #include <stdio.h>
 #include <string.h>
 #include "my.h"
 
-int		is_operator(char *str)
+static int	is_operator(char *str)
 {
   if (str == NULL)
     return (1);

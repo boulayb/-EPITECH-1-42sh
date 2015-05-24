@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sun May 24 18:02:55 2015 Dylan Coodien
+## Last update Sun May 24 18:58:04 2015 Sebastien BOULOC
 ##
 
 NAME	= 42sh
@@ -102,9 +102,6 @@ OBJS	= $(SRCS:.c=.o)
 CFLAGS	+= -Iinclude/ -Wall -Wextra -Werror -lncurses
 
 all: $(NAME)
-
-debug: CFLAGS += -g3
-debug: all
 
 $(NAME): $(OBJS)
 	cc -o $(NAME) $(OBJS) $(CFLAGS)

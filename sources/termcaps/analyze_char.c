@@ -5,15 +5,15 @@
 ** Login   <cassin_f@epitech.net>
 ** 
 ** Started on  Tue May 19 15:28:47 2015 François CASSIN
-** Last update Fri May 22 14:03:28 2015 Sebastien BOULOC
+** Last update Sun May 24 19:55:31 2015 Sebastien BOULOC
 */
 
 #include "my_get_line.h"
 
-int		analyze_char(char c)
+int	analyze_char(char c)
 {
-  char		save;
-  int		i;
+  char	save;
+  int	i;
 
   i = 0;
   while (i < 7)

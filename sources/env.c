@@ -5,24 +5,11 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Tue Jan 20 17:23:44 2015 arnaud boulay
-** Last update Fri May 22 17:33:35 2015 Sebastien BOULOC
+** Last update Sun May 24 19:14:14 2015 Sebastien BOULOC
 */
 
 #include <stdlib.h>
 #include "my.h"
-
-void	disp_env(t_env *env_list)
-{
-  t_env	*tmp;
-
-  tmp = env_list->next;
-  while (tmp != env_list)
-    {
-      my_putstr(tmp->str);
-      my_putchar('\n');
-      tmp = tmp->next;
-    }
-}
 
 int	check_env(t_env *env_list)
 {
