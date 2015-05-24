@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.net>
 **
 ** Started on  Tue Mar 10 14:02:36 2015 danilov dimitri
-** Last update Sat May 23 16:01:58 2015 Dylan Coodien
+** Last update Sun May 24 12:43:42 2015 danilov dimitri
 */
 
 #include <unistd.h>
@@ -50,6 +50,8 @@ int		help(int *ret, int *i, t_list *tmp)
 {
   *ret = 1;
   *i = -1;
+  if (strncmp(tmp->av[0], "./", 2) == 0)
+    *ret = 0;
   if (tmp->back->act == PIPE || tmp->back->act == ENDACT ||
       tmp->back->act == -1)
     return (0);
