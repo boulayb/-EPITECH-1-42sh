@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 15 04:24:39 2015 Arnaud Boulay
-** Last update Fri May 22 17:57:52 2015 Sebastien BOULOC
+** Last update Sun May 24 02:01:05 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
@@ -22,7 +22,7 @@ static int		logic_sep_or_core(char **or, int pos, char **path,
   i = -1;
   while (ret == 0 && or[++i] != NULL)
     {
-      if ((tab = exec_alias(or[i])) == NULL)
+      if ((tab = exec_alias(or[i], path, env_list)) == NULL)
 	return (-1);
       if ((pos != 0 && i == 0 && my_getnbr(get_env("?", env_list) + 2) == 0) ||
 	  (pos == 0 && i == 0) ||
@@ -69,7 +69,7 @@ int			logic_sep_and(char *tabsep, char **path,
       }
     else if (my_getnbr(get_env("?", env_list) + 2) == 0 || i == 0)
       {
-	if ((tab = exec_alias(and[i])) == NULL ||
+	if ((tab = exec_alias(and[i], path, env_list)) == NULL ||
 	    ((ret = fcnt_ptr(tab, path, env_list)) == -1))
 	  return (-1);
 	free_tab(tab);

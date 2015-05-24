@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Thu May 21 21:45:34 2015 Arnaud Boulay
-** Last update Fri May 22 17:45:07 2015 Sebastien BOULOC
+** Last update Sat May 23 23:48:14 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -75,7 +75,10 @@ int		my_alias(char **tab, char **path, t_env *env_list)
 	  return (-1);
       }
     else
-      if (add_alias(tab[1], tab[2]) == -1)
-	return (-1);
+      if (strcmp(tab[1], ">>") != 0 && strcmp(tab[1], "<<") != 0 &&
+	  strcmp(tab[1], ">") != 0 && strcmp(tab[1], "<") != 0 &&
+	  strcmp(tab[1], "|") != 0)
+	if (add_alias(tab[1], tab[2]) == -1)
+	  return (-1);
   return (0);
 }

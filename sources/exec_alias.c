@@ -5,12 +5,11 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri May 22 01:33:48 2015 Arnaud Boulay
-** Last update Sat May 23 18:30:23 2015 Arnaud Boulay
+** Last update Sun May 24 02:58:31 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
 #include <string.h>
-#include <stdio.h>
 #include "my_get_line.h"
 #include "my.h"
 
@@ -68,7 +67,20 @@ static char	**replace_with_alias(char **tab, char **rep, int *nb)
   return (new);
 }
 
-char		**exec_alias(char *str)
+static int	exec_alias_redo(char **tab, char **done, char **path,
+				t_env *env_list)
+{
+  if (done != NULL)
+    {
+      if (my_prompt(my_tabtostr(tab), path, env_list, 2) == -1)
+	return (-1);
+      free_tab(done);
+      tab[0] = NULL;
+    }
+  return (0);
+}
+
+char		**exec_alias(char *str, char **path, t_env *env_list)
 {
   int		i;
   char		**done;
@@ -90,5 +102,7 @@ char		**exec_alias(char *str)
       if ((done = is_alias_done(tab[i], done)) != NULL)
 	if ((tab = replace_with_alias(tab, is_alias(tab[i]), &i)) == NULL)
 	  return (NULL);
+  if (exec_alias_redo(tab, done, path, env_list) == -1)
+    return (NULL);
   return (tab);
 }

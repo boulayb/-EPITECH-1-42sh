@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat May 23 17:20:09 2015 Arnaud Boulay
-** Last update Sat May 23 17:22:42 2015 Arnaud Boulay
+** Last update Sun May 24 02:45:47 2015 Arnaud Boulay
 */
 
 #include <string.h>
@@ -53,5 +53,5 @@ char		**is_alias_done(char *str, char **done)
 	}
       alias = alias->next;
     }
-  return (NULL);
+  return (done);
 }

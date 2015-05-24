@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sat May 23 17:34:43 2015 Arnaud Boulay
+** Last update Sun May 24 02:02:46 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -56,6 +56,8 @@ int			fcnt_ptr(char **blabla, char **path, t_env *env_list);
 int			count_quotes(char *str);
 int			alias_done(char **done, char *name);
 int			my_alias(char **blabla, char **path, t_env *env_list);
+int			my_prompt(char *str, char **path, t_env *env_list,
+				  int prompt);
 int			logic_sep_and(char *tabsep, char **path,
 				      t_env *env_list);
 int			check_syntax(char **line, t_env *env_list);
@@ -96,10 +98,11 @@ char			*change_for_home(char *str, t_env *env_list);
 char			*get_next_line(const int fd);
 char			*get_history_name(char *home);
 char			*my_strdup(char *str);
+char			*my_tabtostr(char **array);
 char			*my_strcatdup(char *dest, char *src, int l, char c);
 char			*my_strcpy(char *dest, char *src);
 char			*get_env(char *str, t_env *env_list);
-char			**exec_alias(char *str);
+char			**exec_alias(char *str, char **path, t_env *env_list);
 char			**is_alias(char *str);
 char			**is_alias_done(char *str, char **done);
 char			**done_alias(char **done, char *name);

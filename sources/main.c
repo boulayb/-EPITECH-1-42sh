@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Sun May 24 00:25:56 2015 François CASSIN
+** Last update Sun May 24 03:05:22 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -61,22 +61,21 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
   int			i;
 
   i = -1;
+  if (tab == NULL || tab[0] == NULL)
+    return (0);
   if (my_strcmp("exit", tab[0]) == 1)
     {
       if (tab[1] != NULL)
 	return (my_getnbr(tab[1]));
-      else
-	return (-2);
+      return (-2);
     }
   while (gl_builtins[++i].str != NULL)
-    {
-      if (my_strcmp(tab[0], gl_builtins[i].str) == 1)
-	{
-	  if (gl_builtins[i].ptr(tab, path, env_list) == -1)
-	    return (-1);
-	  return (0);
-	}
-    }
+    if (my_strcmp(tab[0], gl_builtins[i].str) == 1)
+      {
+	if (gl_builtins[i].ptr(tab, path, env_list) == -1)
+	  return (-1);
+	return (0);
+      }
   if ((status = exec_program(tab, path, env_list)) == -1)
     return (-1);
   if (check_status(env_list, status) == -1)
@@ -84,7 +83,7 @@ int			fcnt_ptr(char **tab, char **path, t_env *env_list)
   return (0);
 }
 
-static int		my_prompt(char *str, char **path, t_env *env_list,
+int			my_prompt(char *str, char **path, t_env *env_list,
 				  int prompt)
 {
   char			**syntax;
@@ -100,7 +99,6 @@ static int		my_prompt(char *str, char **path, t_env *env_list,
     return (-1);
   if (check_syntax(syntax, env_list) == -1)
     return (0);
-  free_tab(syntax);
   if ((tabsep = my_strtowordtab(str, ";")) == NULL)
     return (-1);
   while (ret == 0 && tabsep[++i] != NULL)
@@ -110,7 +108,8 @@ static int		my_prompt(char *str, char **path, t_env *env_list,
     disp_prompt(env_list);
   free(str);
   free_tab(tabsep);
-  free_tab(path);
+  if (prompt == 2)
+    free_tab(path);
   return (ret);
 }
 
