@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 14:50:57 2015 arnaud boulay
-** Last update Fri May 22 13:55:20 2015 Arnaud Boulay
+** Last update Sun May 24 20:43:17 2015 Dylan Coodien
 */
 
 #include <unistd.h>
@@ -29,6 +29,8 @@ int	my_strlen(char *str)
   int	i;
 
   i = 0;
+  if (str == NULL)
+    return (-1);
   while (str[i] != '\0')
     ++i;
   return (i);
