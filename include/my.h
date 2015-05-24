@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sun May 24 02:02:46 2015 Arnaud Boulay
+** Last update Sun May 24 17:53:25 2015 danilov dimitri
 */
 
 #ifndef	MY_H_
@@ -126,5 +126,6 @@ void			catch_signal(int signal);
 t_env			*create_env(t_env *env_list);
 t_env			*create_list(char **env);
 t_alias			*create_alias(void);
+int			if_wordlen(char *, int *, int *);
 
 #endif /* !MY_H_ */
