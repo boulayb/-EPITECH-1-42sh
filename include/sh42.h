@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Sat May 23 15:54:21 2015 danilov dimitri
+** Last update Sun May 24 16:40:42 2015 Dylan Coodien
 */
 
 #ifndef SH42_H_
@@ -49,5 +49,6 @@ void		free_tab(char **tab);
 int		print_list(t_data *list);
 char		*concat_string(char *command, char *path);
 void		free_list2(t_data *data);
+void		sup_elem(t_list *tmp);
 
 #endif /* !SH42_H_ */

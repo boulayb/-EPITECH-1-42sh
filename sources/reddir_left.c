@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Sun May 10 16:28:24 2015 danilov dimitri
-** Last update Sat May 23 16:01:36 2015 Dylan Coodien
+** Last update Sun May 24 17:21:49 2015 Dylan Coodien
 */
 
 #include	<string.h>
@@ -14,9 +14,10 @@
 #include	<fcntl.h>
 #include	<unistd.h>
 #include	<stdlib.h>
+#include	<stdio.h>
 #include	"sh42.h"
 
-int		g_fd;
+extern int	g_fd;
 
 t_list		*go_trough_left_reddir(t_list *tmp)
 {
@@ -28,6 +29,7 @@ t_list		*go_trough_left_reddir(t_list *tmp)
 t_list		*check_left_reddir(t_list *list, t_list *tmp2)
 {
   t_list	*tmp;
+  t_list	*tmp3;
 
   tmp = tmp2;
   while (tmp != list)
@@ -37,6 +39,13 @@ t_list		*check_left_reddir(t_list *list, t_list *tmp2)
 	  tmp = tmp->next;
 	  if ((tmp = write_on_std_output(tmp)) == NULL)
 	    return (NULL);
+	  tmp3 = tmp->back;
+	  while (tmp3->back->act == LEFT || tmp3->back->act == DLEFT)
+	    {
+	      tmp3 = tmp3->back;
+	      tmp3->act = tmp3->next->act;
+	      sup_elem(tmp3->next);
+	    }
 	  return (tmp);
 	}
       tmp = tmp->next;

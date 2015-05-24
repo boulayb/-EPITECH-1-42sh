@@ -5,12 +5,20 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Mon May  4 12:25:43 2015 Dylan Coodien
-** Last update Sat May 23 16:01:52 2015 Dylan Coodien
+** Last update Sun May 24 16:40:47 2015 Dylan Coodien
 */
 
 #include <stdlib.h>
 #include <string.h>
 #include "sh42.h"
+
+void	sup_elem(t_list *tmp)
+{
+  tmp->back->next = tmp->next;
+  tmp->next->back = tmp->back;
+  if (tmp != NULL)
+    free(tmp);
+}
 
 static char	**set_av(char **av, int nb, int *av_nbr)
 {
