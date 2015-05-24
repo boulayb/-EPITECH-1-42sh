@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Tue May 12 15:52:55 2015 François CASSIN
-** Last update Sun May 24 00:24:38 2015 François CASSIN
+** Last update Sun May 24 21:22:19 2015 François CASSIN
 */
 
 #include <stdlib.h>
@@ -67,6 +67,7 @@ static int		init_term_attr(struct termios *t_attr, t_caps *cap)
   t_attr->c_cc[VTIME] = 0;
   if (tcsetattr(fd, TCSANOW, t_attr) < 0)
     return (-1);
+  close(fd);
   return (get_capacities(cap));
 }
 

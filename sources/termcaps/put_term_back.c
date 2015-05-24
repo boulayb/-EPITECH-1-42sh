@@ -5,7 +5,7 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 22:43:05 2015 François CASSIN
-** Last update Fri May 22 13:48:15 2015 Sebastien BOULOC
+** Last update Sun May 24 21:22:01 2015 François CASSIN
 */
 
 #include <ncurses/curses.h>
@@ -29,5 +29,6 @@ int     put_term_back(struct termios *t_attr)
       my_fputstr(2, "error tcsetattr : could not set attributes\n");
       return (-1);
     }
+  close(fd);
   return (0);
 }
