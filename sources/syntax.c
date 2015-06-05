@@ -5,12 +5,14 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed May 20 16:04:45 2015 Arnaud Boulay
-** Last update Fri Jun  5 16:26:09 2015 Arnaud Boulay
+** Last update Fri Jun  5 18:00:04 2015 Dylan Coodien
 */
 
 #include <stdio.h>
 #include <string.h>
 #include "my.h"
+
+extern t_env		*g_env;
 
 static int	is_op(char *str)
 {
@@ -94,7 +96,10 @@ int		check_syntax(char **line, t_env *env_list)
     if (check_syntax_core(line, i, env_list) == 1 ||
 	check_ambigious_in(&redir_left, line, i, env_list) == 1 ||
 	check_ambigious_out(&redir_right, line, i, env_list) == 1)
-      return (-1);
+      {
+	check_status(g_env, 1);
+	return (-1);
+      }
   free_tab(line);
   return (0);
 }

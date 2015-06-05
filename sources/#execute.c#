@@ -41,15 +41,23 @@ static t_list	*execute_pipe(t_list *cmd, int *fd_in,
 {
   int		p[2];
   pid_t		pid;
+  pid_t		pgid;
 
   *fd_in = 0;
+  pgid = getpgrp();
   while (cmd->act != -1)
     {
       pipe(p);
       if ((pid = fork()) == -1)
 	return (NULL);
       else if (pid == 0)
-	son(fd_in, p, cmd, env);
+	{
+	  pid = getpid();
+	  if (pgid == 0)
+	    pgid = pid;
+
+	  son(fd_in, p, cmd, env);
+	}
       else
 	{
 	  close(p[1]);
