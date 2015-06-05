@@ -5,9 +5,10 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Sun May 24 19:22:33 2015 Sebastien BOULOC
+** Last update Thu Jun  4 18:27:07 2015 Arnaud Boulay
 */
 
+#include <unistd.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include "my_get_line.h"
