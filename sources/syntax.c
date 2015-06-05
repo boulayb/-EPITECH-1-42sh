@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed May 20 16:04:45 2015 Arnaud Boulay
-** Last update Fri Jun  5 16:05:18 2015 Arnaud Boulay
+** Last update Fri Jun  5 16:26:09 2015 Arnaud Boulay
 */
 
 #include <stdio.h>
@@ -25,17 +25,23 @@ static int	is_op(char *str)
     return (0);
 }
 
-static int	check_ambigious_out(char *last, char **line,
+static int	check_ambigious_out(int *redir_right, char **line,
 				    int i, t_env *env_list)
 {
-  if ((strcmp(last, ">") == 0 || strcmp(last, ">>") == 0)
-      && strcmp(line[i], "|") == 0)
+  if (strcmp(line[i], ">>") == 0 || strcmp(line[i], ">") == 0)
     {
-      printf("Ambiguous output redirect.\n");
-      disp_prompt(env_list);
-      free_tab(line);
-      return (1);
+      if (*redir_right == 1)
+	{
+	  printf("Ambiguous output redirect.\n");
+	  disp_prompt(env_list);
+	  free_tab(line);
+	  return (1);
+	}
+      else
+	*redir_right = 1;
     }
+  else if (strcmp(line[i], ";") == 0 && *redir_right == 1)
+    *redir_right = 0;
   return (0);
 }
 
@@ -77,22 +83,18 @@ static int	check_ambigious_in(int *redir_left, char **line,
 
 int		check_syntax(char **line, t_env *env_list)
 {
-  char		*last;
+  int		redir_right;
   int		redir_left;
   int		i;
 
   i = -1;
-  last = NULL;
+  redir_right = 0;
   redir_left = 0;
   while (line[++i] != NULL)
-    {
-      if (check_syntax_core(line, i, env_list) == 1 ||
-	  check_ambigious_in(&redir_left, line, i, env_list) == 1 ||
-	  (last != NULL && check_ambigious_out(last, line, i, env_list) == 1))
-	return (-1);
-      else if (is_op(line[i]) == 1)
-	last = line[i];
-    }
+    if (check_syntax_core(line, i, env_list) == 1 ||
+	check_ambigious_in(&redir_left, line, i, env_list) == 1 ||
+	check_ambigious_out(&redir_right, line, i, env_list) == 1)
+      return (-1);
   free_tab(line);
   return (0);
 }

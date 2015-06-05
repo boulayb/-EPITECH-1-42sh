@@ -5,11 +5,12 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Fri Jan 23 14:44:32 2015 arnaud boulay
-** Last update Sun May 24 19:06:34 2015 Sebastien BOULOC
+** Last update Fri Jun  5 16:18:57 2015 Arnaud Boulay
 */
 
 #include <unistd.h>
 #include <stdlib.h>
+#include <string.h>
 #include <stdio.h>
 #include "my.h"
 
@@ -48,13 +49,15 @@ int	my_setenv(char **tab, char **path, t_env *env_list)
   i = 0;
   while (tab[i] != NULL)
     ++i;
-  if (i != 3)
+  if (i < 2 || i > 3)
     my_putstr("Error: setenv: Usage \"setenv 'name' 'value'\".\n");
   else
     {
       if (get_env(tab[1], env_list) != NULL)
 	remove_env(env_list, tab[1]);
-      if ((env = my_strcatdup(tab[1], tab[2], 2, '=')) == NULL)
+      if (i == 3 && (env = my_strcatdup(tab[1], tab[2], 2, '=')) == NULL)
+	return (-1);
+      else if (i == 2 && (env = my_strcatdup(tab[1], "", 2, '=')) == NULL)
 	return (-1);
       if (add_chain(env_list, env) == -1)
 	return (-1);
