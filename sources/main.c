@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Thu Jun  4 18:27:07 2015 Arnaud Boulay
+** Last update Fri Jun  5 17:37:44 2015 Arnaud Boulay
 */
 
 #include <unistd.h>
@@ -22,6 +22,7 @@ static t_builtins	g_builtins[] =
   {
     {"cd", &my_cd},
     {"setenv", &my_setenv},
+    {"env", &my_env},
     {"alias", &my_alias},
     {"history", &my_history},
     {"unsetenv", &my_unsetenv},

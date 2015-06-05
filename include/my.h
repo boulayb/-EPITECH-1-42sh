@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Wed Mar 11 20:35:31 2015 Boulay Arnaud
-** Last update Sun May 24 20:32:22 2015 Dylan Coodien
+** Last update Fri Jun  5 17:27:33 2015 Arnaud Boulay
 */
 
 #ifndef	MY_H_
@@ -83,6 +83,7 @@ int			pwd_to_home(t_env *env_list);
 int			swap_pwd(t_env *env_list);
 int			add_chain(t_env *env_list, char *str);
 int			my_echo(char **tab2, char **path, t_env *env_list);
+int			my_env(char **tab2, char **path, t_env *env_list);
 int			my_cd(char **tab2, char **path, t_env *env_list);
 int			my_history(char **tab2, char **path, t_env *env_list);
 int			my_setenv(char **tab2, char **path, t_env *env_list);
@@ -116,6 +117,7 @@ void			free_tab(char **tab2);
 void			rm_chain(t_env *chain);
 void			rm_list(t_env *env_list);
 void			disp_prompt(t_env *env_list);
+void			disp_env(t_env *env_list);
 void			my_signal(void);
 void			rm_alias(t_alias *chain);
 void			empty_list(t_env *env_list);

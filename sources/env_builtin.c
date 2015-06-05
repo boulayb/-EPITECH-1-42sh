@@ -5,11 +5,24 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Sat Jan 31 18:25:00 2015 arnaud boulay
-** Last update Sat May 23 13:32:12 2015 danilov dimitri
+** Last update Fri Jun  5 17:34:53 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
+#include <stdio.h>
 #include "my.h"
+
+void		disp_env(t_env *env_list)
+{
+  t_env		*tmp;
+
+  tmp = env_list->next;
+  while (tmp != env_list)
+    {
+      printf("%s\n", tmp->str);
+      tmp = tmp->next;
+    }
+}
 
 static char	**keep_program(char **tab, int options)
 {
