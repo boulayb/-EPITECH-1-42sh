@@ -5,31 +5,16 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Sun Jun  7 17:23:10 2015 Dylan Coodien
+** Last update Sun Jun  7 19:48:48 2015 François CASSIN
 */
 
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
-#include <fcntl.h>
-#include <sys/stat.h>
-#include <sys/types.h>
 #include "sh42.h"
 
 int		g_fd;
-
-static int	use_tty(pid_t gid)
-{
-  int		fd;
-
-  if ((fd = open("/dev/tty", O_RDWR)) == -1)
-    return (-1);
-  signal(SIGTTOU, SIG_IGN);
-  tcsetpgrp(fd, gid);
-  close(fd);
-  return (0);
-}
 
 static int	son(int *fd_in, int p[2], t_list *cmd, char **env)
 {
@@ -51,16 +36,13 @@ static int	son(int *fd_in, int p[2], t_list *cmd, char **env)
   return (0);
 }
 
-static void	before_son(pid_t pipelinePgid)
+static void	before_son()
 {
-  if (pipelinePgid == 0)
-    {
-      setpgid(0, 0);
-      pipelinePgid = getpgid(0);
-      use_tty(pipelinePgid);
-    }
-  else
-    setpgid(0, pipelinePgid);
+  pid_t		gid;
+
+  setpgid(0, 0);
+  gid = getpgid(0);
+  use_tty(gid);
 }
 
 static t_list	*execute_pipe(t_list *cmd, int *fd_in,
@@ -68,10 +50,8 @@ static t_list	*execute_pipe(t_list *cmd, int *fd_in,
 {
   int		p[2];
   pid_t		pid;
-  pid_t		pipelinePgid;
 
   *fd_in = 0;
-  pipelinePgid = 0;
   while (cmd->act != -1)
     {
       pipe(p);
@@ -79,12 +59,12 @@ static t_list	*execute_pipe(t_list *cmd, int *fd_in,
 	return (NULL);
       else if (pid == 0)
 	{
-	  before_son(pipelinePgid);
+	  before_son();
 	  son(fd_in, p, cmd, env);
 	}
       else
 	{
-	  setpgid(pid, pipelinePgid);
+	  setpgid(pid, 0);
 	  close(p[1]);
 	  *fd_in = p[0];
 	  if (cmd->act != PIPE)
@@ -112,7 +92,6 @@ int		start_cmd(t_list *list, char **env)
 	return (status);
       if ((tmp = execute_pipe(tmp, &fd_tmp, &status, env)) == NULL)
 	return (status);
-      use_tty(getpgrp());
       if (tmp->act == ENDACT)
 	return (status);
       tmp = tmp->next;

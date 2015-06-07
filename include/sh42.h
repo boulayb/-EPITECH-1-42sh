@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Sun Jun  7 17:15:27 2015 Dylan Coodien
+** Last update Sun Jun  7 19:37:15 2015 François CASSIN
 */
 
 #ifndef SH42_H_
@@ -33,6 +33,8 @@ typedef struct	s_list
   struct s_list	*back;
 }		t_list;
 
+# include <sys/types.h>
+
 int		count_av(char **av, int *);
 int		count_moves(char **av);
 int		my_put_in_list(t_list *list, char **av, int *, int *);
@@ -47,5 +49,6 @@ int		print_list(t_data *list);
 void		free_list2(t_data *data);
 void		sup_elem(t_list *tmp);
 t_list		*my_wait(int *status, pid_t pid, t_list *cmd);
+int		use_tty(pid_t gid);
 
 #endif /* !SH42_H_ */

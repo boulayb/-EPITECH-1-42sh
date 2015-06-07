@@ -5,7 +5,7 @@
 ** Login   <danilo_d@epitech.eu>
 **
 ** Started on  Sun May 10 16:28:24 2015 danilov dimitri
-** Last update Sun May 24 19:42:54 2015 Sebastien BOULOC
+** Last update Sun Jun  7 19:35:58 2015 François CASSIN
 */
 
 #include	<string.h>
@@ -15,6 +15,7 @@
 #include	<unistd.h>
 #include	<stdlib.h>
 #include	<stdio.h>
+#include	<signal.h>
 #include	"sh42.h"
 
 extern int	g_fd;
@@ -47,6 +48,7 @@ static int	dleft_reddirection(t_list *tmp, int flag)
   t_data	*data;
   int		ret;
 
+  signal(SIGINT, SIG_IGN);
   if ((data = xmalloc(sizeof(t_data))) == NULL)
     return (-1);
   data->next = data;
