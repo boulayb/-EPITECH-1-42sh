@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sun Jun  7 17:14:58 2015 Dylan Coodien
+## Last update Sun Jun  7 20:08:12 2015 Arnaud Boulay
 ##
 
 NAME	= 42sh
@@ -100,7 +100,7 @@ SRCS	= $(SRCSFO)main.c \
 
 OBJS	= $(SRCS:.c=.o)
 
-CFLAGS	+= -Iinclude/ -Wall -Wextra -Werror -lncurses
+CFLAGS	+= -Iinclude/ -Wall -Wextra -Werror -lncurses -g3
 
 all: $(NAME)
 

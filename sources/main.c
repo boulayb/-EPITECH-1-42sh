@@ -5,7 +5,7 @@
 ** Login   <boulay_b@epitech.net>
 **
 ** Started on  Mon Jan 19 11:23:19 2015 arnaud boulay
-** Last update Fri Jun  5 17:37:44 2015 Arnaud Boulay
+** Last update Sun Jun  7 20:27:40 2015 Arnaud Boulay
 */
 
 #include <unistd.h>
@@ -110,8 +110,6 @@ int			my_prompt(char *str, char **path, t_env *env_list,
     disp_prompt(env_list);
   free(str);
   free_tab(tabsep);
-  if (prompt == 2)
-    free_tab(path);
   return (ret);
 }
 
@@ -138,6 +136,7 @@ static int		my_minishell(char **env)
 	return (-1);
       if ((ret = my_prompt(str, path, g_env, ret)) == -1)
 	return (-1);
+      free_tab(path);
     }
   rm_list(g_env);
   return (ret);
