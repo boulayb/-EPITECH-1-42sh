@@ -5,7 +5,7 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Tue Apr 28 11:38:58 2015 Dylan Coodien
-** Last update Sun May 24 19:51:43 2015 Sebastien BOULOC
+** Last update Sun Jun  7 17:15:27 2015 Dylan Coodien
 */
 
 #ifndef SH42_H_
@@ -46,5 +46,6 @@ void		free_tab(char **tab);
 int		print_list(t_data *list);
 void		free_list2(t_data *data);
 void		sup_elem(t_list *tmp);
+t_list		*my_wait(int *status, pid_t pid, t_list *cmd);
 
 #endif /* !SH42_H_ */

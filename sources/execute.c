@@ -5,17 +5,17 @@
 ** Login   <coodie_d@epitech.eu>
 **
 ** Started on  Wed May  6 16:00:05 2015 Dylan Coodien
-** Last update Sun Jun  7 15:43:12 2015 François CASSIN
+** Last update Sun Jun  7 17:23:10 2015 Dylan Coodien
 */
 
 #include <sys/wait.h>
 #include <stdlib.h>
 #include <unistd.h>
 #include <signal.h>
-#include "sh42.h"
 #include <fcntl.h>
 #include <sys/stat.h>
 #include <sys/types.h>
+#include "sh42.h"
 
 int		g_fd;
 
@@ -51,6 +51,18 @@ static int	son(int *fd_in, int p[2], t_list *cmd, char **env)
   return (0);
 }
 
+static void	before_son(pid_t pipelinePgid)
+{
+  if (pipelinePgid == 0)
+    {
+      setpgid(0, 0);
+      pipelinePgid = getpgid(0);
+      use_tty(pipelinePgid);
+    }
+  else
+    setpgid(0, pipelinePgid);
+}
+
 static t_list	*execute_pipe(t_list *cmd, int *fd_in,
 			      int *status, char **env)
 {
@@ -67,14 +79,7 @@ static t_list	*execute_pipe(t_list *cmd, int *fd_in,
 	return (NULL);
       else if (pid == 0)
 	{
-	  if (pipelinePgid == 0)
-	    {
-	      setpgid(0, 0);
-	      pipelinePgid = getpgid(0);
-	      use_tty(pipelinePgid);
-	    }
-	  else
-	    setpgid(0, pipelinePgid);
+	  before_son(pipelinePgid);
 	  son(fd_in, p, cmd, env);
 	}
       else
@@ -83,15 +88,11 @@ static t_list	*execute_pipe(t_list *cmd, int *fd_in,
 	  close(p[1]);
 	  *fd_in = p[0];
 	  if (cmd->act != PIPE)
-	    {
-	      while (waitpid(pid, status, WUNTRACED) > 0);
-	      return (cmd);
-	    }
+	    return (my_wait(status, pid, cmd));
 	  cmd = cmd->next;
 	}
     }
-  while (waitpid(pid, status, WUNTRACED) > 0);
-  return (cmd);
+  return (my_wait(status, pid, cmd));
 }
 
 int		start_cmd(t_list *list, char **env)

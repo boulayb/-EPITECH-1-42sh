@@ -5,7 +5,7 @@
 ## Login   <boulay_b@epitech.net>
 ##
 ## Started on  Wed Mar 11 19:12:25 2015 Boulay Arnaud
-## Last update Sun May 24 20:34:38 2015 Dylan Coodien
+## Last update Sun Jun  7 17:14:58 2015 Dylan Coodien
 ##
 
 NAME	= 42sh
@@ -15,6 +15,7 @@ SRCSFO	= sources/
 SRCSTO	= sources/termcaps/
 
 SRCS	= $(SRCSFO)main.c \
+	  $(SRCSFO)my_wait.c \
 	  $(SRCSFO)change_tild.c \
 	  $(SRCSTO)new_history_file.c \
 	  $(SRCSTO)shell_get_line_init.c \
