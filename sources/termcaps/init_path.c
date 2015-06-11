@@ -5,11 +5,12 @@
 ** Login   <cassin_f@epitech.net>
 **
 ** Started on  Sun May 17 23:47:38 2015 François CASSIN
-** Last update Sat May 23 14:34:25 2015 François CASSIN
+** Last update Thu Jun 11 04:22:00 2015 Arnaud Boulay
 */
 
 #include <stdlib.h>
 #include <string.h>
+#include <stdio.h>
 #include "my_get_line.h"
 
 static int      how_much_words(char *str)
@@ -64,7 +65,7 @@ static char	**copy_path_to_wordtab(char *str)
   n = 0;
   if ((tab = malloc_str_to_tab(str)) == NULL)
     return (NULL);
-  while (str[i])
+  while (str[i] && tab[n] != NULL)
     {
       while (str[i] == ':' && str[i])
 	++i;
